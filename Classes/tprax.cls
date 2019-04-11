@@ -396,6 +396,9 @@
 \newcommand{\@course}{}
 \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
 
+\newcommand{\@coursee}{}
+\newcommand{\coursee}[1]{\renewcommand{\@coursee}{#1}}
+
 % O tipo do Trabalho (quando for o caso)
 \newcommand{\@typework}{}
 \newcommand{\typework}[1]{\renewcommand{\@typework}{#1}}
@@ -431,7 +434,9 @@
 \newcommand{\@thesisauthorrrr}{}
 \newcommand{\thesisauthorrrr}[1]{\renewcommand{\@thesisauthorrrr}{#1}}
 
-
+% O nome completo do autor da dissertação, tese ou tcc
+\newcommand{\@thesisauthorrrrr}{}
+\newcommand{\thesisauthorrrrr}[1]{\renewcommand{\@thesisauthorrrrr}{#1}}
 
 % O nome completo do orientador da dissertação, tese ou tcc
 \newcommand{\@thesisadvisor}{}
@@ -477,7 +482,8 @@
         \large\MakeUppercase{\@faculty} \par
 %        \Large\@school \par
 %        \vspace*{50mm}
-        \large\@course \par
+        \large\@course \\
+        \large\@coursee \par
         \vspace*{20mm}
         \Large\@typework \par
         \vspace*{10mm}
@@ -496,7 +502,8 @@
         \hspace*{11mm} \@thesisauthor \\
         \hspace*{57mm} \@thesisauthorr \\
         \hspace*{57mm} \@thesisauthorrr \\
-        \hspace*{57mm} \@thesisauthorrrr \\ \par
+        \hspace*{57mm} \@thesisauthorrrr \\ 
+        \hspace*{57mm} \@thesisauthorrrrr \\ \par
         \vspace*{5mm}
         \hspace*{5mm} Orientador: \hspace*{23mm} \@thesisadvisor \par
         \if@coadvisor
@@ -536,6 +543,11 @@
 \@thesisauthorrrr
 }
 
+\newenvironment{theauthorrrrr}{%
+	\@thesisauthorrrrr
+}
+
+
 \newenvironment{thetitle}{%
 \@thesistitle
 }
@@ -550,6 +562,10 @@
 
 \newenvironment{thecourse}{%
 \@course \space
+}
+
+\newenvironment{thecoursee}{%
+	\@coursee \space
 }
 
 \newenvironment{theuniversity}{%
