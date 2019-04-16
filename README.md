@@ -1,2 +1,2 @@
-# tprax_doc_tex
+# doo.tprax_doc_tex
 Theoprax - project template 
