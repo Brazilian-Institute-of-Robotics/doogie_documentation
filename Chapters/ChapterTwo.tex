@@ -65,14 +65,23 @@
 \label{sec:benchmark}
 
 \subsection{GreenGiant}
-\hspace{0.5cm} A Green Giant é uma desenvolvedora de múltiplas plataformas de robótica, especializada em eletrônica embarcada, tendo como seu carro-chefe o \textit{micromouse}. Seu modelo mais recente, 2016 - 2017, é voltado para alto desempenho em competições, alcançando a posição de quarto lugar durante a APEC de 2016. Sua interface de usuário possui display LED, sinalizadores luminosos de led, butões, buzzer, além de possuir um sistema de comunicação Bluetooth 4.0. Ademais, o modelo usa um sistema de ventoinhas de sucção para aumentar o nível de aderência das rodas, permitindo alcançar maiores velocidades sem derrapar.
+\hspace{0.5cm} A Green Giant é uma desenvolvedora de múltiplas plataformas de robótica, especializada em eletrônica embarcada, tendo como seu carro-chefe o \textit{micromouse}. Seu modelo mais recente, 2016 - 2017, é voltado para alto desempenho em competições, alcançando a posição de quarto lugar durante a APEC de 2016.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/GreenGiant_model.jpg}
+	\caption{\label{fig:Green_Giant_model} Green Giant. }
+	\end{figure}
+
+\hspace{0.5cm}Sua interface de usuário possui \textit{Dot Matrix Display}, sinalizadores led, butões, buzzer, além de possuir um sistema de comunicação Bluetooth 4.0. Ademais, o modelo usa um sistema de ventoinhas de sucção para aumentar o nível de aderência das rodas, permitindo alcançar maiores velocidades sem derrapar.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]
 	{Figures/GreenGiant.png}
-	\caption{\label{fig:Green_Giant} Green Giant. }
+	\caption{\label{fig:Green_Giant} Especificações do Green Giant. }
 \end{figure}
 
 
@@ -87,7 +96,7 @@
 \begin{itemize}
 	\item Não possui suporte à simulação;
 	\item Projeto pouco documentado;
-	\item Não possui guia para usuário;
+	\item Não possui guia do usuário;
 	\item Não possui suporte nativo para ambiente ROS;
 \end{itemize}
 
@@ -98,14 +107,21 @@
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]
+	{Figures/WPISmartMouse_model.png}
+	\caption{\label{fig:WPISmartMouse_model} WPISmartMouse. }
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
 	{Figures/WPISmartMouse.png}
-	\caption{\label{fig:WPISmartMouse} WPISmartMouse. }
+	\caption{\label{fig:WPISmartMouse} Especificações do WPISmartMouse. }
 \end{figure}
 
 \textbf{Pontos Positivos:}
 \begin{itemize}
 	\item Provê ferramenta de simulação;
-	\item Documentação disponível no gitub;
+	\item Documentação disponível no github;
 	\item Possui portabilidade para mais de uma linguagem de programação; 
 \end{itemize}
 
@@ -113,20 +129,29 @@
 \begin{itemize}
 	\item Não possui suporte nativo para ambiente ROS;
 	\item Pouca variedade de sensores;
-	\item Não possui guia para usuário;
+	\item Não possui guia do usuário;
 	\item Poucos recursos na interface com o usuário;
 \end{itemize}
 
 
 \subsection{Kumamoto National College}
-\hspace{0.5cm} O Instituto Nacional de Tecnologia de Kumamoto, \textit{Kumamoto National College}, apresentou no ano de 2008 um projeto de desenvolvimento de ferramentas educacionais voltada para integração de sistemas e suas implementações. O projeto é direcionado aos seus estudantes do 5º ano de engenharia, através da produção de um \textit{micromouse} para a competição do ramo de \textit{Kyushu}. O hardware do robô foi bastante simplificado, visando facilitar o desenvolvimento pelos estudantes ainda não familiarizados com a robótica e eletrônica, além de buscar reduzir os custos de produção do robô. Como ferramenta educativa, o projeto conseguiu que seus estudantes produzissem o \textit{micromouse} em um semestre de atividades. Contudo, conceitos da robótica (ex: robótica móvel, fusão de sensores, visão, navegação) não foram trabalhados ou não foram citados no artigo gerado a partir do projeto.
+\hspace{0.5cm} O Instituto Nacional de Tecnologia de Kumamoto, \textit{Kumamoto National College}, apresentou no ano de 2008 um projeto de desenvolvimento de ferramentas educacionais voltada para integração de sistemas e suas implementações. O projeto é direcionado aos seus estudantes do 5º ano de engenharia, através da produção de um \textit{micromouse} para a competição do ramo de \textit{Kyushu}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/Kumamoto_model.png}
+	\caption{\label{fig:Kumamoto_model} Kumamoto.}
+	\end{figure}
+
+\hspace{0.5cm} O hardware do robô foi bastante simplificado, visando facilitar o desenvolvimento pelos estudantes ainda não familiarizados com a robótica e eletrônica, além de buscar reduzir os custos de produção do robô. Como ferramenta educativa, o projeto conseguiu que seus estudantes produzissem o \textit{micromouse} em um semestre de atividades. Contudo, conceitos da robótica (ex: robótica móvel, fusão de sensores, visão, navegação) não foram trabalhados ou não foram citados no artigo gerado a partir do projeto.
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]
 	{Figures/Kumamoto.png}
-	\caption{\label{fig:Kumamoto} Kumamoto.}
+	\caption{\label{fig:Kumamoto} Especificações do Kumamoto.}
 \end{figure}
 
 
@@ -143,6 +168,76 @@
 	\item Não possui guia para usuário;
 	\item Poucos recursos na interface com o usuário;
 	\item Não possui nenhuma ferramenta de simulação;
+\end{itemize}
+
+
+\subsection{WolfieMouse}
+\hspace{0.5cm} O WolfieMouse é um projeto de robótica que desenvolveu um \textit{micromouse} para competir na \textit{2018 Region 1 Robotics Competition}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/WolfieMouse_model.jpg}
+	\caption{\label{fig:WolfieMouse_model} WolfieMouse.}
+\end{figure}
+
+\hspace{0.5cm} Além da plataforma robótica, que conta com hardwares programados em baixo nível, para melhor otimização de seus controles, a equipe também realizou um ambiente de simulação baseado em C++ emulado no terminal do computador. Toda documentação foi disponibilizada em um repositório git, que também possui tutoriais para o desenvolvimento do robô.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/WolfieMouse.png}
+	\caption{\label{fig:WolfieMouse} Especificações do WolfieMouse.}
+\end{figure}
+
+\textbf{Pontos Positivos:}
+\begin{itemize}
+	\item Projeto bem documentado;
+	\item Possui tutoriais;
+	\item Possui ambiente de simulação;
+\end{itemize}
+
+\textbf{Pontos Negativos:}
+\begin{itemize}
+	\item Não possui suporte nativo para ambiente ROS;
+	\item Pouco foco em finalidades educativas com o produto;
+	\item Não possui guia para usuário;
+	\item Poucos recursos na interface com o usuário;
+\end{itemize}
+
+\subsection{Raspberry Pi Mouse V2}
+\hspace{0.5cm}  A RT Corporation Micromouse é uma desenvolvedora japonesa de plataformas robóticas voltada para aplicações  voltadas de pesquisas à hobistas. Um de seus segmentos é voltado para \textit{micromouse}, fortemente representado pelo seu produto Raspberry Pi Mouse V2, citado em "Learning ROS robot programming with Raspberry Pi" (Nikkei BP, June 2018).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/RaspiMouse_model.png}
+	\caption{\label{fig:RaspiMouse_model} RaspiMouse.}
+\end{figure}
+ O modelo citado, é um robô de plataforma baseado em \textit{micromouse} que utiliza uma Raspberry Pi como sua placa principal. Dessa forma o robô pode ser controlado pelos principais middleware de robótica (ROS/RTM), possuindo inclusive pacotes publicados na wiki do ROS voltados para navegação e simulação do \textit{micromouse};
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/RaspiMouse.png}
+	\caption{\label{fig:RaspiMouse} Especificações do RaspiMouse.}
+\end{figure}
+
+\textbf{Pontos Positivos:}
+\begin{itemize}
+	\item Projeto bem documentado;
+	\item Disponível no Gitub;
+	\item Possui tutoriais;
+	\item Possui ambiente de simulação;
+	\item Suporte aos principais middleware de robótica (ROS/RTM);
+	\item Possui pacotes do ROS para seu controle;
+	\item Plataforma é expansível;
+\end{itemize}
+
+\textbf{Pontos Negativos:}
+\begin{itemize}
+	\item Toda documentação do produto está em japonês;
+	\item O robô é pouco compacto;
 \end{itemize}
 
 %--------- NEW SECTION ----------------------
