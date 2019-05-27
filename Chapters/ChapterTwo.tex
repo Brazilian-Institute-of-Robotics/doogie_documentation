@@ -123,7 +123,7 @@
 	\caption{\label{fig:WPISmartMouse_model} WPISmartMouse}
 \end{figure}
 
-\begin{table}[]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|}
 		\hline
@@ -172,12 +172,26 @@
 \hspace{0.5cm} O hardware do robô foi bastante simplificado, visando facilitar o desenvolvimento pelos estudantes ainda não familiarizados com a robótica e eletrônica, além de buscar reduzir os custos de produção do robô. Como ferramenta educativa, o projeto conseguiu que seus estudantes produzissem o \textit{micromouse} em um semestre de atividades. Contudo, conceitos da robótica (ex: robótica móvel, fusão de sensores, visão, navegação) não foram trabalhados ou não foram citados no artigo gerado a partir do projeto.
 
 
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]
-	{Figures/Kumamoto.png}
-	\caption{\label{fig:Kumamoto} Especificações do Kumamoto.}
-\end{figure}
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Kumamoto National College}} \\ \hline
+		Fabricante & Kiyoteru Hayama and Tsutomu Matsumoto \\ \hline
+		Ano & 2008 \\ \hline
+		Linguagem & C \\ \hline
+		Sensores & IR \\ \hline
+		Controlador & H8Tiny-3664 \\ \hline
+		Simulador & - \\ \hline
+		Bateria & LiPo 900mAh (7,4V) \\ \hline
+		Rodas & wheels, tires \\ \hline
+		Motor & Step Motor 0,78Nm (5,6V) \\ \hline
+		User Interface & LEDs \\ \hline
+		Outros & Documentação em artigo \\ \hline
+	\end{tabular}
+	\caption{\label{tab:Kumamoto} Kumamoto}
+\end{table}
+
 
 
 \textbf{Pontos Positivos:}
@@ -208,12 +222,25 @@
 
 \hspace{0.5cm} Além da plataforma robótica, que conta com hardwares programados em baixo nível, para melhor otimização de seus controles, a equipe também realizou um ambiente de simulação baseado em C++ emulado no terminal do computador. Toda documentação foi disponibilizada em um repositório git, que também possui tutoriais para o desenvolvimento do robô.
 
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]
-	{Figures/WolfieMouse.png}
-	\caption{\label{fig:WolfieMouse} Especificações do WolfieMouse.}
-\end{figure}
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{WolfieMouse}} \\ \hline
+		Fabricante & Bryant Gonzaga, Bum Kim, Hyun Choi \\ \hline
+		Ano & 2018 \\ \hline
+		Linguagem & C++, C, ARM Assembly, Python \\ \hline
+		Sensores & MPU, ToF, Magnetic Encoder \\ \hline
+		Controlador & STM32 \\ \hline
+		Simulador & Terminal-based \\ \hline
+		Bateria & * \\ \hline
+		Rodas & * \\ \hline
+		Motor & DC-Motor \\ \hline
+		User Interface & DMD 5x7, botões \\ \hline
+		Outros & documentação e tutoriais no git \\ \hline
+	\end{tabular}
+	\caption{\label{tab:WolfieMouse}WolfieMouse}
+\end{table}
 
 \textbf{Pontos Positivos:}
 \begin{itemize}
@@ -241,12 +268,25 @@
 \end{figure}
  O modelo citado, é um robô de plataforma baseado em \textit{micromouse} que utiliza uma Raspberry Pi como sua placa principal. Dessa forma o robô pode ser controlado pelos principais middleware de robótica (ROS/RTM), possuindo inclusive pacotes publicados na wiki do ROS voltados para navegação e simulação do \textit{micromouse};
 
-\begin{figure}[H]
+\begin{table}[]
 	\centering
-	\includegraphics[width=0.7\textwidth]
-	{Figures/RaspiMouse.png}
-	\caption{\label{fig:RaspiMouse} Especificações do RaspiMouse.}
-\end{figure}
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Raspberry Pi Mouse V2}} \\ \hline
+		Fabricante & RT Corporation \\ \hline
+		Ano & 2016 \\ \hline
+		Linguagem & Python, Shell \\ \hline
+		Sensores & IR \\ \hline
+		Controlador & RaspberryPi3 \\ \hline
+		Simulador & Gazebo \\ \hline
+		Bateria & LiPo 1000mAh (7,4V) \\ \hline
+		Rodas & wheels, tires \\ \hline
+		Motor & Step-Motor 400step/rev (4 fases) \\ \hline
+		User Interface & Terminal, LEDs, Botão, Buzzer \\ \hline
+		Outros & documentação no git, mas em japonês \\ \hline
+	\end{tabular}
+	\caption{\label{tab:RaspiMouse}RaspiMouse}
+\end{table}
 
 \textbf{Pontos Positivos:}
 \begin{itemize}
