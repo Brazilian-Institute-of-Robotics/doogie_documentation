@@ -57,7 +57,7 @@
 
  \hspace{0.5cm} Sua ideia surge em 1977, quando a \textit{IEEE Spectrum Magazine} trouxe pela primeira vez o conceito de robôs autônomos para resolução de labirintos. Pouco tempo depois, sua primeira competição foi realizada, em junho de 1979, na primeira \textit{IEEE Amazing Micromouse Maze Contest} organizada na cidade de Nova York. Rapidamente, o conceito da competição se espalhou e, já no começo da década de 90, vários clubes voltados para Micromouse surgiam em escolas e universidades do mundo todo \cite{Tondr2004}.
  
- \hspace{0.5cm} Atualmente, a \textit{IEEE Micromouse Competition} adota uma configuração que consiste em um labirinto de 16 x 16 blocos. Cada bloco possui 18 cm x 18 cm. As paredes, que possuem 5 cm de altura, são pintadas de branco de modo a ser reflexiva à luz infravermelha. O chão, por outro lado, é pintado de preto, para que não seja reflexivo. Além disso, os competidores sabem previamente que o \textit{micromouse} tem seu ponto de partida localizado em um dos cantos do labirintos, devendo alcançar o seu centro para terminar o desafio. Com base nisso, os participantes devem usar de algorítimos de busca para explorar o labirinto e encontrar a rota mais otimizada para o ponto de chegada estabelecido pela competição. O robô por sua vez, não pode ter suas dimensões maiores que uma seção de 25cm x 25 cm. As regras completas estão dispostas como anexo no final do documento.
+ \hspace{0.5cm} Atualmente, a \textit{IEEE Micromouse Competition} adota uma configuração que consiste em um labirinto de 16 x 16 blocos. Cada bloco possui 18 x 18 cm. As paredes, que possuem 5 cm de altura, são pintadas de branco de modo a ser reflexiva à luz infravermelha. O chão, por outro lado, é pintado de preto, para que não seja reflexivo. Além disso, os competidores sabem previamente que o \textit{micromouse} tem seu ponto de partida localizado em um dos cantos do labirintos, devendo alcançar o seu centro para terminar o desafio. Com base nisso, os participantes devem usar de algorítimos de busca para explorar o labirinto e encontrar a rota mais otimizada para o ponto de chegada estabelecido pela competição. O robô por sua vez, não pode ter suas dimensões maiores que uma seção de 25 x 25 cm. As regras completas estão dispostas como anexo no final do documento.
 
 
 %--------- NEW SECTION ----------------------
@@ -76,25 +76,24 @@
 
 \hspace{0.5cm}Sua interface de usuário possui \textit{Dot Matrix Display}, sinalizadores led, butões, buzzer, além de possuir um sistema de comunicação Bluetooth 4.0. Ademais, o modelo usa um sistema de ventoinhas de sucção para aumentar o nível de aderência das rodas, permitindo alcançar maiores velocidades sem derrapar.
 
-\begin{table}[]
+\begin{table}[H]
 	\centering
-	\caption{Especificações do Green Giant.}
-	\label{tab:my-table}
-	\begin{tabular}{|l|l|lll}
-		\cline{1-2}
-		\multicolumn{2}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{Green Giant 5.19V}} &  &  &  \\ \cline{1-2}
-		Fabricante & Green Ye &  &  &  \\ \cline{1-2}
-		\cellcolor[HTML]{EFEFEF}Ano & \cellcolor[HTML]{EFEFEF}2017 &  &  &  \\ \cline{1-2}
-		Linguagem de programação & C/C++ &  &  &  \\ \cline{1-2}
-		\cellcolor[HTML]{EFEFEF}Sensores & \cellcolor[HTML]{EFEFEF}IR, MPU, IE &  &  &  \\ \cline{1-2}
-		Controlador & STM32 &  &  &  \\ \cline{1-2}
-		\cellcolor[HTML]{EFEFEF}Simulador & \cellcolor[HTML]{EFEFEF}Não possui &  &  &  \\ \cline{1-2}
-		Bateria & LiPo 300 mAh (7,4 V) &  &  &  \\ \cline{1-2}
-		\cellcolor[HTML]{EFEFEF}Rodas & \cellcolor[HTML]{EFEFEF}3D printed mount\&wheel + mini-z tyres &  &  &  \\ \cline{1-2}
-		Motor & DC-Motor 6 540 RPM 0,21 Nm (6 V) &  &  &  \\ \cline{1-2}
-		\cellcolor[HTML]{EFEFEF}Interface de usuário & \cellcolor[HTML]{EFEFEF}DMD 5x7, LEDs, Botão, Bluetooth &  &  &  \\ \cline{1-2}
-		Outros & Sistema de ventoinhas de sucção &  &  &  \\ \cline{1-2}
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Green Giant 5.19V}} \\ \hline
+		Fabricante & Green Ye \\ \hline
+		Ano & 2017 \\ \hline
+		Linguagem de Programação & C/C++ \\ \hline
+		Sensores & IR, MPU, IE \\ \hline
+		Controlador & STM32 \\ \hline
+		Simulador & - \\ \hline
+		Bateria & LiPo 300mAh (7,4V) \\ \hline
+		Rodas & 3D printed mount\&wheel + mini-z tyres \\ \hline
+		Motor & DC-Motor 6 540RPM 0,21Nm (6V) \\ \hline
+		User Interface & DMD 5x7, LEDs, Botão, Bluetooth \\ \hline
+		Outros & sistema de ventoinhas de sucção \\ \hline
 	\end{tabular}
+	\caption{{\label{tab:Green_Giant}Green Giant}}
 \end{table}
 
 
@@ -121,15 +120,28 @@
 	\centering
 	\includegraphics[width=0.7\textwidth]
 	{Figures/WPISmartMouse_model.png}
-	\caption{\label{fig:WPISmartMouse_model} WPISmartMouse. }
+	\caption{\label{fig:WPISmartMouse_model} WPISmartMouse}
 \end{figure}
 
-\begin{figure}[H]
+\begin{table}[]
 	\centering
-	\includegraphics[width=0.7\textwidth]
-	{Figures/WPISmartMouse.png}
-	\caption{\label{fig:WPISmartMouse} Especificações do WPISmartMouse. }
-\end{figure}
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Smartmouse}} \\ \hline
+		Fabricante & WPI CollabLab \\ \hline
+		Ano & 2018 \\ \hline
+		Linguagem de Programação & Arduino/C, Python, BASCOM \\ \hline
+		Sensores & IR, Magnetic Encoder \\ \hline
+		Controlador & Teensy 3.6 \\ \hline
+		Simulador & Gazebo \\ \hline
+		Bateria & LiPo 1500mAh (7,4V) \\ \hline
+		Rodas & Solarbotics RW2i Wheel \\ \hline
+		Motor & DC-Motor 650RPM 2,35Nm(6V) \\ \hline
+		User Interface & LEDs \\ \hline
+		Outros & documentação no git \\ \hline
+	\end{tabular}
+	\caption{{\label{tab:Smartmouse}Smartmouse}}
+\end{table}
 
 \textbf{Pontos Positivos:}
 \begin{itemize}
