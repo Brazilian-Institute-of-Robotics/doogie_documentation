@@ -1,0 +1,321 @@
+\chapter{Fundamentação Teórica}
+\label{chap:fundteor}
+
+\begin{flushright}
+
+   \begin{list}{}{
+      \setlength{\leftmargin}{4.5cm}
+      \setlength{\rightmargin}{0cm}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\labelsep}{\leftmargin}}
+      \item Quanto maior for a rapidez de transformação de uma
+      sociedade, mais temporárias são as necessidades
+      individuais. Essas flutuaçõess tornam ainda mais acelerado
+      o senso de turbilh da sociedade.
+
+      \begin{list}{}{
+      \setlength{\leftmargin}{0cm}
+      \setlength{\rightmargin}{0cm}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\labelsep}{\leftmargin}}
+      \item (Alvin Toffler)
+      \end{list}
+   \end{list}
+\end{flushright}
+
+\begin{flushright}
+  Quanto maior for a rapidez de transformação de uma \\
+  sociedade, mais temporárias são as necessidades \\
+  individuais. Essas flutuações tornam ainda mais \\
+  acelerado o senso de turbilhão da sociedade. \\
+  \ \\
+  (Alvin Toffler)
+\end{flushright}
+
+%--------- NEW SECTION ----------------------
+\section{Micromouse}
+\label{sec:Micromouse}
+
+
+%--------- NEW SECTION ----------------------
+\section{Robotics Frameworks}
+\label{sec:robotic_frameworks}
+
+
+
+%--------- NEW SECTION ----------------------
+\section{Estudo do estado da arte}
+\label{sec:sota}
+ \hspace{0.5cm} A competição Micromouse é um concurso anual na qual estudantes do mundo todo desenvolvem pequenos robôs autônomos, chamados \textit{micromouse}, postos a correr dentro de um labirinto. Dessa forma, o \textit{micromouse} que mais rápido chegar ao seu centro é o vencedor da competição.
+
+ \begin{figure}[H]
+ 	\centering
+ 	\includegraphics[width=0.5\textwidth]
+ 	{Figures/MoonlightSpecial.jpg}
+ 	\caption{\label{fig:MoonlightSpecial} Moonlight Special - Primeiro modelo \textit{micromouse} a ganhar uma competição.}
+ \end{figure}
+
+ \hspace{0.5cm} Sua ideia surge em 1977, quando a \textit{IEEE Spectrum Magazine} trouxe pela primeira vez o conceito de robôs autônomos para resolução de labirintos. Pouco tempo depois, sua primeira competição foi realizada, em junho de 1979, na primeira \textit{IEEE Amazing Micromouse Maze Contest} organizada na cidade de Nova York. Rapidamente, o conceito da competição se espalhou e, já no começo da década de 90, vários clubes voltados para Micromouse surgiam em escolas e universidades do mundo todo \cite{Tondr2004}.
+ 
+ \hspace{0.5cm} Atualmente, a \textit{IEEE Micromouse Competition} adota uma configuração que consiste em um labirinto de 16 x 16 blocos. Cada bloco possui 18 x 18 cm. As paredes, que possuem 5 cm de altura, são pintadas de branco de modo a ser reflexiva à luz infravermelha. O chão, por outro lado, é pintado de preto, para que não seja reflexivo. Além disso, os competidores sabem previamente que o \textit{micromouse} tem seu ponto de partida localizado em um dos cantos do labirintos, devendo alcançar o seu centro para terminar o desafio. Com base nisso, os participantes devem usar de algorítimos de busca para explorar o labirinto e encontrar a rota mais otimizada para o ponto de chegada estabelecido pela competição. O robô por sua vez, não pode ter suas dimensões maiores que uma seção de 25 x 25 cm. As regras completas estão dispostas como anexo no final do documento.
+
+
+%--------- NEW SECTION ----------------------
+\section{Benchmark}
+\label{sec:benchmark}
+
+\subsection{GreenGiant}
+\hspace{0.5cm} A Green Giant é uma desenvolvedora de múltiplas plataformas de robótica, especializada em eletrônica embarcada, tendo como seu carro-chefe o \textit{micromouse}. Seu modelo mais recente, 2016 - 2017, é voltado para alto desempenho em competições, alcançando a posição de quarto lugar durante a APEC \textit{Applied Power Electronics Conference} de 2016.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/GreenGiant_model.jpg}
+	\caption{\label{fig:Green_Giant_model} Green Giant. }
+	\end{figure}
+
+\hspace{0.5cm}Sua interface de usuário possui \textit{Dot Matrix Display}, sinalizadores led, butões, buzzer, além de possuir um sistema de comunicação Bluetooth 4.0. Ademais, o modelo usa um sistema de ventoinhas de sucção para aumentar o nível de aderência das rodas, permitindo alcançar maiores velocidades sem derrapar.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Green Giant 5.19V}} \\ \hline
+		Fabricante & Green Ye \\ \hline
+		Ano & 2017 \\ \hline
+		Linguagem de Programação & C/C++ \\ \hline
+		Sensores & IR, MPU, IE \\ \hline
+		Controlador & STM32 \\ \hline
+		Simulador & - \\ \hline
+		Bateria & LiPo 300mAh (7,4V) \\ \hline
+		Rodas & 3D printed mount\&wheel + mini-z tyres \\ \hline
+		Motor & DC-Motor 6.540RPM 0,21N.m (6V) \\ \hline
+		User Interface & DMD 5x7, LEDs, Botão, Bluetooth \\ \hline
+		Outros & sistema de ventoinhas de sucção \\ \hline
+	\end{tabular}
+	\caption{{\label{tab:Green_Giant}Green Giant}}
+\end{table}
+
+
+\textbf{Pontos Positivos:}
+\begin{itemize}
+	\item Produto de alto desempenho em competições;
+	\item Sistema de ventoinhas de sucção.
+\end{itemize}
+
+
+\textbf{Pontos Negativos:}
+\begin{itemize}
+	\item Não possui suporte à simulação;
+	\item Projeto pouco documentado;
+	\item Não possui guia do usuário;
+	\item Não possui suporte nativo para ambiente ROS.
+\end{itemize}
+
+
+\subsection{WPISmartMouse}
+\hspace{0.5cm} A organização estudantil, WPI CollabLab, compartilham um espaço de laboratório entre seus membros para projetos com viez colaborativo a sociedade. Nesse espaço desenvolveu-se o Smartmouse, projeto \textit{micromouse} voltado para a competição Micromouse \textit{Brown IEEE Robotic  Olympiad}. O projeto também se extendeu para o desenvolvimento de um ambiente de simulação apartir dos projetos Gazebo e Ignition, não possuindo entretanto suporte para ROS.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/WPISmartMouse_model.png}
+	\caption{\label{fig:WPISmartMouse_model} WPISmartMouse}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Smartmouse}} \\ \hline
+		Fabricante & WPI CollabLab \\ \hline
+		Ano & 2018 \\ \hline
+		Linguagem de Programação & Arduino/C, Python, BASCOM \\ \hline
+		Sensores & IR, Magnetic Encoder \\ \hline
+		Controlador & Teensy 3.6 \\ \hline
+		Simulador & Gazebo \\ \hline
+		Bateria & LiPo 1500mAh (7,4V) \\ \hline
+		Rodas & Solarbotics RW2i Wheel \\ \hline
+		Motor & DC-Motor 650RPM 2,35Nm(6V) \\ \hline
+		User Interface & LEDs \\ \hline
+		Outros & documentação no git \\ \hline
+	\end{tabular}
+	\caption{{\label{tab:Smartmouse}Smartmouse}}
+\end{table}
+
+\textbf{Pontos Positivos:}
+\begin{itemize}
+	\item Provê ambiente de simulação;
+	\item Documentação disponível no github;
+	\item Possui portabilidade para mais de uma linguagem de programação.
+\end{itemize}
+
+\textbf{Pontos Negativos:}
+\begin{itemize}
+	\item Não possui suporte nativo para ambiente ROS;
+	\item Pouca variedade de sensores;
+	\item Não possui guia do usuário;
+	\item Poucos recursos na interface com o usuário.
+\end{itemize}
+
+
+\subsection{Kumamoto National College}
+\hspace{0.5cm} O Instituto Nacional de Tecnologia de Kumamoto, \textit{Kumamoto National College}, apresentou no ano de 2008 um projeto de desenvolvimento de ferramentas educacionais voltada para integração de sistemas e suas implementações. O projeto é direcionado aos seus estudantes do 5º ano de engenharia, através da produção de um \textit{micromouse} para a competição do ramo de \textit{Kyushu}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/Kumamoto_model.png}
+	\caption{\label{fig:Kumamoto_model} Kumamoto.}
+	\end{figure}
+
+\hspace{0.5cm} O hardware do robô foi bastante simplificado, visando facilitar o desenvolvimento pelos estudantes ainda não familiarizados com a robótica e eletrônica, além de buscar reduzir os custos de produção do robô. Como ferramenta educativa, o projeto conseguiu que seus estudantes produzissem o \textit{micromouse} em um semestre de atividades. Contudo, conceitos da robótica (ex: robótica móvel, fusão de sensores, visão, navegação) não foram trabalhados ou não foram citados no artigo gerado a partir do projeto.
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Kumamoto National College}} \\ \hline
+		Fabricante & Kiyoteru Hayama and Tsutomu Matsumoto \\ \hline
+		Ano & 2008 \\ \hline
+		Linguagem & C \\ \hline
+		Sensores & IR \\ \hline
+		Controlador & H8Tiny-3664 \\ \hline
+		Simulador & - \\ \hline
+		Bateria & LiPo 900mAh (7,4V) \\ \hline
+		Rodas & wheels, tires \\ \hline
+		Motor & Step Motor 0,78Nm (5,6V) \\ \hline
+		User Interface & LEDs \\ \hline
+		Outros & Documentação em artigo \\ \hline
+	\end{tabular}
+	\caption{\label{tab:Kumamoto} Kumamoto}
+\end{table}
+
+
+
+\textbf{Pontos Positivos:}
+\begin{itemize}
+	\item Projeto com fins educacionais;
+	\item Fácil desenvolvimento.
+\end{itemize}
+
+\textbf{Pontos Negativos:}
+\begin{itemize}
+	\item Não possui suporte nativo para ambiente ROS;
+	\item Pouca variedade de sensores;
+	\item Não possui guia para usuário;
+	\item Poucos recursos na interface com o usuário;
+	\item Não possui nenhum ambiente de simulação.
+\end{itemize}
+
+
+\subsection{WolfieMouse}
+\hspace{0.5cm} O WolfieMouse é um projeto de robótica que desenvolveu um \textit{micromouse} para competir na \textit{2018 Region 1 Robotics Competition}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/WolfieMouse_model.jpg}
+	\caption{\label{fig:WolfieMouse_model} WolfieMouse.}
+\end{figure}
+
+\hspace{0.5cm} Além da plataforma robótica, que conta com hardwares programados em baixo nível, para melhor otimização de seus controles, a equipe também realizou um ambiente de simulação baseado em C++ emulado no terminal do computador. Toda documentação foi disponibilizada em um repositório git, que também possui tutoriais para o desenvolvimento do robô.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{WolfieMouse}} \\ \hline
+		Fabricante & Bryant Gonzaga, Bum Kim, Hyun Choi \\ \hline
+		Ano & 2018 \\ \hline
+		Linguagem & C++, C, ARM Assembly, Python \\ \hline
+		Sensores & MPU, ToF, Magnetic Encoder \\ \hline
+		Controlador & STM32 \\ \hline
+		Simulador & Terminal-based \\ \hline
+		Bateria & * \\ \hline
+		Rodas & * \\ \hline
+		Motor & DC-Motor \\ \hline
+		User Interface & DMD 5x7, botões \\ \hline
+		Outros & documentação e tutoriais no git \\ \hline
+	\end{tabular}
+	\caption{\label{tab:WolfieMouse}WolfieMouse}
+\end{table}
+
+\textbf{Pontos Positivos:}
+\begin{itemize}
+	\item Projeto bem documentado;
+	\item Possui tutoriais;
+	\item Possui ambiente de simulação.
+\end{itemize}
+
+\textbf{Pontos Negativos:}
+\begin{itemize}
+	\item Não possui suporte nativo para ambiente ROS;
+	\item Pouco foco em finalidades educativas com o produto;
+	\item Não possui guia para usuário;
+	\item Poucos recursos na interface com o usuário.
+\end{itemize}
+
+\subsection{Raspberry Pi Mouse V2}
+\hspace{0.5cm}A RT Corporation Micromouse é uma desenvolvedora japonesa de plataformas robóticas voltada para aplicações  voltadas de pesquisas à hobistas. Um de seus segmentos é voltado para \textit{micromouse}, fortemente representado pelo seu produto Raspberry Pi Mouse V2, citado em "Learning ROS robot programming with Raspberry Pi" (Nikkei BP, June 2018).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]
+	{Figures/RaspiMouse_model.png}
+	\caption{\label{fig:RaspiMouse_model} RaspiMouse.}
+\end{figure}
+ O modelo citado, é um robô de plataforma baseado em \textit{micromouse} que utiliza uma Raspberry Pi como sua placa principal. Dessa forma o robô pode ser controlado pelos principais middleware de robótica (ROS/RTM), possuindo inclusive pacotes publicados na wiki do ROS voltados para navegação e simulação do \textit{micromouse};
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Raspberry Pi Mouse V2}} \\ \hline
+		Fabricante & RT Corporation \\ \hline
+		Ano & 2016 \\ \hline
+		Linguagem & Python, Shell \\ \hline
+		Sensores & IR \\ \hline
+		Controlador & RaspberryPi3 \\ \hline
+		Simulador & Gazebo \\ \hline
+		Bateria & LiPo 1000mAh (7,4V) \\ \hline
+		Rodas & wheels, tires \\ \hline
+		Motor & Step-Motor 400step/rev (4 fases) \\ \hline
+		User Interface & Terminal, LEDs, Botão, Buzzer \\ \hline
+		Outros & documentação no git, mas em japonês \\ \hline
+	\end{tabular}
+	\caption{\label{tab:RaspiMouse} RaspiMouse}
+\end{table}
+
+\textbf{Pontos Positivos:}
+\begin{itemize}
+	\item Projeto bem documentado;
+	\item Disponível no Gitub;
+	\item Possui tutoriais;
+	\item Possui ambiente de simulação;
+	\item Suporte aos principais middleware de robótica (ROS/RTM);
+	\item Possui pacotes do ROS para seu controle;
+	\item Plataforma é expansível.
+\end{itemize}
+
+\textbf{Pontos Negativos:}
+\begin{itemize}
+	\item Toda documentação do produto está em japonês;
+	\item O robô é pouco compacto.
+\end{itemize}
+
+\subsection{Matriz de Comparação}
+
+\begin{table}[H]
+	\centering
+	\includegraphics[width=1\textwidth]
+	{Figures/MatrizComp.png}
+	\caption{\label{tab:MatrizComp} Matriz de Comparação.}
+\end{table}
+
+%--------- NEW SECTION ----------------------
+\section{Assunto 2}
+\label{sec:ass2}
+flkjasdlkfjasdlkfjs
+
