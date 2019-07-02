@@ -143,9 +143,12 @@
 \usepackage[normalem]{ulem}
 \usepackage{makeidx} % cria indice remissivo
 \usepackage{yfonts}
+\usepackage{verbatim}
+\usepackage{quoting}
 \makeindex % cria o indice remissivo
 %Tables and Figures Caption
 \setlength{\LTcapwidth}{\textwidth}
+\newcommand{\source}[1]{Fonte: {#1}}
 
 
 
@@ -173,9 +176,9 @@
     %\faculty{Centro Universitário Senai Cimatec}
 %    \school{School of Mathematics}
 % ********************************************** TCC ****************
-    \course{Engenharia de Automação e Controle}
+    \course{Engenharia de Controle e Automação}
     \coursee{Engenharia Mecânica}
-    \typework{Projeto Theoprax de Conclusão de Curso}
+    \typework{Trabalho de Conclusão de Curso baseado na metodologia Theoprax}
 % ********************************************************************
 % ********************************************* Mestrado ******************
 %    \course{Mestrado em Modelagem Computacional e Tecnologia Industrial}
@@ -186,14 +189,14 @@
 %    \typework{Tese de doutorado}
 %    \typework{Exame de Qualificação de doutorado}
 % ********************************************************************
- \thesistitle{Doogie: um projeto de robô micromouse}
+ \thesistitle{Projeto \textit{open source} para ensino de robótica móvel e inteligência artificial}
     \hidevolume
     \thesisvolume{Volume 1 of 1}
     \thesisauthor{Caio Amaral}
     \thesisauthorr{Élisson Riller}
     \thesisauthorrr{Elton Marques}
     \thesisauthorrrr{Iure Pinheiro}
-    \thesisauthorrrrr{Mateus Menezes}
+    \thesisauthorrrrr{Mateus Meneses}
     \thesisadvisor{Prof. Marco Reis, M.Eng.}
     \hidecoadvisor
     %\thesiscoadvisor{Marco Reis}
@@ -211,21 +214,21 @@
     \include{Others/FolhaRosto}
     %\include{Others/NotaEstilo}
     %\include{Others/FolhaAssinaturas}
-    \include{Others/dedicatoria}
-    \include{Others/agradecimentos}
+    %\include{Others/dedicatoria}
+    %\include{Others/agradecimentos}
 
 
     %%----------------------------------------------------------------------------
     %% Resumo/abstract, sumário e siglas
     %%----------------------------------------------------------------------------
     \begin{romanpagenumbers}
-        \include{Others/resumo}
-        \include{Others/abstract}
+        %\include{Others/resumo}
+        %\include{Others/abstract}
         % Make list of contents, tables and figures
-        \thesiscontents
+       \thesiscontents
         %Include other required section
         \include{Others/abbreviation}
-        \include{Others/simbolos}
+        %\include{Others/simbolos}
         %Switch the page numbering back to the default format
     \end{romanpagenumbers}
 
@@ -233,21 +236,22 @@
     %% Include thesis chapters
     %%----------------------------------------------------------------------------
     \parskip=\baselineskip
-    \include{Chapters/ChapterOne}
-    \include{Chapters/ChapterTwo}
+    \include{Chapters/introducao}
+    %\include{Chapters/ChapterTwo}
     \include{Chapters/ChapterThree}
-    \include{Chapters/ChapterFour}
+    \include{Chapters/cronograma}
+    %\include{Chapters/ChapterFour}
     %\include{Chapters/ChapterFive}
     %\include{Chapters/ChapterSix}
     %\include{Chapters/ChapterSeven}
     %\include{Chapters/ChapterEight}
-    \include{Chapters/ChapterConsideracoesfinais}
+    %\include{Chapters/ChapterConsideracoesfinais}
     % include more chapters ...
 
    %%----------------------------------------------------------------------------
     %% Include thesis appendices
     %%----------------------------------------------------------------------------
-
+	\begin{comment}
     \begin{thesisappendices}
         \include{Appendices/qfd}
         \include{Appendices/diagmec}
@@ -255,6 +259,7 @@
         \include{Appendices/wireframes}
         \include{Appendices/logbook}
     \end{thesisappendices}
+    \end{comment}
 
     %%----------------------------------------------------------------------------
     %% Configurar as referencias bibliograficas

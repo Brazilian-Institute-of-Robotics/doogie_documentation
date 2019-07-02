@@ -1,0 +1,87 @@
+\chapter{Introdução}
+\label{chap:intro}
+
+Por muito tempo a humanidade conjectura sobre o seu futuro. Cidades inteligentes, Indústria 4.0, veículos voadores, carros autônomos e a Inteligência Artificial (IA) são só alguns dos conceitos frequentes que permeiam esse cenário. Mas justamente a IA, popularmente relacionada como uma versão artificial da inteligência humana, tem se mostrado uma eficiente ferramenta no desenvolvimento de novas tecnologias que compõe o ideário do mundo moderno.
+
+Contudo, a ideia de criações humanas dotadas de inteligência não é nova. Mesmo em culturas mais antigas é possível encontrar sua presença dentro das mitologias, conforme visto em \citeonline{Smith1849} as histórias dos automatas gregos desenvolvidos pelo inventor ateniense, Dédalo. No entanto, o desenvolvimento de IA, no formato em que é utilizada atualmente, só começou a ganhar real destaque a partir do final do século 20. A própria década de 90 foi um marco para a popularização da IA, a partir da vitória histórica do Deep Blue, desenvolvido pela IBM, contra o ex-campeão Garry Kasparov em uma partida de xadrez \cite{McCorduck2004}. 
+
+Desde então, os estudos em IA tem crescido e se diversificado em diferentes aplicações, e muitas vezes associadas à robótica, necessitando cada vez mais de profissionais capacitados para seu uso e exploração em diferentes ambientes. Exploração espacial, fábricas inteligentes, veículos autônomos, reconhecimento visual são só algumas das possíveis aplicações de IA. Porém, toda essa diversidade pode tornar-se um empecilho para aqueles que desejam iniciar seus estudos no segmento.
+
+Por conta dessa necessidade, plataformas abertas de robótica, como Turtlebot \cite{Turtlebot} e ROSbot 2.0 \cite{ROSbot}, podem ser uma potencial solução para o aprendizado introdutório dos conceitos, ou mesmo no desenvolvimento inicial de soluções, em IA. Além disso, a partir do uso das plataformas, há abertura para a introdução das próprias disciplinas da robótica, como visão e robótica móvel, fortalecendo mais a formação do estudante.
+
+Todavia, conforme \citeonline{Neto2015} 53,48\% dos robôs usados em pesquisas nacionais são construídos no Brasil, devido aos altos custos na exportação dessas plataformas vindas do exterior. Por isso, faz-se necessário a existência de uma plataforma de robótica nacional que possa ser facilmente adquirida pelos estudantes e pesquisadores do Brasil. Em verdade, o contato inicial com a robótica durante a graduação é geralmente feito por exemplo com base na ótica "Currículo por Objetivo/Competição, na qual os estudantes tem o seu aprendizado a partir do desenvolvimento de atividades visando a participação em uma das diversas competições de robótica \cite{Campos2017}, muitas delas inclusive organizadas pelo IEEE, como os robôs seguidor de linha, sumô e micromouse, por exemplo. Esses robôs de competição já são conhecidos pelos estudantes de graduação e por isso uma plataforma inspirada em alguma dessas configurações voltadas para as competições IEEE serão mais familiares aos estudantes, facilitando o seu aprendizado. 
+
+Em contrapartida, o uso de \textit{middlewares} pode enriquecer ainda mais o aprendizado a partir da plataforma. Pois, um \textit{middleware} de robótica permite, conforme descrito por \citeonline{Elkady2012}:
+
+\begin{quoting}[rightmargin=0cm,leftmargin=4cm]
+	\begin{singlespace}
+		{\footnotesize
+			[...]lidar com a complexidade e heterogeneidade encontrada em aplicações de hardware, promovendo integração de novas tecnologias, simplificando o design de software, ocultando a complexidade da comunicação de baixo nível e da heterogeneidade dos sensores, melhorando a qualidade dos softwares, reutilizando a infraestrutura do software de robótica em diferentes esforços de pesquisa e reduzindo os custos de produção.
+		}
+	\end{singlespace}
+\end{quoting}
+
+Dessa forma, o \textit{middleware}, a partir de sua coleção de ferramentas e bibliotecas, facilita o desenvolvimento de robôs de diferentes fabricantes, com diferentes infraestruturas de software, criando um ambiente de desenvolvimento comum na robótica, inclusive aproveitando soluções anteriores em novas aplicações, com diferentes robôs. E justamente por isso, os \textit{middlewares} abertos mais populares, como o RT-Middleware e o ROS (\textit{Robot Operating System}) \cite{Elkady2012}, que contam com uma grande comunidade de colaboradores no seu desenvolvimento com novas aplicações, são mais atrativos para novos usuários por conta de sua versatilidade que cresce junto com a popularidade da ferramenta.
+
+Logo, a combinação de uma plataforma aberta acessível com o uso de um \textit{middleware} de robótica, mostra-se uma boa estratégia no ensino tanto de conceitos introdutórios da IA, quanto das próprias disciplinas da robótica.
+
+
+%--------- NEW SECTION ----------------------
+\section{Objetivo}
+\label{sec:objetivo_geral}
+O objetivo deste trabalho é desenvolver uma plataforma \textit{open source} baseado nos modelos utilizados na competição regulada pelo IEEE intitulada Micromouse. A plataforma será dotada de sensores, atuadores e de interfaces de usuário. O robô utilizará o \textit{framework} ROS (\textit{Robot Operating System}) utilizado mundialmente em projetos de robôs de cunho organizacional e acadêmico. Será desenvolvido também um ambiente de simulação no simulador Gazebo o qual possui integração com o ROS. Portanto, essa plataforma pode ser utilizada ambientes acadêmicos de nível superior tanto para ensino quanto para competições.
+
+\subsection{Objetivos Específicos}
+\label{ssec:objesp}
+\begin{itemize}
+	\item Estudar teoria de inteligência artificial e robótica móvel;
+	\item Desenvolver e integrar com \textit{framework} ROS ambiente de simulação do robô utilizando o simulador Gazebo;
+	\item Confeccionar plataforma física, contemplando sensores, atuadores, \textit{display} e elementos mecânicos e eletrônicos;
+	\item Desenvolver pacotes de software e \textit{drivers} para controle, sensoriamento, planejamento e interação com usuário do robô utilizando a linguagem de programação Python e o \textit{framework} ROS;
+	\item Elaborar documentação da plataforma tais como: guia do usuário, tutoriais online, esquemático eletrônicos, desenhos mecânicos e diagramas em geral;
+	\item Confeccionar dois labirintos, sendo o primeiro para testes em bancada e o segundo para validação da plataforma e uso em competições;
+	\item Realizar testes para validação do funcionamento da plataforma. 
+	
+\end{itemize}
+
+%--------- NEW SECTION ----------------------
+\section{Justificativa}
+\label{sec:justificativa}
+O cenário industrial mundial passou por grandes mudanças desde a primeira revolução industrial no final do século XVIII até os dias atuais. Atualmente, com o avanço da tecnologia e a sua inserção na indústria, uma nova revolução intitulada Indústria 4.0 está em andamento. Segundo a \citeonline[p. 11]{relatorio_cni}:
+\begin{quoting}[rightmargin=0cm,leftmargin=4cm]
+\begin{singlespace}
+{\footnotesize
+A incorporação da digitalização à atividade industrial resultou no conceito de Indústria 4.0, em referência ao que seria a 4ª revolução industrial, caracterizada pela integração e controle da produção a partir de sensores e equipamentos conectados em rede e da fusão do mundo real com o virtual, criando os chamados sistemas ciberfísicos e viabilizando o emprego da inteligência artificial.
+}
+\end{singlespace}
+\end{quoting}
+
+Essa nova revolução irá ocasionar impactos na economia nacional. De acordo com um levantamento da ABDI (Agência Brasileira de Desenvolvimento Industrial), o Brasil irá reduzir no mínimo R\$ 73 bilhões/ano, sendo que serão R\$ 34 bilhões com ganhos na eficiência no processo produtivo, R\$ 31 bilhões com redução de custos de manutenção de máquina e  R\$ 7 bilhões com economia de energia \cite{abdi}.
+
+Destaca-se algumas tecnologias com maior influência nessa revolução tais como a internet das coisas (IoT, \textit{Internet of Things}), \textit{big data}, computação em nuvem, inteligência artificial e robótica avançada. Para \citeonline{industria_e_robo} o avanço da indústria em direção a fábricas mais inteligentes está vinculado com a evolução da automação, que devido a isso, torna a robótica um elemento crucial para a Indústria 4.0.
+
+Para \citeonline{relatorio_cni} a consolidação da Indústria 4.0 no Brasil virá com possíveis consequências, dentre elas, o surgimento de novas atividades e novas profissões, que demandarão adaptações no padrão de formação de recursos humanos. A previsão é de que suas implicações alcançarão tanto a pequena e média indústria, quanto os segmentos mais amplos como as indústrias química e de processamento de óleo e gás \cite{Gonzalez2018}.  
+
+Entretanto as universidades, um dos principais centros de formação de mão de obra, trouxe poucas implementações em suas metodológias de ensino quando se trata da Indústria 4.0. Um estudo realizado por \citeonline{Neto2015} revela que, dos 65 artigos publicados no Brasil entre os anos 2004 e 2014 a respeito de Robótica Educacional, apenas 25\% tinham como foco o ensino superior.
+    
+Deste modo, no cenário em que as expertises e qualificações dos trabalhadores serão diretamente responsável pelo sucesso dos empreendimentos na nova indústria, as companhias e as universidades deverão buscar estratégias para o treinamento e capacitação de seus recursos humanos que encurtem a distância entre a teoria e a prática, conforme sustentado nos trabalhos de \cite{Benesova2017} e \cite{Gonzalez2018}.
+
+Portanto, visto que, conforme trazido por \cite{Khomchenko2018}, os conceitos necessários para implementar a Indústria 4.0 são bastante similares, diferindo-se em especial quanto a escala das aplicações, é desejável a elaboração de um projeto em que conceitos de robótica móvel, inteligência artificial, simulação e \textit{frameworks} de robótica possam ser compreendidos dentro de processos colaborativos de capacitação ou em ambientes acadêmicos, principalmente em cursos de engenharia.       
+
+%--------- NEW SECTION ----------------------
+\begin{comment}
+\section{Organização do trabalho}
+\label{section:organizacao}
+
+Este documento apresenta $5$ capítulos e está estruturado da seguinte forma:
+
+\begin{itemize}
+
+  \item \textbf{Capítulo \ref{chap:intro} - Introdução}: Contextualiza o âmbito, no qual a pesquisa proposta está inserida. Apresenta, portanto, a definição do problema, objetivos e justificativas da pesquisa e como este \thetypeworkthree está estruturado;
+  \item \textbf{Capítulo \ref{chap:fundteor} - Fundamentação Teórica}: XXX;
+  \item \textbf{Capítulo \ref{chap:mat} - Materiais e Métodos}: XXX;
+  \item \textbf{Capítulo \ref{chap:result} - Resultados}: XXX;
+  \item \textbf{Capítulo \ref{chap:conc} - Conclusão}: Apresenta as conclusóes, contribuições e algumas sugestões de atividades de pesquisa a serem desenvolvidas no futuro.
+
+\end{itemize}
+\end{comment}
