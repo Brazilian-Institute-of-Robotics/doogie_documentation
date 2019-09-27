@@ -1,6 +1,6 @@
 \chapter{Materiais e Métodos}
 \label{chap:materiais_metodos}
-O metodologia empregada nos trabalhos de conclusão de curso do Centro Universitário SENAI CIMATEC é executado com base na metodologia TheoPrax que foi desenvolvida pelo instituto Fraunhofer de Tecnologia Química, situado na Alemanha. A sistemática TheoPrax tem como principal objetivo incrementar a motivação da aprendizagem através do desenvolvimento de projetos reais voltados para empresas, proporcionando a integração entre o conhecimento técnico e sua aplicação prática. Para isto, esta estrutura envolve a identificação de uma situação problema ou de uma melhoria no processo ou no produto da empresa, seu estudo e a definição de uma proposta técnica-financeira para implementação da solução.
+O metodologia empregada nos trabalhos de conclusão de curso do Centro Universitário SENAI CIMATEC é executado com base na metodologia TheoPrax que foi desenvolvida pelo instituto Fraunhofer de Tecnologia Química, situado na Alemanha. A sistemática TheoPrax tem como principal objetivo incrementar a motivação da aprendizagem através do desenvolvimento de projetos reais voltados para empresas, proporcionando a integração entre o conhecimento técnico e sua aplicação prática. Para isto, esta estrutura envolve a identificação de uma situação problema ou de uma melhoria no processo ou no produto da empresa, seu estudo e, por fim, a definição de uma proposta técnica-financeira para implementação da solução.
 
 \section{Metodologia}
 \label{sec:metodologia}
@@ -15,7 +15,7 @@ A utilização da metodologia Theoprax se restringe apenas ao gerenciamento macr
 	\source{Própria Autoria}
 \end{figure}	
 
-Conforme figura \ref{fig:metodologia_diagrama}, a metodologia utilizada neste projeto possui 4 etapas: Conceitual, Design, Desenvolvimento e Conclusão. Por conseguinte, cada etapa possui entradas e saídas, que vão se complementando ao longo do desenvolvimento do projeto, as quais serão explicadas nos tópicos seguintes.
+Conforme Figura \ref{fig:metodologia_diagrama}, a metodologia utilizada neste projeto possui 4 etapas: Conceitual, Design, Desenvolvimento e Conclusão. Por conseguinte, cada etapa possui entradas e saídas, que vão se complementando ao longo do desenvolvimento do projeto, as quais serão explicadas nos tópicos seguintes.
 
 \subsection{Conceitual}
 \label{subsec:metodologia_conceitual}
@@ -46,49 +46,104 @@ Entretanto, os ambientes de simulação não refletem completamente os aspectos 
 \subsection{Conclusão}
 \label{metodologia_conclusao}
 O projeto é finalizado na etapa de \textbf{Conclusão}, em que a solução proposta é entregue ao cliente. Nesta entrega é realizado a demonstração do funcionamento do robô, utilizando um ambiente real. Também é cedido além da documentação elaborada ao longo do desenvolvimento do projeto, um documento em formato de Guia do Usuário contendo as instruções para manipulação e replicação do protótipo desenvolvido.
-        
-\section{Necessidade de recursos}
-Para a realização do projeto definido no tópico \ref{sec:objetivo_geral}, tanto recursos humanos quanto físicos tornam-se necessários. Como força de trabalho, o projeto necessitará de pessoas com conhecimento em programação de computadores e eletrônica além de uma base sólida em conceitos de engenharia. 
 
-Já para a etapa de desenvolvimento de software e prototipagem, os recursos listados a seguir se fazem necessários:
-\begin{itemize}
-	\item Computadores equipados com sistema operacional Linux e distribuição Ubuntu 16.04;
-	\item Laboratório de eletrônica equipado com ferramentas para confecção e manutenção dos componentes eletrônicos do robô;
-	\item Laboratório equipado com ferramentas para confecção das peças mecânicas que comporão o protótipo e para os labirintos de teste e de demonstração;
-	\item Impressora 3D para fabricação de elementos mecânicos estruturais do robô;
-	\item Componentes eletrônicos que irão compor o protótipo, tais como sistema microprocessado, motores DC, ponte H, encoder, sensores e emissores infravermelho, unidade de medição inercial, \textit{display}, \textit{push buttons}, conversores de tensão, bateria e \textit{pin headers}. 
-	 
-\end{itemize}  
-
-\begin{comment}
 %--------- NEW SECTION ----------------------
 \section{Descrição do sistema}
-\label{sec:desc}
-lasdjflsadjf
+\label{sec:descricao_do_sistema}
+O Doogie é um robô autônomo capaz de mapear um labirinto e descobrir qual o menor caminho do seu ponto de partida até um ponto de chegada. Sua arquitetura, ilustrada na Figura \ref{fig:arquitetura_geral}, pode ser dividida em três partes: interação com o usuário, controle do sistema e interface de hardware.
+Para a interação com o usuário, o robô possuirá um Buzzer e dois \textit{Push Buttons}. Além disso, há a possibilidade de acessar o sistema do robô via SSH (\textit{Secure Shell}), por intermédio da conexão WiFi. A interface de hardware é composta por motores de corrente contínua, responsáveis pela movimentação, trabalhando em conjunto com uma ponte H e Encoders; sensores infravermelhos, dispostos na frente e dos lados, a fim de identificar paredes; e uma IMU (\textit{Inertial Measurement Unit}), responsável por fornecer a aceleração linear e a velocidade angular da plataforma móvel para complementar os dados de Odometria. O controle do sistema é embarcado dentro de uma Raspberry Pi Zero que utiliza o framework ROS para gerenciar os diversos subsistemas do micromouse.
 
-\subsection{Especificação técnica}
-\label{ssec:espt}
-lakjfldksjfdslakjf
+\begin{figure}[H]
+	\label{fig:arquitetura_geral}
+	\centering
+	\caption{Arquitetura Geral do robô Doogie.}
+	\includegraphics[width=1\textwidth]
+	{Figures/arquitetura_geral}
+	\source{Própria Autoria}
+\end{figure}
 
-\subsection{Arquitetura geral do sistema}
-\label{ssec:arqg}
-lkasjdflksdajflk;
+\subsection{Interface de usuário}
+\label{ssec:interface_de_usuario}
+O acesso à Raspberry Pi Zero é feito via SSH permitindo maior acessibilidade e segurança nos dados. O mesmo é feito remotamente através de conexão \textit{wireless}, possibilitando o acesso a linha de comandos da Raspberry bem como seu sistema de arquivos, de um outro computador.
+ 
+O robô tem uma interface de interação com o usuário através de dois \textit{Push Buttons} e um \textit{Buzzer}. Os botões são utilizados para execução de tarefas tais como: \textcolor{red}{Listar as tarefas executadas pelos botões}. O acesso a tais dispositivos é feito através do driver do periférico GPIO (\textit{General Purpose Input/Output}) que oferece interfaces de controle utilizando as linguagens de programação Pyhton e C++.
 
-\subsection{Arquitetura de software}
-\label{ssec:arqs}
+\subsection{Interface de Hardware}
+\label{ssec:interface_de_hardware}
+O deslocamento do robô utiliza 2 motores de corrente contínua, acoplados à Encoders, possibilitando a obtenção de informações de posição e velocidade, com objetivo de otimizar o controle e acionamento dos motores. Além disso, para permitir que os motores girem em ambas as direções, são utilizados circuitos de ponte H.
+ 
+Os sensores infravermelho são responsáveis por identificar obstáculos no trajeto do robô. Eles são dispostos de modo que o micromouse possa indentificar as paredes do labirinto à sua direita, esquerda e frente. Também é necessário auxílio da IMU para obtenção de dados através dos sensores acelerômetro e giroscópio para estimar a posição com maior precisão. De forma similar a interface de usuário, serão utilizados drivers para estabelecer a comunicação entre o ambiente ROS e o hardware acima descrito.
+
+\subsection{Controle do sistema}
+\label{ssec:controle_do_sistema}
+A Raspberry Pi Zero é um mini computador de baixo custo e fácil acesso, capaz de reunir diversas funcionalidades em uma única placa de tamanho reduzido.  No mesmo, está instalado o sistema operacional Raspbian Buster, possibilitando a utilização do framework ROS, responsável por gerenciar os subsistemas do robô.
+
+Os principais subsistemas desenvolvidos para o Doogie foram:
+\begin{itemize}
+	\item \textbf{Localização:} o labirinto pode ser modelado em uma matriz, geralmente de tamanho 16x16. Esse subsistema tem o objetivo de prover informações sobre em qual posição dessa matriz o robô se encontra (linha e coluna);
+	
+	\item \textbf{Percepção:} com a utilização dos sensores infravermelho, o robô pode identificar se há obstáculos ao seu redor. Esse subsistema é responsável por informar se há obstáculos na frente, direita e/ou esquerda do mesmo;
+	
+	\item \textbf{Planejamento:} há diversas formas de mapear e completar o labirinto. Utilizando as informações obtidas dos outros subsistemas (localização e percepção), é possível realizar o algoritmo especificado e tomar as decisões necessárias para a realização da atividade;
+	
+	\item \textbf{Navegação:} subsistema responsável por gerenciar as ações de navegação do robô, tais como: ir para frente, virar para direita ou esquerda, parar, dentre outros.
+	
+	\item \textbf{Gerenciamento de Informações:} é o subsistema responsável por receber comandos através dos botões situados no chassi do robô e fornecer o mapa do labirinto a medida em que ele é percorrido. 
+\end{itemize}
 
 %--------- NEW SECTION ----------------------
 \section{Desdobramento da função qualidade}
 \label{sec:qfd}
-asdfsdafsf
+\colorbox{yellow}{Fazer uma breve descrição de como os requisitos foram levantados... e referenciar a matriz QFD em anexo}
 
-\subsection{Requisitos do cliente}
-\label{ssec:reqc}
-asdfsadfdsf
+\subsection{Requisitos técnicos e do cliente}
+\label{ssec:requisitos_tecnicos_e_do_cliente}
 
-\subsection{Requisitos técnicos}
-\label{ssec:reqt}
-asdfsadfdsf
+\begin{enumerate}
+	\item Documentação de fácil acesso e entendimento
+		\begin{enumerate}
+			\item Disponibilização de todo código desenvolvido no GitHub
+			\item Disponibilização guia do usuário como Wiki no GitHub
+			\item Disponibilização em um repositório no GitHub esquemáticos eletrônicos, desenhos técnicos mecânicos e seus respectivos arquivos para possível edição
+		\end{enumerate}
+		
+	\item Uso de um sistema microprocessado comercial
+		\begin{enumerate}
+			\item Utilização de uma Raspberry pi como sistema microprocessado
+		\end{enumerate}
+		
+	\item Interface intuitiva
+		\begin{enumerate}
+			\item Permissão ao usuário acesso remoto do terminal do sistema operacional do robô
+			\item Visualização do mapa do Labirinto no RViz
+			\item Disponibilização de botões e display para interação com usuário na ausência de acesso remoto
+		\end{enumerate}
+		
+	\item Tutoriais na internet para entendimento do funcionamento do robô
+		\begin{enumerate}
+			\item Desenvolvimento de tutorial na ROS Wiki com os primeiros passos com robô, explicando ao usuário comandos básicos de locomoção
+			\item Desenvolvimento de tutorial na ROS Wiki explicando ao usuário como implementar no robô seu próprio algoritmo de resolução de labirinto
+		\end{enumerate}
+		
+	\item Autonomia suficiente para utilização em ao menos duas aulas consecutivas
+		\begin{enumerate}
+			\item Bateria recarregável 
+			\item Autonomia superior a 1h40min
+		\end{enumerate}
+		
+	\item Uso de componentes de fácil manipulação e com facilidade de aquisição
+		\begin{enumerate}
+			\item Uso de conectores polarizados
+			\item Utilização de padrão de cores para cabos de conexão
+			\item Especificação de componentes disponíveis no mercado nacional
+			\item Desenvolvimento de shield de interface entre a plataforma de processamento e os sensores e atuadores
+		\end{enumerate}
+		
+	\item Estrutura física compatível com as regras estabelecidas em competições do IEEE
+		\begin{enumerate}
+			\item Dimensões do robô devem ser menores que 15 x 15 x 10 cm
+		\end{enumerate}
+\end{enumerate}
 
 %--------- NEW SECTION ----------------------
 \section{Especificação dos componentes}
@@ -107,29 +162,52 @@ asfkjdsahfkjs
 %--------- NEW SECTION ----------------------
 \section{Diagramas mecânicos}
 \label{sec:diagm}
-asdfsdaf
+Para o design do robô, foi utilizado como um ponto de partida o TON-BOT V1.1, plataforma desenvolvida pela Ioton Technology \textcolor{red}{Colocar referência}. Além disso, uma vez que o robô a ser desenvolvido é do tipo micromouse, ele deve ter suas dimensões não superiores a uma seção retangular de 25 x 25 cm \textcolor{red}{Colocar referência}.
+
+A partir dessas premissas e da análise feita na subseção 3.1, buscou-se um design mecânico simples e de maior leveza. Dessa forma, será utilizado como frame do robô as próprias PCIs (Placa de Circuito Impresso), buscando posicionar suas rodas de forma a mantê-las alinhadas ao centro de massa de todo o conjunto mecânico. Para tanto, uma modelagem em CAD inicialmente foi realizada através de ferramenta Solidworks, buscando iterativamente a melhor disposição de seus elementos físicos (rodas, sensores e demais componentes eletrônicos das placas).  O modelo mecânico final pode ser visualizado na \colorbox{yellow}{Figura  2}.
+
+\colorbox{yellow}{Colocar imagens 3D do robô}
+
+Da esquerda para direita visualiza-se as placas inferior, superior além do modelo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem.
 
 %--------- NEW SECTION ----------------------
 \section{Modelo esquemático de alimentação e comunicação}
 \label{sec:modesq}
-asdfadsfsdfs
+Com intuito de facilitar a replicação do robô por usuários que queiram utilizá-lo, optou-se pelo uso de \textit{breakout boards}, que são placas eletrônicas pré-montadas. O Doogie possui seis \textit{breakout boards}: dois conversores de tensão DC-DC, modelos MT3608 e U1V10F5, um conversor Analógico/Digital (A/D) ADS1115, uma IMU, um multiplexador analógico 74HC4051  e uma ponte H. Os demais componentes como resistores, transistores, LEDs infravermelho, fototransistores e conectores, são soldados diretamente na Placa de Circuito Impresso (PCI). Esses componentes foram distribuídos nas PCIs superior e inferior do robô, conforme \textcolor{red}{Referenciar figura}. A fim de fornecer energia elétrica para esses componentes, foi especificado uma bateria do tipo Li-Ion modelo 18650 com tensão nominal igual à 3,6 V. A arquitetura elétrica na Figura \ref{fig:arquitetura_eletrica} demonstra como tais componentes estão interligados eletricamente. A propósito de melhor visualização, o referencial de tensão (Ground - GND) foi omitido.
+
+\begin{figure}[H]
+	\label{fig:arquitetura_eletrica}
+	\centering
+	\caption{Representação elétrica do Doogie Mouse.}
+	\includegraphics[width=1\textwidth]
+	{Figures/arquitetura_eletrica}
+	\source{Própria Autoria}
+\end{figure}
 
 \subsection{Diagramas elétricos}
-\label{sec:diage}
-asdfsdaf
+\label{sec:diagramas_eletricos}
+
 
 \subsection{Esquemas eletrônicos}
-\label{ssec:esqe}
-asdfsdaf
+\label{ssec:esquematicos_eletronicos}
+\colorbox{yellow}{Referenciar em anexo!}
 
 %--------- NEW SECTION ----------------------
 \section{Especificação das funcionalidades}
-\label{sec:espf}
-asdfadsfsdfs
+\label{sec:especificacao_das_funcionalidades}
+As funcionalidades de um robô descrevem os subsistemas e a lógica de operação dos mesmos. No doogie, existem quatro funcionalidades principais: Localização, Percepção, Navegação e Usabilidade. A descrição de cada funcionalidade é mostrada nos tópicos subsequentes.
 
 \subsection{Fluxo das informações}
-\label{ssec:fluxo}
-asdfsaf
+\label{ssec:fluxo_das_informacoes}
+
+\begin{figure}[H]
+	\label{fig:arquitetura_eletrica}
+	\centering
+	\caption{Representação elétrica do Doogie Mouse.}
+	\includegraphics[width=1\textwidth]
+	{Figures/arquitetura_eletrica}
+	\source{Própria Autoria}
+\end{figure}
 
 \subsection{Funcionalidade 1}
 \label{ssec:func1}
@@ -152,5 +230,4 @@ asdfadsfsdfs
 \section{Simulação do sistema}
 \label{sec:sim}
 asdfadsfsdfs
-\end{comment}
 
