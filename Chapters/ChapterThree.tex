@@ -7,11 +7,11 @@ O metodologia empregada nos trabalhos de conclusão de curso do Centro Universit
 A utilização da metodologia Theoprax se restringe apenas ao gerenciamento macro do projeto e não define como a solução proposta deve ser desenvolvida. Sendo assim, o desenvolvimento do projeto, proposto no tópico \ref{sec:objetivo_geral}, será realizado utilizando o procedimento ilustrado na figura \ref{fig:metodologia_diagrama} que foi adaptado da metodologia empregada no BIR (\textit{Brazilian Insitute of Robotics}) para desenvolvimento de projetos de robótica.
 
 \begin{figure}[H]
-	\label{fig:metodologia_diagrama}
 	\centering
 	\caption{Metodologia empregada no desenlvolvimento do projeto solução.}
 	\includegraphics[width=1\textwidth]
 	{Figures/metodologia_diagrama}
+	\label{fig:metodologia_diagrama}
 	\source{Própria Autoria}
 \end{figure}	
 
@@ -48,17 +48,81 @@ Entretanto, os ambientes de simulação não refletem completamente os aspectos 
 O projeto é finalizado na etapa de \textbf{Conclusão}, em que a solução proposta é entregue ao cliente. Nesta entrega é realizado a demonstração do funcionamento do robô, utilizando um ambiente real. Também é cedido além da documentação elaborada ao longo do desenvolvimento do projeto, um documento em formato de Guia do Usuário contendo as instruções para manipulação e replicação do protótipo desenvolvido.
 
 %--------- NEW SECTION ----------------------
+
+\section{Requisitos do projeto}
+\label{sec:requisitos_do_projeto}
+Como mencionado no início deste capítulo, uma das etapas da metodologia TheoPrax envolve a identificação de uma situação problema. No projeto em questão, foi solicitado ao cliente os requisitos que o Doogie Mouse deveria cumprir. Entretanto, tais requisitos refletem a vontade do cliente de forma não técnica. Assim, a partir dos requisitos do cliente, foram levantados por parte da equipe de desenvolvimento os requisitos técnicos, os quais fornecem objetivos específicos que o projeto deve atingir. Por consequência, o cumprimento dos requisitos técnicos decorre na aprovação dos requisitos do cliente. Abaixo estão listados os requisitos do cliente e técnicos do Doogie Mouse de forma hierárquica, isto é, para cada requisito do cliente estão listados seus respectivos requisitos técnicos associado.
+
+\begin{enumerate}
+	\item Documentação de fácil acesso e entendimento:
+	\begin{enumerate}
+		\item Disponibilização de todo código desenvolvido no GitHub;
+		
+		\item Disponibilização guia do usuário como Wiki no GitHub;
+		
+		\item Disponibilização em um repositório no GitHub esquemáticos eletrônicos, desenhos técnicos mecânicos e seus respectivos arquivos para possível edição.
+	\end{enumerate}
+	
+	\item Uso de um sistema microprocessado comercial:
+	\begin{enumerate}
+		\item Utilização de uma Raspberry Pi como sistema microprocessado;
+	\end{enumerate}
+	
+	\item Interface intuitiva:
+	\begin{enumerate}
+		\item Permissão ao usuário acesso remoto do terminal do sistema operacional do robô;
+		
+		\item Visualização do mapa do Labirinto no RViz;
+		
+		\item Disponibilização de botões e display para interação com usuário na ausência de acesso remoto.
+		
+	\end{enumerate}
+	
+	\item Tutoriais na internet para entendimento do funcionamento do robô:
+	\begin{enumerate}
+		\item Desenvolvimento de tutorial na ROS Wiki com os primeiros passos com robô, explicando ao usuário comandos básicos de locomoção;
+		
+		\item Desenvolvimento de tutorial na ROS Wiki explicando ao usuário como implementar no robô seu próprio algoritmo de resolução de labirinto.
+	\end{enumerate}
+	
+	\item Autonomia suficiente para utilização em ao menos duas aulas consecutivas:
+	\begin{enumerate}
+		\item Bateria recarregável;
+		
+		\item Autonomia superior a 1h40min.
+	\end{enumerate}
+	
+	\item Uso de componentes de fácil manipulação e com facilidade de aquisição:
+	\begin{enumerate}
+		\item Uso de conectores polarizados;
+		
+		\item Utilização de padrão de cores para cabos de conexão;
+		
+		\item Especificação de componentes disponíveis no mercado nacional;
+		
+		\item Desenvolvimento de shield de interface entre a plataforma de processamento e os sensores e atuadores.
+	\end{enumerate}
+	
+	\item Estrutura física compatível com as regras estabelecidas em competições do IEEE:
+	\begin{enumerate}
+		\item Dimensões do robô devem ser menores que 15 x 15 x 10 cm.
+	\end{enumerate}
+\end{enumerate}
+
+Por fim, para a proporcionar a equipe de desenvolvimento um guia em relação a aplicação dos esforços para que os requisitos do cliente e técnico fossem atingidos, foi realizado uma confrontação de tais requisitos. Esta análise foi derivada de uma ferramenta comumente utilizada em desenvolvimento de produto, denominada matriz QFD (\textit{Quality Function Deployment}). A confrontação dos requisitos do projeto proposto pode ser visualizada no Apêndice \ref{apend:matriz_QFD} deste documento.
+
+%--------- NEW SECTION ----------------------
 \section{Descrição do sistema}
 \label{sec:descricao_do_sistema}
 O Doogie é um robô autônomo capaz de mapear um labirinto e descobrir qual o menor caminho do seu ponto de partida até um ponto de chegada. Sua arquitetura, ilustrada na Figura \ref{fig:arquitetura_geral}, pode ser dividida em três partes: interação com o usuário, controle do sistema e interface de hardware.
 Para a interação com o usuário, o robô possuirá um Buzzer e dois \textit{Push Buttons}. Além disso, há a possibilidade de acessar o sistema do robô via SSH (\textit{Secure Shell}), por intermédio da conexão WiFi. A interface de hardware é composta por motores de corrente contínua, responsáveis pela movimentação, trabalhando em conjunto com uma ponte H e Encoders; sensores infravermelhos, dispostos na frente e dos lados, a fim de identificar paredes; e uma IMU (\textit{Inertial Measurement Unit}), responsável por fornecer a aceleração linear e a velocidade angular da plataforma móvel para complementar os dados de Odometria. O controle do sistema é embarcado dentro de uma Raspberry Pi Zero que utiliza o framework ROS para gerenciar os diversos subsistemas do micromouse.
 
 \begin{figure}[H]
-	\label{fig:arquitetura_geral}
 	\centering
 	\caption{Arquitetura Geral do robô Doogie.}
 	\includegraphics[width=1\textwidth]
 	{Figures/arquitetura_geral}
+	\label{fig:arquitetura_geral}
 	\source{Própria Autoria}
 \end{figure}
 
@@ -66,7 +130,7 @@ Para a interação com o usuário, o robô possuirá um Buzzer e dois \textit{Pu
 \label{ssec:interface_de_usuario}
 O acesso à Raspberry Pi Zero é feito via SSH permitindo maior acessibilidade e segurança nos dados. O mesmo é feito remotamente através de conexão \textit{wireless}, possibilitando o acesso a linha de comandos da Raspberry bem como seu sistema de arquivos, de um outro computador.
  
-O robô tem uma interface de interação com o usuário através de dois \textit{Push Buttons} e um \textit{Buzzer}. Os botões são utilizados para execução de tarefas tais como: \textcolor{red}{Listar as tarefas executadas pelos botões}. O acesso a tais dispositivos é feito através do driver do periférico GPIO (\textit{General Purpose Input/Output}) que oferece interfaces de controle utilizando as linguagens de programação Pyhton e C++.
+O robô tem uma interface de interação com o usuário através de dois \textit{Push Buttons} e um \textit{Buzzer}. Os botões são utilizados para execução de tarefas tais como: \textcolor{red}{Listar as tarefas executadas pelos botões}. O acesso a tais dispositivos é feito através do driver do periférico GPIO (\textit{General Purpose Input/Output}) que oferece APIs (\textit{Application Programming Interface}) nas linguagens de programação Pyhton e C++.
 
 \subsection{Interface de Hardware}
 \label{ssec:interface_de_hardware}
@@ -92,134 +156,214 @@ Os principais subsistemas desenvolvidos para o Doogie foram:
 \end{itemize}
 
 %--------- NEW SECTION ----------------------
-\section{Desdobramento da função qualidade}
-\label{sec:qfd}
-\colorbox{yellow}{Fazer uma breve descrição de como os requisitos foram levantados... e referenciar a matriz QFD em anexo}
-
-\subsection{Requisitos técnicos e do cliente}
-\label{ssec:requisitos_tecnicos_e_do_cliente}
-
-\begin{enumerate}
-	\item Documentação de fácil acesso e entendimento
-		\begin{enumerate}
-			\item Disponibilização de todo código desenvolvido no GitHub
-			\item Disponibilização guia do usuário como Wiki no GitHub
-			\item Disponibilização em um repositório no GitHub esquemáticos eletrônicos, desenhos técnicos mecânicos e seus respectivos arquivos para possível edição
-		\end{enumerate}
-		
-	\item Uso de um sistema microprocessado comercial
-		\begin{enumerate}
-			\item Utilização de uma Raspberry pi como sistema microprocessado
-		\end{enumerate}
-		
-	\item Interface intuitiva
-		\begin{enumerate}
-			\item Permissão ao usuário acesso remoto do terminal do sistema operacional do robô
-			\item Visualização do mapa do Labirinto no RViz
-			\item Disponibilização de botões e display para interação com usuário na ausência de acesso remoto
-		\end{enumerate}
-		
-	\item Tutoriais na internet para entendimento do funcionamento do robô
-		\begin{enumerate}
-			\item Desenvolvimento de tutorial na ROS Wiki com os primeiros passos com robô, explicando ao usuário comandos básicos de locomoção
-			\item Desenvolvimento de tutorial na ROS Wiki explicando ao usuário como implementar no robô seu próprio algoritmo de resolução de labirinto
-		\end{enumerate}
-		
-	\item Autonomia suficiente para utilização em ao menos duas aulas consecutivas
-		\begin{enumerate}
-			\item Bateria recarregável 
-			\item Autonomia superior a 1h40min
-		\end{enumerate}
-		
-	\item Uso de componentes de fácil manipulação e com facilidade de aquisição
-		\begin{enumerate}
-			\item Uso de conectores polarizados
-			\item Utilização de padrão de cores para cabos de conexão
-			\item Especificação de componentes disponíveis no mercado nacional
-			\item Desenvolvimento de shield de interface entre a plataforma de processamento e os sensores e atuadores
-		\end{enumerate}
-		
-	\item Estrutura física compatível com as regras estabelecidas em competições do IEEE
-		\begin{enumerate}
-			\item Dimensões do robô devem ser menores que 15 x 15 x 10 cm
-		\end{enumerate}
-\end{enumerate}
-
-%--------- NEW SECTION ----------------------
 \section{Especificação dos componentes}
-\label{sec:espc}
-asjdflkdjsaf
+\label{sec:especificacao_dos_componentes}
+O robô Doogie é capaz de realizar de forma autônoma a procura do melhor caminho do labirinto que leva-o ao ponto de chegada. Uma vez descoberto, o robô percorre esse percurso no menor tempo possível. Para isso, o robô é composto de um sistema microprocessado compatível com distribuições Linux; sensores de percepção que permitem a detecção de obstáculos ao redor do robô; sensores de posição para o controle dos movimentos e localização dentro do labirinto; atuadores para permitir a locomoção de forma autônoma. Além disso, ele é equipado com bateria recarregável, conversor analógico/digital, multiplexador analógico, botões, LEDs e Buzzer. Os tópicos seguintes irão detalhar os principais componentes da plataforma móvel.
+
+\subsection{Raspiberry Pi Zero W v1.1}
+\label{ssec:raspiberry_pi_zero}
+Para que o robô realize a resolução do labirinto, é necessário que ele contenha uma unidade de processamento central. Este dispositivo tem como objetivo, a partir dos dados dos sensores e de um algoritmo de resolução de labirintos, inferir qual o melhor conjunto de movimentos que permita o robô alcançar o ponto de chegada do labirinto no menor tempo possível. Como o modelo de robô Micromouse possui um baixo nível de abstração de \textit{hardware}, é necessário também que a unidade de processamento disponibilize periféricos necessários para a comunicação com os componentes do sistema. Não menos importante, a unidade deve possuir compatibilidade com o \textit{framework} ROS, middleware escolhido para o gerenciamento dos subsistemas que compõem o robô.
+
+Portanto, foi escolhido o mini computador Raspberry PI Zero W v1.1: uma placa de baixo custo e com tamanho reduzido (apenas 6,5 x 3 cm), ótimo para projetos compactos como o robô Doogie. Esta placa é equipada com um processador \textit{single-core} Broadcom BCM2835 que opera na velocidade de 1 GHz aliado a uma memória RAM de 512 MB, além de um \textit{slot} para cartão microSD. A Raspberry PI Zero W v1.1 conta com \textit{WiFi} e \textit{Bluetooth} integrados, conector de vídeo mini HDMI e 2 portas USB para conectividade. Além disso, a placa permite que distribuições Linux como o Raspbian e Ubuntu sejam instaladas, as quais são compatíveis com \textit{framework} ROS. A Raspberry Pi oferece também APIs (\textit{Application Programming Interface}) nas linguagens de programação Pyhton e C++ para controle do seu periférico GPIO de 40 pinos. Essas interfaces permitem a utilização de protocolos de comunicação como UART, SPI e I2C; controle de motores através de saídas PWM; e pinos de entrada e saída para conexão com elementos digitais.
+
+\subsection{Motor, Encoder e ponte H}
+\label{ssec:motor_encoder_ponte-h}
+Os robôs utilizados, em sua maioria, nas competições de Micromouse, têm como princípio de construção os robôs diferenciais. Este tipo de robô, muito comum no campo da robótica móvel, possui duas rodas conectadas a dois motores lateralmente opostos, os quais podem ser controlados independentemente. O sentido de giro e as velocidades das rodas determinam  o movimento do robô. Na especificação dos motores a serem utilizados em um robô diferencial, os parâmetros mais relevantes são sua velocidade e seu torque. Em casos de robôs providos por baterias, o consumo do motor e a tensão de alimentação são também fatores primordiais na sua escolha.
+
+O controle utilizado em robôs diferenciais se baseia no modelo cinemático do mesmo, o qual inclui parâmetros construtivos dos robôs e, principalmente, as velocidades das rodas. Por isso, é necessário que além do motor, dois componentes estejam presentes na construção de um robô diferencial: um sensor de velocidade acoplado a cada roda, comumente utilizado um encoder para tal função e um \textit{driver} de potência que permita controlar os motores de forma independente, isto é, controlar a velocidade e o sentido de giro.
+
+Deste modo, o motor escolhido foi o \textit{Micro Metal Gearmotor HP 6V with Extended Motor Shaft} do fabricante Pololu. Para compatibilização, este fabricante fornece alguns componentes que podem ser comprados em conjunto com o motor. Assim, optou-se por utilizar o Encoder magnético desenvolvido para ser acoplado ao motor especificado, o qual possui uma revolução de 12 CPR (\textit{Count Per Revolution}) e faixa de operação de tensão entre 2,7 V até 18 V. Além do Encoder, foi utilizado o par de rodas de 32 x 7 mm e os elementos de fixação também disponibilizados pelo mesmo fabricante. As especificações técnicas do motor podem ser visualizadas na Tabela \ref{tab:especificacao_do_motor}
+
+\begin{table}[H]
+	\centering
+	\captionsetup{justification=centering}
+	\caption{Especificações técnicas do motor \textit{Micro Metal Gearmotor HP 6V with Extended Motor Shaft}}
+	\label{tab:especificacao_do_motor}
+	\begin{tabular}{c|c}
+		\hline
+		\textbf{Descrição} & \textbf{Valor} \\ \hline
+		Tensão & 6 V \\ \hline
+		Tamanho & 10 x 12 x 26 mm \\ \hline
+		Peso & 9,5 g \\ \hline
+		Diâmetro do eixo & 3 mm \\ \hline
+		Relação de redução & 29,86:1 \\ \hline
+		Velocidade sem carga & 1000 RPM \\ \hline
+		Corrente sem carga & 0,07 A \\ \hline
+		Corrente com eixo parado & 1,6 A \\ \hline
+		Torque com eixo parado & 0,57 kg.cm \\ \hline
+		Máxima potência de saída1 & 1,5 W \\ \hline
+		Máxima eficiência & 41 \% \\ \hline
+		Velocidade na máxima eficiência & 830 rpm \\ \hline
+		Torque na máxima eficiência & 0,10 kg.cm \\ \hline
+		Corrente na máxima eficiência & 0,36 A \\ \hline
+		Potência de saída na máxima eficiência & 0,89 W \\ \hline
+	\end{tabular}
+\end{table}
+
+Para a ponte H, foi escolhido o módulo TB6612FNG, o qual permite o controle independente de dois motores de corrente contínua operando com tensão entre 4,5 à 13,5 V e com valores de corrente de até 1 A por canal. Não menos importante, este driver possui tensão lógica de operação entre 2,7 à 5,5 V e 100 kHz como máxima frequência de PWM permitida.
+
+\subsection{Emissor e fotorreceptor Infravermelho}
+\label{ssec:emissor_e_fotoreceptor_ir}
+Os robôs da modalidade micromouse têm como funcionalidade essencial a percepção. Para que o sistema que controla  o robô decida qual a melhor opção de movimento, é necessário primeiro que se conheça quais as possibilidades existentes. Quem fornece informações para que essas possibilidades sejam criadas é exatamente a funcionalidade de percepção. O princípio básico dessa funcionalidade  é informar, para cada célula do labirinto, quantas paredes circundam-a e onde estes obstáculos se encontram (Norte, Sul, Leste e Oeste).
+
+De acordo com as regras estabelecidas nas competições reguladas pelo IEEE Região 9, os labirintos devem possuir cores específicas para os elementos que o compõe. Para as paredes do labirinto, a cor utilizada é a branca. A cor branca, quando comparada a cores mais frias, possui um alto valor de reflectância de luz cujo o comprimento de onda esteja dentro da faixa do infravermelho. (PROCURAR EMBASAMENTO). Os sensores mais indicados que se beneficiam dessa característica são aqueles em que há alteração de propriedades física quando exposto a luz infravermelha. Sendo assim, a utilização de LEDs que operam com espectros não visíveis, como o infravermelho, em conjunto com fototransistores, é uma ótima opção para equipar robôs da modalidade micromouse.
+
+Portanto, para instrumentar o projeto em questão, optou-se pela utilização do LED IR333C do fabricante Everlight, o qual opera na região do infravermelho, permitindo a emissão de luz com comprimento de onda de $940 \pm 45$ nm e com potência de dissipação e corrente máxima iguais a 150 mW e 100 mA respectivamente, ambas à temperatura ambiente. Para o receptor infravermelho, especificou-se o fototransistor PT333-3B do mesmo fabricante Everlight. Este sensor opera na faixa de espectro entre 840 a 1100 nm, possuindo maior sensibilidade quando exposto a ondas com comprimento de onda igual a 940 nm. À temperatura ambiente, o PT333-3B pode dissipar até 75 mW e drenar no seu coletor valores de correntes até 20 mA. Ambos componentes possui tensão de operação compatível a utilizada no robô Doogie. Vale ressaltar que estes componentes podem ser substituídos por similares desde que as características física e elétrica mencionadas sejam compatíveis.
+
+\subsection{IMU}
+\label{ssec:imu}
+Os labirintos utilizados nas competições oficiais de Micromouse são formados por células de 18 x 18 cm. A estrutura física do labirinto é igual a uma matriz cuja a dimensão é 16 x 16. Sendo assim, os robôs devem saber em qual célula do labirinto ele se encontra no momento para coletar algumas informações, utilizadas posteriormente para a sua movimentação e para a otimização da solução do labirinto. Uma técnica utilizada para obter a posição do robô dentro do labirinto é a de odometria. Nesta técnica, a partir das informações do encoder e das dimensões das rodas utilizadas, estima-se a distância percorrida em um intervalo de tempo, entretanto, é uma técnica vulnerável a erros acumulativos. Uma forma utilizada para melhorar a precisão deste método é a incorporação de uma IMU (Inertial Measurement Unit), as quais têm seus dados fundidos com os dados da Odometria, resultando em uma medição mais confiável.
+
+Isto posto, o robô Doogie foi equipado com a MPU-6050. Este sensor permite medição de aceleração e velocidade angular nos 3 eixos cartesianos, totalizando 6 graus de liberdade (6DOF), com a medição de cada canal disponibilizada por conversores A/D (Analógico Digital) com resolução de 16 bits. Além disso, a MPU-6050 realiza medição de temperaturas entre -40 à 85 \textdegree C possui interface de comunicação I2C e pode operar com tensões entre 3 à 5 V. Por im, algumas bibliotecas são disponibilizadas pela comunidade \textit{open source} para comunicação com este dispositivo nas linguagens de programação Python e C++.
+
+\subsection{Conversor e Multiplexador Analógico}
+\label{conversor_multiplexador_analogico}
 
 \subsection{Estrutura analítica do protótipo}
 \label{ssec:pbs}
-asdkjfsdalkjf
+Para fornecer uma visão macro dos componentes que compõe o robô, foi elaborado um diagrama hierárquico, denominado PBS (\textit{Prototype Breakdown Structure}). Conforme Figura \ref{fig:pbs}, é possível visualizar a dependência entre os subsistemas e os componentes do robô.
+
+\begin{figure}[H]
+	\centering
+	\caption{\textit{Prototype Breakdown Structure} do Doogie Mouse}
+	\includegraphics[width=1\textwidth]
+	{Figures/prototype_breakdown_structure}
+	\label{fig:pbs}
+	\source{Própria Autoria}
+\end{figure}
 
 \subsection{Lista de componentes}
-\label{ssec:list}
-asfkjdsahfkjs
+\label{ssec:bom}
+\colorbox{yellow}{COLOCAR BOM!}
 
 
 %--------- NEW SECTION ----------------------
-\section{Diagramas mecânicos}
-\label{sec:diagm}
-Para o design do robô, foi utilizado como um ponto de partida o TON-BOT V1.1, plataforma desenvolvida pela Ioton Technology \textcolor{red}{Colocar referência}. Além disso, uma vez que o robô a ser desenvolvido é do tipo micromouse, ele deve ter suas dimensões não superiores a uma seção retangular de 25 x 25 cm \textcolor{red}{Colocar referência}.
+\section{Modelo mecânico}
+\label{sec:modelo_mecanico}
+Para o design do robô, foi utilizado como um ponto de partida o TON-BOT v1.1, plataforma desenvolvida pela Ioton Technology \colorbox{yellow}{Colocar referência}. Além disso, conforme ítem 7 da subseção \ref{sec:requisitos_do_projeto}, ele deve ter suas dimensões não superiores à uma seção retangular de 15 x 15 x 10 cm.
 
-A partir dessas premissas e da análise feita na subseção 3.1, buscou-se um design mecânico simples e de maior leveza. Dessa forma, será utilizado como frame do robô as próprias PCIs (Placa de Circuito Impresso), buscando posicionar suas rodas de forma a mantê-las alinhadas ao centro de massa de todo o conjunto mecânico. Para tanto, uma modelagem em CAD inicialmente foi realizada através de ferramenta Solidworks, buscando iterativamente a melhor disposição de seus elementos físicos (rodas, sensores e demais componentes eletrônicos das placas).  O modelo mecânico final pode ser visualizado na \colorbox{yellow}{Figura  2}.
+A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_do_projeto}, buscou-se um design mecânico simples e de maior leveza. Dessa forma, foi utilizado como \textit{frame} do robô as próprias PCIs (Placa de Circuito Impresso), buscando posicionar suas rodas de forma a mantê-las alinhadas ao centro de massa de todo o conjunto mecânico. Para tanto, uma modelagem em CAD (\textit{Computer-Aided Design}) inicialmente foi realizada através da ferramenta Solidworks, buscando iterativamente a melhor disposição de seus elementos físicos (rodas, sensores e demais componentes eletrônicos das placas).  O modelo mecânico final pode ser visualizado na \colorbox{yellow}{Figura  2}.
 
 \colorbox{yellow}{Colocar imagens 3D do robô}
 
-Da esquerda para direita visualiza-se as placas inferior, superior além do modelo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem.
+Da esquerda para direita visualiza-se as placas inferior, superior e o modelo completo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem.
+
+\colorbox{yellow}{Referenciar desenhos técnicos em anexo}
 
 %--------- NEW SECTION ----------------------
 \section{Modelo esquemático de alimentação e comunicação}
-\label{sec:modesq}
-Com intuito de facilitar a replicação do robô por usuários que queiram utilizá-lo, optou-se pelo uso de \textit{breakout boards}, que são placas eletrônicas pré-montadas. O Doogie possui seis \textit{breakout boards}: dois conversores de tensão DC-DC, modelos MT3608 e U1V10F5, um conversor Analógico/Digital (A/D) ADS1115, uma IMU, um multiplexador analógico 74HC4051  e uma ponte H. Os demais componentes como resistores, transistores, LEDs infravermelho, fototransistores e conectores, são soldados diretamente na Placa de Circuito Impresso (PCI). Esses componentes foram distribuídos nas PCIs superior e inferior do robô, conforme \textcolor{red}{Referenciar figura}. A fim de fornecer energia elétrica para esses componentes, foi especificado uma bateria do tipo Li-Ion modelo 18650 com tensão nominal igual à 3,6 V. A arquitetura elétrica na Figura \ref{fig:arquitetura_eletrica} demonstra como tais componentes estão interligados eletricamente. A propósito de melhor visualização, o referencial de tensão (Ground - GND) foi omitido.
+\label{sec:arquitetura_eletrica_geral}
+O robô é equipado com uma bateria do tipo Li-Ion com 3,6 V de tensão nominal. Para compatibilizar o nível de tensão da bateria com os demais componentes, são utilizados dois conversores DC-DC. O primeiro irá fornecer 6 V exclusivamente para os motores e os LEDs emissores. Já o segundo, é responsável por fornecer 5 V à Raspberry Pi. Entretanto, os componentes que estão conectados a Raspberry Pi são energizados com 3,3 V através de um conversor DC-DC interno a placa do sistema microprocessado.
+
+Com intuito de facilitar a replicação do robô por usuários que queiram utilizá-lo, optou-se pelo uso de \textit{breakout boards}, que são placas eletrônicas pré-montadas. O Doogie possui seis delas: dois conversores de tensão DC-DC, um conversor Analógico/Digital (A/D), uma IMU, um multiplexador analógico e uma ponte H. Os demais componentes como resistores, transistores, LEDs infravermelho, fototransistores e conectores, são soldados diretamente na Placa de Circuito Impresso (PCI).
+
+Os componentes do Doogie se comunicam e são controlados de diversas formas. O conversor A/D e a IMU se comunicam com a Raspberry Pi através de um barramento I2C. Como o conversor A/D especificado possui apenas 4 canais (um para cada sensor infravermelho), optou-se por utilizar um multiplexador analógico para permitir que o valor de tensão da bateria também seja obtido. Este multiplexador é controlado por pinos digitais da unidade de processamento. Por fim, o controle dos motores é realizado por uma ponte H com dois canais independentes. Esse \textit{driver} de potência permite que os sentidos de giros dos motores sejam controlados por pinos digitais da Raspberry Pi enquanto o controle de velocidade seja realizado por PWM (\textit{Pulse Width Modulation}).
+
+A arquitetura elétrica na Figura \ref{fig:arquitetura_eletrica} demonstra como esses componentes descritos estão interligados eletricamente. A propósito de melhor visualização, o referencial de tensão (Ground - GND) foi omitido.
 
 \begin{figure}[H]
-	\label{fig:arquitetura_eletrica}
 	\centering
 	\caption{Representação elétrica do Doogie Mouse.}
 	\includegraphics[width=1\textwidth]
 	{Figures/arquitetura_eletrica}
+	\label{fig:arquitetura_eletrica}
 	\source{Própria Autoria}
 \end{figure}
 
-\subsection{Diagramas elétricos}
-\label{sec:diagramas_eletricos}
-
-
-\subsection{Esquemas eletrônicos}
+\subsection{Esquemáticos eletrônicos}
 \label{ssec:esquematicos_eletronicos}
-\colorbox{yellow}{Referenciar em anexo!}
+Como explicado no tópico \ref{sec:modelo_mecanico} o Doogie Mouse possui duas PCIs que são utilizadas como chassi do robô. Além disso, como também citado na subseção \ref{sec:arquitetura_eletrica_geral}, os componentes eletrônicos e as \textit{breakout boards} são soldados diretamente na PCI. Para elaboração do \textit{layout} de tais placas, foi utilizado o software Autodesk Eagle 9.4.2. O resutado obtido pode ser visualizado na Figura \colorbox{yellow}{Referenciar figuras!}. Já os esquemáticos eletrônicos, que descrevem em maior detalhe as ligações elétricas entre todos os componentes do robô bem como o valor das grandezas físicas dos elementos eletrônicos, podem ser visualizados no Apêndice \colorbox{yellow}{Inserir apêndice!} deste documento.
+
 
 %--------- NEW SECTION ----------------------
 \section{Especificação das funcionalidades}
 \label{sec:especificacao_das_funcionalidades}
 As funcionalidades de um robô descrevem os subsistemas e a lógica de operação dos mesmos. No doogie, existem quatro funcionalidades principais: Localização, Percepção, Navegação e Usabilidade. A descrição de cada funcionalidade é mostrada nos tópicos subsequentes.
 
-\subsection{Fluxo das informações}
-\label{ssec:fluxo_das_informacoes}
+\subsection{Localização}
+\label{ssec:funcionalidade_localizacao}
+O labirinto a ser percorrido pelo micromouse será modelado como uma matriz 16 x 16, sendo dividido em células de largura e comprimento fixos. Para que o robô consiga decidir para onde ele deve ir, primeiro é necessário saber onde ele está.
+
+A estratégia utilizada para a obtenção da posição do doogie utilizará a técnica de odometria, onde, a partir das informações do encoder e das dimensões das rodas utilizadas, estima-se a distância percorrida em um intervalo de tempo. Além disso, para melhorar a precisão da medição, será utilizada uma IMU, capaz de fornecer os dados de aceleração e velocidade angular nos três eixos cartesianos.
+
+Uma vez que o robô consiga calcular a distância percorrida, em qualquer intervalo de tempo, sabendo as dimensões de cada célula e assumindo que seu ponto de partida foi informado, é possível determinar as coordenadas do mesmo dentro do labirinto: linha e coluna. 
+
+\subsubsection{Objetivo}
+Interpretar as informações fornecidas pela odometria e identificar a posição do robô dentro do labirinto.
+
+\subsubsection{Dependências}
+Esse pacote depende da aquisição de dados publicados por:
+\begin{itemize}
+	\item Pacote de driver da IMU;
+	\item Pacote de driver do motor.
+\end{itemize}
+	
+\subsubsection{Premissas}
+Para que essa funcionalidade alcance o seu propósito, assume-se que:
+\begin{itemize}
+	\item O ponto de partida do robô será informado pelo usuário: [linha, coluna];
+	\item O valor de comprimento e largura das células são conhecidos pelo sistema e é diferente de zero;
+	\item O valor de comprimento e largura (em metros) das células será previamente informado;
+	\item O pacote de \textit{driver} da IMU, aliado ao pacote de \textit{driver} do motor, oferecerão a informação de orientação do robô.
+\end{itemize}
+
+\subsubsection{Saídas}
+Essa funcionalidade tem como saídas:
+\begin{itemize}
+	\item Doogie position: localização do robô na matriz, no formato: [linha, coluna].
+\end{itemize}
+
+A Figura \ref{fig:especificacao_funcional_localizacao} demonstra as entradas e saídas da funcionalidade em questão.
 
 \begin{figure}[H]
-	\label{fig:arquitetura_eletrica}
 	\centering
-	\caption{Representação elétrica do Doogie Mouse.}
-	\includegraphics[width=1\textwidth]
-	{Figures/arquitetura_eletrica}
+	\caption{Fluxograma ilustrativo da funcionalidade de Localização.}
+	\includegraphics
+	{Figures/especificacao_funcional_localizacao}
+	\label{fig:especificacao_funcional_localizacao}
 	\source{Própria Autoria}
 \end{figure}
 
-\subsection{Funcionalidade 1}
-\label{ssec:func1}
-asdfsaf
+\subsection{Percepção}
+\label{ssec:funcionalidade_percepcao} 
 
-\subsection{Funcionalidade 2}
-\label{ssec:func2}
-asdfsaf
+\subsubsection{Objetivo}
+
+\subsubsection{Dependências}
+Esse pacote depende da aquisição de dados publicados por:
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsubsection{Premissas}
+Para que essa funcionalidade alcance o seu propósito, assume-se que:
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsubsection{Saídas}
+Essa funcionalidade tem como saídas:
+\begin{itemize}
+	\item 
+\end{itemize}
+
+Na Figura \ref{fig:especificacao_funcional_percepcao} pode ser visualizado quais serão as entrada e a saída da funcionalidade Percepção.
+
+\begin{figure}[H]
+	\centering
+	\caption{Fluxograma ilustrativo da funcionalidade de Percepção.}
+	\includegraphics
+	{Figures/especificacao_funcional_percepcao}
+	\label{fig:especificacao_funcional_percepcao}
+	\source{Própria Autoria}
+\end{figure}
 
 \subsection{Funcionalidade 3}
 \label{ssec:func3}
 asdfsaf
+
+\subsection{Fluxo das informações}
+\label{ssec:fluxo_das_informacoes}
 
 %--------- NEW SECTION ----------------------
 \section{Interface do Usuário}

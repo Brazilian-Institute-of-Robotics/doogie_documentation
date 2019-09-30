@@ -147,6 +147,9 @@
 \usepackage{quoting}
 \usepackage{graphicx}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage{pdfpages}
+\usepackage{caption}
+\usepackage{textcomp}
 \makeindex % cria o indice remissivo
 %Tables and Figures Caption
 \setlength{\LTcapwidth}{\textwidth}
@@ -242,7 +245,7 @@
     \include{Chapters/ChapterThree}
     \include{Chapters/cronograma}
     \include{Chapters/ChapterFour}
-    \include{Chapters/ChapterFive}
+    %\include{Chapters/ChapterFive}
     %\include{Chapters/ChapterSix}
     %\include{Chapters/ChapterSeven}
     %\include{Chapters/ChapterEight}
@@ -252,7 +255,6 @@
    %%----------------------------------------------------------------------------
     %% Include thesis appendices
     %%----------------------------------------------------------------------------
-	\begin{comment}
     \begin{thesisappendices}
         \include{Appendices/qfd}
         \include{Appendices/diagmec}
@@ -260,7 +262,6 @@
         \include{Appendices/wireframes}
         \include{Appendices/logbook}
     \end{thesisappendices}
-    \end{comment}
 
     %%----------------------------------------------------------------------------
     %% Configurar as referencias bibliograficas
