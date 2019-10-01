@@ -111,6 +111,8 @@ Como mencionado no início deste capítulo, uma das etapas da metodologia TheoPr
 
 Por fim, para a proporcionar a equipe de desenvolvimento um guia em relação a aplicação dos esforços para que os requisitos do cliente e técnico fossem atingidos, foi realizado uma confrontação de tais requisitos. Esta análise foi derivada de uma ferramenta comumente utilizada em desenvolvimento de produto, denominada matriz QFD (\textit{Quality Function Deployment}). A confrontação dos requisitos do projeto proposto pode ser visualizada no Apêndice \ref{apend:matriz_QFD} deste documento.
 
+\colorbox{yellow}{Fazer comentários sobre a QFD!}
+
 %--------- NEW SECTION ----------------------
 \section{Descrição do sistema}
 \label{sec:descricao_do_sistema}
@@ -218,6 +220,7 @@ Isto posto, o robô Doogie foi equipado com a MPU-6050. Este sensor permite medi
 
 \subsection{Conversor e Multiplexador Analógico}
 \label{conversor_multiplexador_analogico}
+\colorbox{yellow}{Escrever tópico!}
 
 \subsection{Estrutura analítica do protótipo}
 \label{ssec:pbs}
@@ -240,11 +243,18 @@ Para fornecer uma visão macro dos componentes que compõe o robô, foi elaborad
 %--------- NEW SECTION ----------------------
 \section{Modelo mecânico}
 \label{sec:modelo_mecanico}
-Para o design do robô, foi utilizado como um ponto de partida o TON-BOT v1.1, plataforma desenvolvida pela Ioton Technology \colorbox{yellow}{Colocar referência}. Além disso, conforme ítem 7 da subseção \ref{sec:requisitos_do_projeto}, ele deve ter suas dimensões não superiores à uma seção retangular de 15 x 15 x 10 cm.
+Para o design do robô, foi utilizado como um ponto de partida o TON-BOT v1.1, plataforma desenvolvida pela Ioton Technology \cite{teste}. Além disso, conforme ítem 7 da subseção \ref{sec:requisitos_do_projeto}, ele deve ter suas dimensões não superiores à uma seção retangular de 15 x 15 x 10 cm.
 
-A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_do_projeto}, buscou-se um design mecânico simples e de maior leveza. Dessa forma, foi utilizado como \textit{frame} do robô as próprias PCIs (Placa de Circuito Impresso), buscando posicionar suas rodas de forma a mantê-las alinhadas ao centro de massa de todo o conjunto mecânico. Para tanto, uma modelagem em CAD (\textit{Computer-Aided Design}) inicialmente foi realizada através da ferramenta Solidworks, buscando iterativamente a melhor disposição de seus elementos físicos (rodas, sensores e demais componentes eletrônicos das placas).  O modelo mecânico final pode ser visualizado na \colorbox{yellow}{Figura  2}.
+A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_do_projeto}, buscou-se um design mecânico simples e de maior leveza. Dessa forma, foi utilizado como \textit{frame} do robô as próprias PCIs (Placa de Circuito Impresso), buscando posicionar suas rodas de forma a mantê-las alinhadas ao centro de massa de todo o conjunto mecânico. Para tanto, uma modelagem em CAD (\textit{Computer-Aided Design}) inicialmente foi realizada através da ferramenta Solidworks, buscando iterativamente a melhor disposição de seus elementos físicos (rodas, sensores e demais componentes eletrônicos das placas).  O modelo mecânico final pode ser visualizado na Figura \ref{fig:doogie_boards_3d}.
 
-\colorbox{yellow}{Colocar imagens 3D do robô}
+\begin{figure}[H]
+	\centering
+	\caption{Modelo 3D do Doogie Mouse}
+	\subfigure[Representação 3D da placa inferior]{\label{fig:doogie_bottom__board_3d}\includegraphics[scale=0.15]{doogie_bottom_board_3d.jpeg}}
+	\subfigure[Representação 3D da placa superior]{\label{fig:doogie_top_board_3d}\includegraphics[scale=0.2]{doogie_top_board_3d.jpeg}}
+	\subfigure[Modelo 3D do Doogie Mouse]{\label{fig:doogie_3d}\includegraphics[scale=0.38]{doogie_3d.jpeg}}
+	\label{fig:doogie_boards_3d}
+\end{figure}
 
 Da esquerda para direita visualiza-se as placas inferior, superior e o modelo completo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem.
 
@@ -253,7 +263,7 @@ Da esquerda para direita visualiza-se as placas inferior, superior e o modelo co
 %--------- NEW SECTION ----------------------
 \section{Modelo esquemático de alimentação e comunicação}
 \label{sec:arquitetura_eletrica_geral}
-O robô é equipado com uma bateria do tipo Li-Ion com 3,6 V de tensão nominal. Para compatibilizar o nível de tensão da bateria com os demais componentes, são utilizados dois conversores DC-DC. O primeiro irá fornecer 6 V exclusivamente para os motores e os LEDs emissores. Já o segundo, é responsável por fornecer 5 V à Raspberry Pi. Entretanto, os componentes que estão conectados a Raspberry Pi são energizados com 3,3 V através de um conversor DC-DC interno a placa do sistema microprocessado.
+O Doogie é equipado com uma bateria do tipo Li-Ion com 3,6 V de tensão nominal. Para compatibilizar o nível de tensão da bateria com os demais componentes, são utilizados dois conversores DC-DC. O primeiro irá fornecer 6 V exclusivamente para os motores e os LEDs emissores. Já o segundo, é responsável por fornecer 5 V à Raspberry Pi. Entretanto, os componentes que estão conectados a Raspberry Pi são energizados com 3,3 V através de um conversor DC-DC interno a placa do sistema microprocessado.
 
 Com intuito de facilitar a replicação do robô por usuários que queiram utilizá-lo, optou-se pelo uso de \textit{breakout boards}, que são placas eletrônicas pré-montadas. O Doogie possui seis delas: dois conversores de tensão DC-DC, um conversor Analógico/Digital (A/D), uma IMU, um multiplexador analógico e uma ponte H. Os demais componentes como resistores, transistores, LEDs infravermelho, fototransistores e conectores, são soldados diretamente na Placa de Circuito Impresso (PCI).
 
@@ -272,8 +282,15 @@ A arquitetura elétrica na Figura \ref{fig:arquitetura_eletrica} demonstra como 
 
 \subsection{Esquemáticos eletrônicos}
 \label{ssec:esquematicos_eletronicos}
-Como explicado no tópico \ref{sec:modelo_mecanico} o Doogie Mouse possui duas PCIs que são utilizadas como chassi do robô. Além disso, como também citado na subseção \ref{sec:arquitetura_eletrica_geral}, os componentes eletrônicos e as \textit{breakout boards} são soldados diretamente na PCI. Para elaboração do \textit{layout} de tais placas, foi utilizado o software Autodesk Eagle 9.4.2. O resutado obtido pode ser visualizado na Figura \colorbox{yellow}{Referenciar figuras!}. Já os esquemáticos eletrônicos, que descrevem em maior detalhe as ligações elétricas entre todos os componentes do robô bem como o valor das grandezas físicas dos elementos eletrônicos, podem ser visualizados no Apêndice \colorbox{yellow}{Inserir apêndice!} deste documento.
+Como explicado no tópico \ref{sec:modelo_mecanico} o Doogie Mouse possui duas PCIs que são utilizadas como chassi do robô. Além disso, como também citado na subseção \ref{sec:arquitetura_eletrica_geral}, os componentes eletrônicos e as \textit{breakout boards} são soldados diretamente na PCI. Para elaboração do \textit{layout} de tais placas, foi utilizado o software Autodesk Eagle 9.4.2. O resutado obtido pode ser visualizado na Figura \ref{fig:doogie_boards}. Já os esquemáticos eletrônicos, que descrevem em maior detalhe as ligações elétricas entre todos os componentes do robô bem como o valor das grandezas físicas dos elementos eletrônicos, podem ser visualizados no Apêndice \ref{apend:diagramas_eletronicos} deste documento.
 
+\begin{figure}[H]
+	\centering
+	\caption{\textit{Layout} das PCIs do Doogie Mouse}
+	\subfigure[Placa inferior]{\label{fig:doogie_bottom_board}\includegraphics[scale=0.3]{doogie_bottom_board}}
+	\subfigure[Placa superior]{\label{fig:doogie_top_board}\includegraphics[scale=0.1]{doogie_top_board}}
+	\label{fig:doogie_boards}
+\end{figure}
 
 %--------- NEW SECTION ----------------------
 \section{Especificação das funcionalidades}
@@ -326,25 +343,37 @@ A Figura \ref{fig:especificacao_funcional_localizacao} demonstra as entradas e s
 
 \subsection{Percepção}
 \label{ssec:funcionalidade_percepcao} 
+Para que o micromouse consiga se locomover pelo labirinto, é necessário reconhecer os possíveis caminhos, identificando os obstáculos ao seu redor. Utilizando informações obtidas dos sensores infravermelho, essa funcionalidade conseguirá definir a presença de paredes nas proximidades do robô.
+ 
+Como mencionado anteriormente, o labirinto será modelado como uma matriz $mxn$. Será utilizado um sistema de referência absoluto para o mesmo, definindo onde fica o norte, sul, leste e oeste. Com esse sistema de referência, a medida que o robô vai percorrendo o labirinto, em cada célula serão identificadas a presença de paredes. Dessa forma, essa funcionalidade irá publicar uma matriz, contendo a informação da presença de paredes ao norte, sul, leste e oeste de cada célula.
 
 \subsubsection{Objetivo}
+Identificar a presença de obstáculos ao norte, sul, leste e oeste de cada célula da matriz que representa o labirinto.
 
 \subsubsection{Dependências}
 Esse pacote depende da aquisição de dados publicados por:
 \begin{itemize}
-	\item 
+	\item Pacote de driver dos sensores infravermelho;
+	\item Posição do robô, obtida do pacote de localização. 
 \end{itemize}
 
 \subsubsection{Premissas}
 Para que essa funcionalidade alcance o seu propósito, assume-se que:
 \begin{itemize}
-	\item 
+	\item Os sensores infravermelho estarão conectados à Raspberry Pi e a informação dos mesmos está sendo disponibilizada corretamente;
+	\item O pacote de localização estará funcionando corretamente, publicando as informações de posicionamento do robô.
 \end{itemize}
 
 \subsubsection{Saídas}
-Essa funcionalidade tem como saídas:
+Essa funcionalidade tem como saída:
 \begin{itemize}
-	\item 
+	\item Matriz de dimensão $mxn$ com cada célula contendo valores booleanos para as seguintes variáveis:
+	\begin{itemize}
+		\item \textit{north}: presença de parede ao norte da célula;
+		\item \textit{south}: presença de parede ao sul da célula;
+		\item \textit{east}: presença de parede ao leste da célula;
+		\item \textit{west}: presença de parede ao oeste da célula.
+	\end{itemize}
 \end{itemize}
 
 Na Figura \ref{fig:especificacao_funcional_percepcao} pode ser visualizado quais serão as entrada e a saída da funcionalidade Percepção.
@@ -358,17 +387,95 @@ Na Figura \ref{fig:especificacao_funcional_percepcao} pode ser visualizado quais
 	\source{Própria Autoria}
 \end{figure}
 
-\subsection{Funcionalidade 3}
-\label{ssec:func3}
-asdfsaf
+\subsection{Navegação}
+\label{ssec:funcionalidade_navegacao} 
+Para o robô seguir pelo melhor caminho dentro do labirinto é necessário antes que este seja conhecido por ele. Para isso, em um primeiro momento, será necessário que o micromouse percorra o labirinto somente para o seu conhecimento parcial. Então, será necessário a utilização das informações publicadas pelas funcionalidades de Percepção e Localização. Com base nelas, o sistema de navegação poderá definir os comandos necessários para que o robô execute o próximo movimento dentro do labirinto.
+
+O micromouse será programado com 3 estratégias de solução do labirinto diferentes. Essas podem ser selecionadas pelo usuário através da interface de usuário. Primeiramente, o robô irá executar a funcionalidade de mapeamento com base no algoritmo de força bruta, que consiste em sempre que não houver obstáculos a direita, tomar este caminho, movimentando-se de modo diferente somente se for identificado impossibilidade de seguir pela direita. Após isso, o algoritmo de resolução fará com que o robô chegue ao destino final pelo percurso mais otimizado dentro das possibilidades conhecidas previamente pelo mapeamento do labirinto.
+
+\subsubsection{Objetivo}
+Planejar trajetórias a fim de garantir a correta locomoção do robô, possibilitando primeiramente o mapeamento do labirinto e após isso a chegada ao destino final pelo caminho mais rápido.
+
+\subsubsection{Dependências}
+Esse pacote depende da aquisição de dados publicados por:
+\begin{itemize}
+	\item Matriz de obstáculos;
+	\item Posição do robô: localização do robô na matriz, no formato: [linha, coluna].
+\end{itemize}
+
+\subsubsection{Premissas}
+Para que essa funcionalidade alcance o seu propósito, assume-se que:
+\begin{itemize}
+	\item Correto funcionamento dos pacotes de localização e percepção;
+	\item Os drivers de potências dos motores estarão conectados à Raspberry Pi e o driver ROS e o sistema de controle dos movimentos do robô estejam funcionando corretamente.
+\end{itemize}
+
+\subsubsection{Saída}
+Essa funcionalidade tem como saídas:
+\begin{itemize}
+	\item Comandos de movimentação.
+\end{itemize}
+
+As entradas e saída da funcionalidade Navegação podem ser visualizadas na Figura \ref{fig:especificacao_funcional_navegacao}.
+
+\begin{figure}[H]
+	\centering
+	\caption{Fluxograma ilustrativo da funcionalidade de Navegação.}
+	\includegraphics
+	{Figures/especificacao_funcional_navegacao}
+	\label{fig:especificacao_funcional_navegacao}
+	\source{Própria Autoria}
+\end{figure}
+
+\subsection{Usabilidade}
+\label{ssec:funcionalidade_usabilidade} 
+Para permitir que o usuário interaja com o robô, algumas interfaces são disponibilizadas. A primeira delas consiste do acesso via SSH que perimite o acesso remoto do robô. Usando essa interface é possível acessar a linha de comando do robô para realizar configurações do dispositivo de processamento, compilação de códigos fonte, configuração de parâmetros do robô e execução tanto das rotinas de demonstração do robô quanto das rotinas de resolução de labirintos. Já para que o usuário exerça interação com a plataforma sem a necessidade do acesso remoto, é disponibilizado botões e um buzzer. Esses dois elementos, são utilizados principalmente em competições para facilitar o manuseio do robô.
+ 
+Por fim, quando não utilizado em competições, o mapa do labirinto pode ser visualizado no RViz (visualizador 3D do \textit{framework} ROS) a medida em que ele é percorrido pela plataforma móvel.
+
+\subsubsection{Objetivo}
+Permitir que o usuário acesse e edite configurações, execute comandos e monitore o estado do robô.
+
+\subsubsection{Dependências}
+Esse pacote depende da aquisição de dados publicados por:
+\begin{itemize}
+	\item Driver do Buzzer;
+	\item Driver dos botões;
+	\item Módulo de Localização;
+	\item Módulo de Percepção.
+\end{itemize}
+
+\subsubsection{Premissas}
+Para que essa funcionalidade alcance o seu propósito, assume-se que:
+\begin{itemize}
+	\item Uma rede comunicação Wireless com a plataforma esteja disponível;
+	\item O acesso via SSH seja configurado previamente;
+	\item O Buzzer esteja conectado a Raspberry PI e o ROS driver esteja funcionando corretamente;
+	\item  Os módulos de Percepção e Localização estejam funcionando corretamente.
+\end{itemize}
+
+\subsubsection{Saídas}
+Essa funcionalidade tem como saídas:
+\begin{itemize}
+	\item Alertas sonoros;
+	\item Mapa do labirinto (\textit{Occupancy Grid});
+	\item Status do robô.
+\end{itemize}
+
+As entradas e saída da funcionalidade Navegação podem ser visualizadas na Figura \ref{fig:especificacao_funcional_usabilidade}.
+
+\begin{figure}[H]
+	\centering
+	\caption{Fluxograma ilustrativo da funcionalidade de Usabilidade.}
+	\includegraphics
+	{Figures/especificacao_funcional_usabilidade}
+	\label{fig:especificacao_funcional_usabilidade}
+	\source{Própria Autoria}
+\end{figure}
 
 \subsection{Fluxo das informações}
 \label{ssec:fluxo_das_informacoes}
 
-%--------- NEW SECTION ----------------------
-\section{Interface do Usuário}
-\label{sec:ui}
-asdfadsfsdfs
 
 %--------- NEW SECTION ----------------------
 \section{Simulação do sistema}
