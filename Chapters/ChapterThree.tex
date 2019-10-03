@@ -109,9 +109,7 @@ Como mencionado no início deste capítulo, uma das etapas da metodologia TheoPr
 	\end{enumerate}
 \end{enumerate}
 
-Por fim, para a proporcionar a equipe de desenvolvimento um guia em relação a aplicação dos esforços para que os requisitos do cliente e técnico fossem atingidos, foi realizado uma confrontação de tais requisitos. Esta análise foi derivada de uma ferramenta comumente utilizada em desenvolvimento de produto, denominada matriz QFD (\textit{Quality Function Deployment}). A confrontação dos requisitos do projeto proposto pode ser visualizada no Apêndice \ref{apend:matriz_QFD} deste documento.
-
-\colorbox{yellow}{Fazer comentários sobre a QFD!}
+Por fim, para a proporcionar a equipe de desenvolvimento um guia em relação a aplicação dos esforços para que os requisitos do cliente e técnico fossem atingidos, foi realizado uma confrontação de tais requisitos. Esta análise foi derivada de uma ferramenta comumente utilizada em desenvolvimento de produto, denominada matriz QFD (\textit{Quality Function Deployment}). A confrontação dos requisitos do projeto proposto pode ser visualizada no Apêndice \ref{apend:matriz_QFD}. Observa-se na linha 5 da matriz que o requisito técnico "Permissão ao usuário de acesso remoto do terminal do sistema operacional do robô" possui apenas uma relação forte com o requisito do cliente "Interface intuitiva". Por outro lado, "Dimensões do robô devem ser menores que 15 x 15 x 10 cm", na linha 16, possui 2 relações fracas, uma média e uma forte com diferentes requisitos do cliente. Portanto, essas associações funcionam como direcionadores de esforços e prioridades das tarefas desenvolvidas ao longo do projeto.
 
 %--------- NEW SECTION ----------------------
 \section{Descrição do sistema}
@@ -172,7 +170,7 @@ Portanto, foi escolhido o mini computador Raspberry PI Zero W v1.1: uma placa de
 \label{ssec:motor_encoder_ponte-h}
 Os robôs utilizados, em sua maioria, nas competições de Micromouse, têm como princípio de construção os robôs diferenciais. Este tipo de robô, muito comum no campo da robótica móvel, possui duas rodas conectadas a dois motores lateralmente opostos, os quais podem ser controlados independentemente. O sentido de giro e as velocidades das rodas determinam  o movimento do robô. Na especificação dos motores a serem utilizados em um robô diferencial, os parâmetros mais relevantes são sua velocidade e seu torque. Em casos de robôs providos por baterias, o consumo do motor e a tensão de alimentação são também fatores primordiais na sua escolha.
 
-O controle utilizado em robôs diferenciais se baseia no modelo cinemático do mesmo, o qual inclui parâmetros construtivos dos robôs e, principalmente, as velocidades das rodas. Por isso, é necessário que além do motor, dois componentes estejam presentes na construção de um robô diferencial: um sensor de velocidade acoplado a cada roda, comumente utilizado um encoder para tal função e um \textit{driver} de potência que permita controlar os motores de forma independente, isto é, controlar a velocidade e o sentido de giro.
+O controle utilizado em robôs diferenciais se baseia no modelo cinemático do mesmo, o qual inclui parâmetros construtivos dos robôs e, principalmente, as velocidades das rodas. Por isso, é necessário que além do motor, dois componentes estejam presentes na construção de um robô diferencial: um sensor de velocidade acoplado a cada roda, comumente utilizado um encoder para tal função e um \textit{driver} de potência que permita controlar os motores de forma independente, isto é, controlar a velocidade e o sentido de giro de cada atuador.
 
 Deste modo, o motor escolhido foi o \textit{Micro Metal Gearmotor HP 6V with Extended Motor Shaft} do fabricante Pololu. Para compatibilização, este fabricante fornece alguns componentes que podem ser comprados em conjunto com o motor. Assim, optou-se por utilizar o Encoder magnético desenvolvido para ser acoplado ao motor especificado, o qual possui uma revolução de 12 CPR (\textit{Count Per Revolution}) e faixa de operação de tensão entre 2,7 V até 18 V. Além do Encoder, foi utilizado o par de rodas de 32 x 7 mm e os elementos de fixação também disponibilizados pelo mesmo fabricante. As especificações técnicas do motor podem ser visualizadas na Tabela \ref{tab:especificacao_do_motor}
 
@@ -218,13 +216,17 @@ Os labirintos utilizados nas competições oficiais de Micromouse são formados 
 
 Isto posto, o robô Doogie foi equipado com a MPU-6050. Este sensor permite medição de aceleração e velocidade angular nos 3 eixos cartesianos, totalizando 6 graus de liberdade (6DOF), com a medição de cada canal disponibilizada por conversores A/D (Analógico Digital) com resolução de 16 bits. Além disso, a MPU-6050 realiza medição de temperaturas entre -40 à 85 \textdegree C possui interface de comunicação I2C e pode operar com tensões entre 3 à 5 V. Por im, algumas bibliotecas são disponibilizadas pela comunidade \textit{open source} para comunicação com este dispositivo nas linguagens de programação Python e C++.
 
-\subsection{Conversor e Multiplexador Analógico}
+\subsection{Conversor Analógico/Digital e Multiplexador Analógico}
 \label{conversor_multiplexador_analogico}
-\colorbox{yellow}{Escrever tópico!}
+Como descrito no tópico \ref{ssec:raspiberry_pi_zero}, a Raspberry Pi Zero W v1.1 possui 40 pinos digitais. Entretanto, nenhum deles é habilitado para fazer conversão A/D (Analógica/Digital). Como os sensores infravermelho especificados (ver tópico \ref{ssec:emissor_e_fotoreceptor_ir}) fornecem valores analógicos de tensão em sua saída, é necessário o uso de um conversor externo. Além disso, robôs autônomos necessitam de verificação periódica da autonomia de sua bateria. Essa informação é também obtida de forma analógica. Logo, torna-se necessário que o Doogie Mouse seja equipado com um conversor A/D externo.
+
+Mediante o exposto, foi selecionado o conversor ADS1115. Esse conversor funciona com tensões entre 2 à 5,5 V, e a tensão máxima nos pinos analógicos é igual à tensão de alimentação. Os pinos analógicos podem ser programados como 4 pinos independentes, ou dois canais diferenciais. Ademais, a interface de comunicação utilizada pelo ADS1115 é I2C.
+
+O ADS1115 possui apenas 4 canais, entretanto, são necessários 5 canais: 4 para os sensores infravermelho e um para bateria. Para solucionar a carência de canais, foi especificado o multiplexador analógico 74HC4051. Esse módulo pode multiplexar até 8 canais, permitindo tensões de 2 à 10 V e frequência de até 170 MHz.
 
 \subsection{Estrutura analítica do protótipo}
 \label{ssec:pbs}
-Para fornecer uma visão macro dos componentes que compõe o robô, foi elaborado um diagrama hierárquico, denominado PBS (\textit{Prototype Breakdown Structure}). Conforme Figura \ref{fig:pbs}, é possível visualizar a dependência entre os subsistemas e os componentes do robô.
+Para fornecer uma visão macro dos componentes que compõe o robô, foi elaborado um diagrama hierárquico, denominado PBS (\textit{Prototype Breakdown Structure}). Conforme Figura \ref{fig:pbs}, é possível visualizar a dependência entre os subsistemas e os componentes do robô. Além disso, diferente da Figura \ref{fig:arquitetura_geral}, esse diagrama oferece maior detalhamento dos elementos que estão relacionados a cada subsistema do robô.
 
 \begin{figure}[H]
 	\centering
@@ -295,7 +297,7 @@ Como explicado no tópico \ref{sec:modelo_mecanico} o Doogie Mouse possui duas P
 %--------- NEW SECTION ----------------------
 \section{Especificação das funcionalidades}
 \label{sec:especificacao_das_funcionalidades}
-As funcionalidades de um robô descrevem os subsistemas e a lógica de operação dos mesmos. No doogie, existem quatro funcionalidades principais: Localização, Percepção, Navegação e Usabilidade. A descrição de cada funcionalidade é mostrada nos tópicos subsequentes.
+As funcionalidades de um robô descrevem os subsistemas e a lógica de operação dos mesmos. No Doogie, existem quatro funcionalidades principais: Localização, Percepção, Navegação e Usabilidade. A descrição de cada funcionalidade é mostrada nos tópicos subsequentes.
 
 \subsection{Localização}
 \label{ssec:funcionalidade_localizacao}
@@ -335,7 +337,7 @@ A Figura \ref{fig:especificacao_funcional_localizacao} demonstra as entradas e s
 \begin{figure}[H]
 	\centering
 	\caption{Fluxograma ilustrativo da funcionalidade de Localização.}
-	\includegraphics
+	\includegraphics[width=1\textwidth]
 	{Figures/especificacao_funcional_localizacao}
 	\label{fig:especificacao_funcional_localizacao}
 	\source{Própria Autoria}
@@ -381,7 +383,7 @@ Na Figura \ref{fig:especificacao_funcional_percepcao} pode ser visualizado quais
 \begin{figure}[H]
 	\centering
 	\caption{Fluxograma ilustrativo da funcionalidade de Percepção.}
-	\includegraphics
+	\includegraphics[width=1\textwidth]
 	{Figures/especificacao_funcional_percepcao}
 	\label{fig:especificacao_funcional_percepcao}
 	\source{Própria Autoria}
@@ -421,7 +423,7 @@ As entradas e saída da funcionalidade Navegação podem ser visualizadas na Fig
 \begin{figure}[H]
 	\centering
 	\caption{Fluxograma ilustrativo da funcionalidade de Navegação.}
-	\includegraphics
+	\includegraphics[width=1\textwidth]
 	{Figures/especificacao_funcional_navegacao}
 	\label{fig:especificacao_funcional_navegacao}
 	\source{Própria Autoria}
@@ -467,7 +469,7 @@ As entradas e saída da funcionalidade Navegação podem ser visualizadas na Fig
 \begin{figure}[H]
 	\centering
 	\caption{Fluxograma ilustrativo da funcionalidade de Usabilidade.}
-	\includegraphics
+	\includegraphics[width=1\textwidth]
 	{Figures/especificacao_funcional_usabilidade}
 	\label{fig:especificacao_funcional_usabilidade}
 	\source{Própria Autoria}
