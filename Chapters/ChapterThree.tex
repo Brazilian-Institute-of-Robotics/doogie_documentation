@@ -297,7 +297,17 @@ Como explicado no tópico \ref{sec:modelo_mecanico} o Doogie Mouse possui duas P
 %--------- NEW SECTION ----------------------
 \section{Especificação das funcionalidades}
 \label{sec:especificacao_das_funcionalidades}
-As funcionalidades de um robô descrevem os subsistemas e a lógica de operação dos mesmos. No Doogie, existem quatro funcionalidades principais: Localização, Percepção, Navegação e Usabilidade. A descrição de cada funcionalidade é mostrada nos tópicos subsequentes.
+As funcionalidades de um robô descrevem os subsistemas e a lógica de operação dos mesmos. No Doogie, existem quatro funcionalidades principais: Localização, Percepção, Navegação e Usabilidade. O fluxo de informações de tais funcionalidades pode ser visualizado na Figura \ref{fig:especificacao_funcional_geral}. Observa-se nesse fluxograma como cada funcionalidade está interligada com as demais e quais informações são trafegadas entre elas. Para melhor entendimento, é descrito nos tópicos sequentes cada funcionalidade.
+
+\begin{figure}[H]
+	\centering
+	\captionsetup{justification=centering}
+	\caption{Fluxo de informações das funcionalidades Localização, Percepção, Navegação e Usabilidade.}
+	\includegraphics[width=1\textwidth]
+	{Figures/especificacao_funcional_geral}
+	\label{fig:especificacao_funcional_geral}
+	\source{Própria Autoria}
+\end{figure}
 
 \subsection{Localização}
 \label{ssec:funcionalidade_localizacao}
@@ -474,9 +484,6 @@ As entradas e saída da funcionalidade Navegação podem ser visualizadas na Fig
 	\label{fig:especificacao_funcional_usabilidade}
 	\source{Própria Autoria}
 \end{figure}
-
-\subsection{Fluxo das informações}
-\label{ssec:fluxo_das_informacoes}
 
 
 %--------- NEW SECTION ----------------------
