@@ -9,8 +9,7 @@
 \def\InstituicaoMembro#1#2{\parbox[b]{1in}{\smash{#1}\vskip12pt}
 \hfill \parbox[t]{3in}{\shortstack{\vrule width 3in \\\small#2}}}
 
-\def\signaturepage{%
-
+\def \signaturepage{
     \begin{spacing}{1.5}
         \begin{center}
         {\LARGE \theuniversity} \\
@@ -35,32 +34,34 @@
     \def\beginskip{\vskip0.3875in plus 0.2in minus 0.1in}
 
     \beginskip
-    \signature{Orientador:}{Prof. Dr. \theadvisor} \\
+    \signature{Orientador:}{Prof. Me. Marco Antonio dos Reis} \\
     \InstituicaoMembro{}{\theuniversity} \\
 
     \sigskip
     \beginskip
-    \signature{Membro externo da Banca:}{Prof. Dr. Nome completo} \\
-    \InstituicaoMembro{}{Institui\c{c}\~ao do membro da banca} \\
+    \signature{Orientador TheoPrax:}{Prof. MBA João Lucas da Hora} \\
+    \InstituicaoMembro{}{\theuniversity} \\
 
     \sigskip
     \beginskip
-    \signature{Membro externo da Banca:}{Prof. Dr. Nome completo} \\
-    \InstituicaoMembro{}{Institui\c{c}\~ao do membro da banca} \\
+    \signature{Coordenador de curso: }{Prof. Dr. Guilherme Oliveira de Souza} \\
+    \InstituicaoMembro{}{\theuniversity} \\
 
-    %\sigskip
-    %\beginskip
-   % \signature{Membro interno da Banca:}{Prof. Dr. Nome completo} \\
-   % \InstituicaoMembro{}{Institui��o do membro da banca} \\
+    \sigskip
+    \beginskip
+   \signature{Coordenador de curso: }{Prof. Me. Taniel Silva Franklin} \\
+   \InstituicaoMembro{}{\theuniversity}
+   
+    \sigskip
+    \beginskip
+    \signature{Convidado: }{Prof. Dr. Oberdan da Rocha Pinheiro} \\
+    \InstituicaoMembro{}{\theuniversity}
 
     \vfill
     \newpage
     \setcounter{page}{3}
 }
 %*********************************************************************
-
-
 \signaturepage
-
 
 \end{folhaassinaturas}

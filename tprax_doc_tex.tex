@@ -212,7 +212,7 @@
     \include{Others/FolhaRosto}
     %\include{Others/NotaEstilo}
     \include{Others/FolhaAssinaturas}
-    \include{Others/dedicatoria}
+    %\include{Others/dedicatoria}
     \include{Others/agradecimentos}
 
 
@@ -220,8 +220,8 @@
     %% Resumo/abstract, sumário e siglas
     %%----------------------------------------------------------------------------
     \begin{romanpagenumbers}
-        %\include{Others/resumo}
-        %\include{Others/abstract}
+        \include{Others/resumo}
+        \include{Others/abstract}
         % Make list of contents, tables and figures
        \thesiscontents
         %Include other required section
@@ -238,12 +238,7 @@
     \include{Chapters/ChapterTwo}
     \include{Chapters/ChapterThree}
     \include{Chapters/ChapterFour}
-    %\include{Chapters/ChapterFive}
-    %\include{Chapters/ChapterSix}
-    %\include{Chapters/ChapterSeven}
-    %\include{Chapters/ChapterEight}
     \include{Chapters/ChapterConsideracoesfinais}
-    % include more chapters ...
 
    %%----------------------------------------------------------------------------
     %% Include thesis appendices
@@ -253,8 +248,6 @@
         \include{Appendices/diagmec}
         \include{Appendices/esquematicos_eletronicos}
         \include{Appendices/BOM}
-        \include{Appendices/wireframes}
-        \include{Appendices/logbook}
     \end{thesisappendices}
 
     %%----------------------------------------------------------------------------
@@ -266,14 +259,11 @@
     %\bibliographystyle{abnt-alf}
 
 
-    \bibliography{References/referencias}
+    \bibliography{References/referencias.bib}
 
     %%----------------------------------------------------------------------------
     %% Finishing
     %%----------------------------------------------------------------------------
 
-    \include{Others/ultimafolha}
+    %\include{Others/ultimafolha}
 \end{document}
-%%%-------------------------------------------------------------------------------
-%%% Here we finished with your thesis formating. Good luck with the contents
-%%%-------------------------------------------------------------------------------

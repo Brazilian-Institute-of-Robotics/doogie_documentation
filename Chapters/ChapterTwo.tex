@@ -1,37 +1,6 @@
 \chapter{Fundamentação Teórica}
 \label{chap:fundteor}
 
-\begin{flushright}
-
-   \begin{list}{}{
-      \setlength{\leftmargin}{4.5cm}
-      \setlength{\rightmargin}{0cm}
-      \setlength{\labelwidth}{0pt}
-      \setlength{\labelsep}{\leftmargin}}
-      \item Quanto maior for a rapidez de transformação de uma
-      sociedade, mais temporárias são as necessidades
-      individuais. Essas flutuaçõess tornam ainda mais acelerado
-      o senso de turbilh da sociedade.
-
-      \begin{list}{}{
-      \setlength{\leftmargin}{0cm}
-      \setlength{\rightmargin}{0cm}
-      \setlength{\labelwidth}{0pt}
-      \setlength{\labelsep}{\leftmargin}}
-      \item (Alvin Toffler)
-      \end{list}
-   \end{list}
-\end{flushright}
-
-\begin{flushright}
-  Quanto maior for a rapidez de transformação de uma \\
-  sociedade, mais temporárias são as necessidades \\
-  individuais. Essas flutuações tornam ainda mais \\
-  acelerado o senso de turbilhão da sociedade. \\
-  \ \\
-  (Alvin Toffler)
-\end{flushright}
-
 %--------- NEW SECTION ----------------------
 \section{Micromouse}
 \label{sec:Micromouse}
@@ -51,7 +20,7 @@
 \hspace{0.5cm} Atualmente, a \textit{IEEE Micromouse Competition} adota uma configuração que consiste em um labirinto de 16 x 16 blocos. Cada bloco possui 18 x 18 cm. As paredes, que possuem 5 cm de altura, são pintadas de branco de modo a ser reflexiva à luz infravermelha. O chão, por outro lado, é pintado de preto, para que não seja reflexivo. Além disso, os competidores sabem previamente que o \textit{micromouse} tem seu ponto de partida localizado em um dos cantos do labirintos, devendo alcançar o seu centro para terminar o desafio. Com base nisso, os participantes devem usar de algorítimos de busca para explorar o labirinto e encontrar a rota mais otimizada para o ponto de chegada estabelecido pela competição. O robô por sua vez, não pode ter suas dimensões maiores que uma seção de 25 x 25 cm. As regras completas estão dispostas como anexo no final do documento.
 
 %--------- NEW SECTION ----------------------
-\section{Robotics Frameworks}
+\section{\textit{Frameworks} de robótica}
 \label{sec:robotic_frameworks}
 A palavra robô foi utilizada pela primeira vez em 1921 em uma peça teatral pelo dramaturgo checoslovaco Karel Capek. A origem vem da palavra checa robota que significa “trabalho forçado” e tornou-se popular através de filmes como Metrópolis (1926). O dia em que a terra parou (1951) e Planeta proibido (1956). Apesar da inserção do termo robô ser datada de 1921, registros históricos da antiga civilização grega já propunha o desenvolvimento dos primeiros modelos de robôs. Esses tinham aspecto visual semelhante ao de um humano e ou animal, e utilizavam sistemas de pesos e bombas pneumáticas, porém não tinham nenhuma funcionalidade prática, social, e como a época ainda não existia sistemas de produção complexos, esse robôs também não tinham função voltada à produtividade. Era um mecanismo de simples movimentação e sem nenhuma finalidade real. Algum tempo depois, cientistas árabes se dedicaram em fomentar a idéia e pesquisar sobre atribuir possíveis funções a esses robôs, com objetivo de facilitar as necessidades humanas. Esse pensamento revolucionário foi um grande marco na história da robótica. Documentos históricos datados de 1495 revelam que Leonardo Da Vinci ao desenvolver uma grande investigação sobre a anatomia humana, permitiu o desenvolvimento de exemplares de bonecos que obtinham articulações mecânicas, sendo capazes de mover as mãos, cabeça, olhos e pernas, conseguiam até realizar algumas ações mais simples, tal como, escrever ou tocar alguns instrumentos.
 
@@ -95,7 +64,16 @@ Por ser uma plataforma com código aberto, o ROS possui uma ampla documentação
 
 O framework ROS foi projetado para atender a um conjunto específico de desafios encontrados durante o desenvolvimento de robôs. O ROS é muito mais do que apenas um serviço oferecido a robôs móveis e de manipulação [Alexander et al. 2012].
 
-O ROS possui uma estrutura distribuída de processos, a qual apoia a reutilização de código em robótica. Suas bibliotecas possuem funcionalidade para diversas linguagens de programação, foi projetado com um idioma neutro, suportando C, C++, Python, LISP e Octave, apesar de que C++ e Python são as duas linguagens principais e com maior número de pacotes disponíveis.
+O ROS possui uma estrutura distribuída de processos, a qual apoia a reutilização de código em robótica. Suas bibliotecas possuem funcionalidade para diversas linguagens de programação, foi projetado com um idioma neutro, suportando C, C++, Python, LISP e Octave, apesar de que C++ e Python são as duas linguagens principais e com maior número de pacotes disponíveis. Além disso, O ROS organiza seu conjunto de software em \textit{packages} ou pacotes em tradução livre. De acordo com o guia de utilização do ROS,
+
+\begin{quoting}[rightmargin=0cm,leftmargin=4cm]
+	\begin{singlespace}
+		{\footnotesize
+			[...]um pacote pode conter nós ROS, uma biblioteca independente de ROS, um conjunto de dados, arquivos de configuração, um software de terceiros ou qualquer outra coisa que constitua logicamente um módulo útil. O objetivo desses pacotes é fornecer essa funcionalidade útil de maneira fácil de consumir, para que o software possa ser facilmente reutilizado. Em geral, os pacotes ROS seguem o princípio "Goldilocks": funcionalidade suficiente para ser útil, mas não muito que o pacote seja pesado e difícil de usar em outro software. \cite[tradução nossa]{rospackages}
+		}
+	\end{singlespace}
+\end{quoting}
+
 
 A comunicação do ROS é baseada em eventos, utiliza processos para publicar/subscrever nós a tópicos. Conceitualiza-se que os nós publicam e subscrevem os tópicos, permitindo assim uma comunicação entre nós, onde recebem mensagens, apenas os que estiverem subscritos ao tópico.
 
@@ -111,7 +89,6 @@ A Figura \ref{fig:estrutura_comunicacao_ros} demonstra uma simples publicação 
 \end{figure}
 
 Os nós correspondem à execução de um programa e são criados no sistema, geralmente, via console e sempre com o servidor mestre ROS (roscore) iniciado. O servidor roscore é responsável por inicializar várias dependências, bibliotecas do ROS e o sistema de comunicação entre nós.
-
 %--------- NEW SECTION ----------------------
 \section{Estudo do Estado da Arte}
 \label{sec:sota}
