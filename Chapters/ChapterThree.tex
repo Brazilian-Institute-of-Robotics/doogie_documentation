@@ -130,7 +130,7 @@ Para a interação com o usuário, o robô possuirá um Buzzer e dois \textit{Pu
 \label{ssec:interface_de_usuario}
 O acesso à Raspberry Pi Zero é feito via SSH permitindo maior acessibilidade e segurança nos dados. O mesmo é feito remotamente através de conexão \textit{wireless}, possibilitando o acesso a linha de comandos da Raspberry bem como seu sistema de arquivos, de um outro computador.
  
-O robô tem uma interface de interação com o usuário através de dois \textit{Push Buttons} e um \textit{Buzzer}. Os botões são utilizados para execução de tarefas tais como: \textcolor{red}{Listar as tarefas executadas pelos botões}. O acesso a tais dispositivos é feito através do driver do periférico GPIO (\textit{General Purpose Input/Output}) que oferece APIs (\textit{Application Programming Interface}) nas linguagens de programação Pyhton e C++.
+O robô tem uma interface de interação com o usuário através de dois \textit{Push Buttons} e um \textit{Buzzer}. Os botões são utilizados para execução de tarefas tais como iniciar  e parar a execução da rotina principal do robô. O acesso a tais dispositivos é feito através do driver do periférico GPIO (\textit{General Purpose Input/Output}) que oferece APIs (\textit{Application Programming Interface}) nas linguagens de programação Pyhton e C++.
 
 \subsection{Interface de Hardware}
 \label{ssec:interface_de_hardware}
@@ -140,7 +140,7 @@ Os sensores infravermelho são responsáveis por identificar obstáculos no traj
 
 \subsection{Controle do sistema}
 \label{ssec:controle_do_sistema}
-A Raspberry Pi Zero é um mini computador de baixo custo e fácil acesso, capaz de reunir diversas funcionalidades em uma única placa de tamanho reduzido.  No mesmo, está instalado o sistema operacional Raspbian Buster, possibilitando a utilização do framework ROS, responsável por gerenciar os subsistemas do robô.
+A Raspberry Pi Zero é um mini computador de baixo custo e fácil acesso, capaz de reunir diversas funcionalidades em uma única placa de tamanho reduzido.  No mesmo, está instalado o sistema operacional Raspbian Jessie, possibilitando a utilização do framework ROS, responsável por gerenciar os subsistemas do robô.
 
 Os principais subsistemas desenvolvidos para o Doogie foram:
 \begin{itemize}
@@ -162,7 +162,7 @@ O robô Doogie é capaz de realizar de forma autônoma a procura do melhor camin
 
 \subsection{Raspiberry Pi Zero W v1.1}
 \label{ssec:raspiberry_pi_zero}
-Para que o robô realize a resolução do labirinto, é necessário que ele contenha uma unidade de processamento central. Este dispositivo tem como objetivo, a partir dos dados dos sensores e de um algoritmo de resolução de labirintos, inferir qual o melhor conjunto de movimentos que permita o robô alcançar o ponto de chegada do labirinto no menor tempo possível. Como o modelo de robô Micromouse possui um baixo nível de abstração de \textit{hardware}, é necessário também que a unidade de processamento disponibilize periféricos necessários para a comunicação com os componentes do sistema. Não menos importante, a unidade deve possuir compatibilidade com o \textit{framework} ROS, middleware escolhido para o gerenciamento dos subsistemas que compõem o robô.
+Para que o robô realize a resolução do labirinto, é necessário que ele contenha uma unidade de processamento central. Este dispositivo tem como objetivo, a partir dos dados dos sensores e de um algoritmo de resolução de labirintos, inferir qual o melhor conjunto de movimentos que permita o robô alcançar o ponto de chegada do labirinto no menor tempo possível. Como o modelo de robô Micromouse possui um baixo nível de abstração de \textit{hardware}, é necessário também que a unidade de processamento disponibilize periféricos necessários para a comunicação com os componentes do sistema. Não menos importante, a unidade deve possuir compatibilidade com o \textit{framework} ROS, \textit{middleware }escolhido para o gerenciamento dos subsistemas que compõem o robô.
 
 Portanto, foi escolhido o mini computador Raspberry PI Zero W v1.1: uma placa de baixo custo e com tamanho reduzido (apenas 6,5 x 3 cm), ótimo para projetos compactos como o robô Doogie. Esta placa é equipada com um processador \textit{single-core} Broadcom BCM2835 que opera na velocidade de 1 GHz aliado a uma memória RAM de 512 MB, além de um \textit{slot} para cartão microSD. A Raspberry PI Zero W v1.1 conta com \textit{WiFi} e \textit{Bluetooth} integrados, conector de vídeo mini HDMI e 2 portas USB para conectividade. Além disso, a placa permite que distribuições Linux como o Raspbian e Ubuntu sejam instaladas, as quais são compatíveis com \textit{framework} ROS. A Raspberry Pi oferece também APIs (\textit{Application Programming Interface}) nas linguagens de programação Pyhton e C++ para controle do seu periférico GPIO de 40 pinos. Essas interfaces permitem a utilização de protocolos de comunicação como UART, SPI e I2C; controle de motores através de saídas PWM; e pinos de entrada e saída para conexão com elementos digitais.
 
@@ -170,9 +170,9 @@ Portanto, foi escolhido o mini computador Raspberry PI Zero W v1.1: uma placa de
 \label{ssec:motor_encoder_ponte-h}
 Os robôs utilizados, em sua maioria, nas competições de Micromouse, têm como princípio de construção os robôs diferenciais. Este tipo de robô, muito comum no campo da robótica móvel, possui duas rodas conectadas a dois motores lateralmente opostos, os quais podem ser controlados independentemente. O sentido de giro e as velocidades das rodas determinam  o movimento do robô. Na especificação dos motores a serem utilizados em um robô diferencial, os parâmetros mais relevantes são sua velocidade e seu torque. Em casos de robôs providos por baterias, o consumo do motor e a tensão de alimentação são também fatores primordiais na sua escolha.
 
-O controle utilizado em robôs diferenciais se baseia no modelo cinemático do mesmo, o qual inclui parâmetros construtivos dos robôs e, principalmente, as velocidades das rodas. Por isso, é necessário que além do motor, dois componentes estejam presentes na construção de um robô diferencial: um sensor de velocidade acoplado a cada roda, comumente utilizado um encoder para tal função e um \textit{driver} de potência que permita controlar os motores de forma independente, isto é, controlar a velocidade e o sentido de giro de cada atuador.
+O controle utilizado em robôs diferenciais se baseia no modelo cinemático do mesmo, o qual inclui parâmetros construtivos dos robôs e, principalmente, as velocidades das rodas. Por isso, é necessário que além do motor, dois componentes estejam presentes na construção de um robô diferencial: um sensor de velocidade acoplado a cada roda, comumente utilizado um Encoder para tal função e um \textit{driver} de potência que permita controlar os motores de forma independente, isto é, controlar a velocidade e o sentido de giro de cada atuador.
 
-Deste modo, o motor escolhido foi o \textit{Micro Metal Gearmotor HP 6V with Extended Motor Shaft} do fabricante Pololu. Para compatibilização, este fabricante fornece alguns componentes que podem ser comprados em conjunto com o motor. Assim, optou-se por utilizar o Encoder magnético desenvolvido para ser acoplado ao motor especificado, o qual possui uma revolução de 12 CPR (\textit{Count Per Revolution}) e faixa de operação de tensão entre 2,7 V até 18 V. Além do Encoder, foi utilizado o par de rodas de 32 x 7 mm e os elementos de fixação também disponibilizados pelo mesmo fabricante. As especificações técnicas do motor podem ser visualizadas na Tabela \ref{tab:especificacao_do_motor}
+Deste modo, o motor escolhido foi o \textit{Micro Metal Gearmotor HP 6V with Extended Motor Shaft} do fabricante Pololu. Para compatibilização, este fabricante fornece alguns componentes que podem ser comprados em conjunto com o motor. Assim, optou-se por utilizar o Encoder magnético desenvolvido para ser acoplado ao motor especificado, o qual possui uma resolução de 12 CPR (\textit{Count Per Revolution}) e faixa de operação de tensão entre 2,7 V até 18 V. Além do Encoder, foi utilizado o par de rodas de 32 x 7 mm e os elementos de fixação também disponibilizados pelo mesmo fabricante. As especificações técnicas do motor podem ser visualizadas na Tabela \ref{tab:especificacao_do_motor}
 
 \begin{table}[H]
 	\centering
@@ -212,7 +212,7 @@ Portanto, para instrumentar o projeto em questão, optou-se pela utilização do
 
 \subsection{IMU}
 \label{ssec:imu}
-Os labirintos utilizados nas competições oficiais de Micromouse são formados por células de 18 x 18 cm. A estrutura física do labirinto é igual a uma matriz cuja a dimensão é 16 x 16. Sendo assim, os robôs devem saber em qual célula do labirinto ele se encontra no momento para coletar algumas informações, utilizadas posteriormente para a sua movimentação e para a otimização da solução do labirinto. Uma técnica utilizada para obter a posição do robô dentro do labirinto é a de odometria. Nesta técnica, a partir das informações do encoder e das dimensões das rodas utilizadas, estima-se a distância percorrida em um intervalo de tempo, entretanto, é uma técnica vulnerável a erros acumulativos. Uma forma utilizada para melhorar a precisão deste método é a incorporação de uma IMU (Inertial Measurement Unit), as quais têm seus dados fundidos com os dados da Odometria, resultando em uma medição mais confiável.
+Os labirintos utilizados nas competições oficiais de Micromouse são formados por células de 18 x 18 cm. A estrutura física do labirinto é igual a uma matriz cuja a dimensão é 16 x 16. Sendo assim, os robôs devem saber em qual célula do labirinto ele se encontra no momento para coletar algumas informações, utilizadas posteriormente para a sua movimentação e para a otimização da solução do labirinto. Uma técnica utilizada para obter a posição do robô dentro do labirinto é a de Odometria. Nesta estratégia, a partir das informações do Encoder e das dimensões das rodas utilizadas, estima-se a distância percorrida em um intervalo de tempo, entretanto, é uma técnica vulnerável a erros acumulativos. Uma forma utilizada para melhorar a precisão deste método é a incorporação de uma IMU (\textit{Inertial Measurement Unit}), as quais têm seus dados fundidos com os dados da Odometria, resultando em uma medição mais confiável.
 
 Isto posto, o robô Doogie foi equipado com a MPU-6050. Este sensor permite medição de aceleração e velocidade angular nos 3 eixos cartesianos, totalizando 6 graus de liberdade (6DOF), com a medição de cada canal disponibilizada por conversores A/D (Analógico Digital) com resolução de 16 bits. Além disso, a MPU-6050 realiza medição de temperaturas entre -40 à 85 \textdegree C possui interface de comunicação I2C e pode operar com tensões entre 3 à 5 V. Por im, algumas bibliotecas são disponibilizadas pela comunidade \textit{open source} para comunicação com este dispositivo nas linguagens de programação Python e C++.
 
@@ -292,12 +292,13 @@ Como explicado no tópico \ref{sec:modelo_mecanico} o Doogie Mouse possui duas P
 	\subfigure[Placa inferior]{\label{fig:doogie_bottom_board}\includegraphics[scale=0.3]{doogie_bottom_board}}
 	\subfigure[Placa superior]{\label{fig:doogie_top_board}\includegraphics[scale=0.1]{doogie_top_board}}
 	\label{fig:doogie_boards}
+	\source{Própria Autoria}
 \end{figure}
 
 %--------- NEW SECTION ----------------------
 \section{Especificação das funcionalidades}
 \label{sec:especificacao_das_funcionalidades}
-As funcionalidades de um robô descrevem os subsistemas e a lógica de operação dos mesmos. No Doogie, existem quatro funcionalidades principais: Localização, Percepção, Navegação e Usabilidade. O fluxo de informações de tais funcionalidades pode ser visualizado na Figura \ref{fig:especificacao_funcional_geral}. Observa-se nesse fluxograma como cada funcionalidade está interligada com as demais e quais informações são trafegadas entre elas. Para melhor entendimento, é descrito nos tópicos sequentes cada funcionalidade.
+As funcionalidades de um robô descrevem os subsistemas e a lógica de operação dos mesmos. No Doogie, existem quatro funcionalidades principais: Localização, Percepção, Navegação e Usabilidade. O fluxo de informações de tais funcionalidades pode ser visualizado na Figura \ref{fig:especificacao_funcional_geral}. Observa-se nesse fluxograma como cada funcionalidade está interligada com as demais e quais informações são trafegadas entre elas. Para melhor entendimento, é descrito nos tópicos sequentes cada funcionalidade individualmente.
 
 \begin{figure}[H]
 	\centering
@@ -313,12 +314,12 @@ As funcionalidades de um robô descrevem os subsistemas e a lógica de operaçã
 \label{ssec:funcionalidade_localizacao}
 O labirinto a ser percorrido pelo micromouse será modelado como uma matriz 16 x 16, sendo dividido em células de largura e comprimento fixos. Para que o robô consiga decidir para onde ele deve ir, primeiro é necessário saber onde ele está.
 
-A estratégia utilizada para a obtenção da posição do doogie utilizará a técnica de odometria, onde, a partir das informações do encoder e das dimensões das rodas utilizadas, estima-se a distância percorrida em um intervalo de tempo. Além disso, para melhorar a precisão da medição, será utilizada uma IMU, capaz de fornecer os dados de aceleração e velocidade angular nos três eixos cartesianos.
+A estratégia utilizada para a obtenção da posição do Doogie utilizará a técnica de Odometria, onde, a partir das informações do Encoder e das dimensões das rodas utilizadas, estima-se a distância percorrida em um intervalo de tempo. Além disso, para melhorar a precisão da medição, será utilizada uma IMU, capaz de fornecer os dados de aceleração e velocidade angular nos três eixos cartesianos.
 
 Uma vez que o robô consiga calcular a distância percorrida, em qualquer intervalo de tempo, sabendo as dimensões de cada célula e assumindo que seu ponto de partida foi informado, é possível determinar as coordenadas do mesmo dentro do labirinto: linha e coluna. 
 
 \subsubsection{Objetivo}
-Interpretar as informações fornecidas pela odometria e identificar a posição do robô dentro do labirinto.
+Interpretar as informações fornecidas pela Odometria e identificar a posição do robô dentro do labirinto.
 
 \subsubsection{Dependências}
 Esse pacote depende da aquisição de dados publicados por:
@@ -355,7 +356,7 @@ A Figura \ref{fig:especificacao_funcional_localizacao} demonstra as entradas e s
 
 \subsection{Percepção}
 \label{ssec:funcionalidade_percepcao} 
-Para que o micromouse consiga se locomover pelo labirinto, é necessário reconhecer os possíveis caminhos, identificando os obstáculos ao seu redor. Utilizando informações obtidas dos sensores infravermelho, essa funcionalidade conseguirá definir a presença de paredes nas proximidades do robô.
+Para que o \textit{micromouse} consiga se locomover pelo labirinto, é necessário reconhecer os possíveis caminhos, identificando os obstáculos ao seu redor. Utilizando informações obtidas dos sensores infravermelho, essa funcionalidade conseguirá definir a presença de paredes nas proximidades do robô.
  
 Como mencionado anteriormente, o labirinto será modelado como uma matriz $mxn$. Será utilizado um sistema de referência absoluto para o mesmo, definindo onde fica o norte, sul, leste e oeste. Com esse sistema de referência, a medida que o robô vai percorrendo o labirinto, em cada célula serão identificadas a presença de paredes. Dessa forma, essa funcionalidade irá publicar uma matriz, contendo a informação da presença de paredes ao norte, sul, leste e oeste de cada célula.
 

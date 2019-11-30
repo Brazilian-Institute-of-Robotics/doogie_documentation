@@ -154,21 +154,14 @@
 \makeindex % cria o indice remissivo
 %Tables and Figures Caption
 \setlength{\LTcapwidth}{\textwidth}
-\newcommand{\source}[1]{Fonte: {#1}}
-
-
-
-
-
+\usepackage{anyfontsize}
+\newcommand{\source}[1]{\vspace{+3pt} \caption*{\fontsize{10pt}{12pt}\selectfont Fonte: {#1}}}
+\newcommand{\sourcewithfootnote}[2]{\vspace{+3pt} \caption*{\fontsize{10pt}{12pt}\selectfont \footnote{#2} Fonte: {#1}}}
 %\usepackage{algorithm}
 %\usepackage{algorithmic}
 
-
-
-
 %\newtheorem{theorem}{Teorema}
 %\newtheorem{definition}[theorem]{Defini\c{c}\~ao}
-
 
 %%%-------------------------------------------------------------------------------
 %%% Start thesis root document
