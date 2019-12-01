@@ -58,24 +58,24 @@ Apesar de diferentes as definições encontradas nas literaturas elas não são 
 	\sourcewithfootnote{Suavé, 2001.}{Disponível em: http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/frame/oque.htm}
 \end{figure}
 
-O ROS (Robot Operating System) é um exemplo de \textit{framework}. Ele é uma plataforma de software de código aberto, desenvolvido em 2007, projetado para suportar uma nova geração de robôs. A comunidade ROS desenvolveu o \textit{framework} para várias plataformas, disponibilizando-os assim para diferentes Sistemas Operacionais (SOs), como Windows, Linux e Mac OS. O ROS é um conjunto de ferramentas que gerencia de forma eficiente  a mediação entre o SO e demais aplicações, possui uma estrutura flexível permitindo a criação de software de robôs. Detém uma coleção de bibliotecas e convenções com objetivo de simplificar tarefas complexas e criar estruturas mais robustas em uma ampla gama de plataformas robóticas. Pode-se afirmar que o ROS representa uma coleção muito útil de softwares voltados exatamente para ajudar na percepção, controle e modelagem dos dispositivos de hardware que serão lidos, fornecendo serviços que são esperados de um SO, incluindo a abstração de hardware em baixo nível, o que permite a leitura e o controle do mesmo, passagem de mensagens entre processos e gerenciamento de pacotes [Quigley et al. 2009]. O ROS também disponibiliza ferramentas de aplicação de robótica nas áreas de navegação, simulação, visão, percepção e controle, sendo exemplo as bibliotecas de processamento de imagem (opencv, pcl) e simuladores (stage, gazebo).
+O \gls*{ros} é um exemplo de \textit{framework}. Ele é uma plataforma de software de código aberto, desenvolvido em 2007, projetado para suportar uma nova geração de robôs. A comunidade \gls*{ros} desenvolveu o \textit{framework} para várias plataformas, disponibilizando-os assim para diferentes \gls*{so}, como Windows, Linux e Mac OS. O \gls*{ros} é um conjunto de ferramentas que gerencia de forma eficiente  a mediação entre o SO e demais aplicações, possui uma estrutura flexível permitindo a criação de software de robôs. Detém uma coleção de bibliotecas e convenções com objetivo de simplificar tarefas complexas e criar estruturas mais robustas em uma ampla gama de plataformas robóticas. Pode-se afirmar que o \gls*{ros} representa uma coleção muito útil de softwares voltados exatamente para ajudar na percepção, controle e modelagem dos dispositivos de hardware que serão lidos, fornecendo serviços que são esperados de um SO, incluindo a abstração de hardware em baixo nível, o que permite a leitura e o controle do mesmo, passagem de mensagens entre processos e gerenciamento de pacotes [Quigley et al. 2009]. O \gls*{ros} também disponibiliza ferramentas de aplicação de robótica nas áreas de navegação, simulação, visão, percepção e controle, sendo exemplo as bibliotecas de processamento de imagem (opencv, pcl) e simuladores (stage, gazebo).
 
-Por ser uma plataforma com código aberto, o ROS possui uma ampla documentação, bem detalhada, em sua maioria na língua inglesa. Na página da comunidade ROS, existe um extenso material de apoio, oferecendo suporte a compartilhamento de códigos fonte e experiências realizadas com o \textit{framework}. A comunidade do ROS permite que o usuário faça parte dela, mediante a um cadastro pessoal no site. Dessa forma, o usuário pode deixar eventuais perguntas e/ou dúvidas que poderão ajudá-lo a solucionar algum problema.
+Por ser uma plataforma com código aberto, o \gls*{ros} possui uma ampla documentação, bem detalhada, em sua maioria na língua inglesa. Na página da comunidade \gls*{ros}, existe um extenso material de apoio, oferecendo suporte a compartilhamento de códigos fonte e experiências realizadas com o \textit{framework}. A comunidade do \gls*{ros} permite que o usuário faça parte dela, mediante a um cadastro pessoal no site. Dessa forma, o usuário pode deixar eventuais perguntas e/ou dúvidas que poderão ajudá-lo a solucionar algum problema.
 
-O framework ROS foi projetado para atender a um conjunto específico de desafios encontrados durante o desenvolvimento de robôs. O ROS é muito mais do que apenas um serviço oferecido a robôs móveis e de manipulação [Alexander et al. 2012].
+O framework \gls*{ros} foi projetado para atender a um conjunto específico de desafios encontrados durante o desenvolvimento de robôs. O \gls*{ros} é muito mais do que apenas um serviço oferecido a robôs móveis e de manipulação [Alexander et al. 2012].
 
-O ROS possui uma estrutura distribuída de processos, a qual apoia a reutilização de código em robótica. Suas bibliotecas possuem funcionalidade para diversas linguagens de programação, foi projetado com um idioma neutro, suportando C, C++, Python, LISP e Octave, apesar de que C++ e Python são as duas linguagens principais e com maior número de pacotes disponíveis. Além disso, O ROS organiza seu conjunto de software em \textit{packages} ou pacotes em tradução livre. De acordo com o guia de utilização do ROS,
+O \gls*{ros} possui uma estrutura distribuída de processos, a qual apoia a reutilização de código em robótica. Suas bibliotecas possuem funcionalidade para diversas linguagens de programação, foi projetado com um idioma neutro, suportando C, C++, Python, LISP e Octave, apesar de que C++ e Python são as duas linguagens principais e com maior número de pacotes disponíveis. Além disso, O \gls*{ros} organiza seu conjunto de software em \textit{packages} ou pacotes em tradução livre. De acordo com o guia de utilização do \gls*{ros},
 
 \begin{quoting}[rightmargin=0cm,leftmargin=4cm]
 	\begin{singlespace}
 		{\footnotesize
-			[...]um pacote pode conter nós ROS, uma biblioteca independente de ROS, um conjunto de dados, arquivos de configuração, um software de terceiros ou qualquer outra coisa que constitua logicamente um módulo útil. O objetivo desses pacotes é fornecer essa funcionalidade útil de maneira fácil de consumir, para que o software possa ser facilmente reutilizado. Em geral, os pacotes ROS seguem o princípio "Goldilocks": funcionalidade suficiente para ser útil, mas não muito que o pacote seja pesado e difícil de usar em outro software. \cite[tradução nossa]{rospackages}
+			[...]um pacote pode conter nós \gls*{ros}, uma biblioteca independente de \gls*{ros}, um conjunto de dados, arquivos de configuração, um software de terceiros ou qualquer outra coisa que constitua logicamente um módulo útil. O objetivo desses pacotes é fornecer essa funcionalidade útil de maneira fácil de consumir, para que o software possa ser facilmente reutilizado. Em geral, os pacotes \gls*{ros} seguem o princípio "Goldilocks": funcionalidade suficiente para ser útil, mas não muito que o pacote seja pesado e difícil de usar em outro software. \cite[tradução nossa]{rospackages}
 		}
 	\end{singlespace}
 \end{quoting}
 
 
-A comunicação do ROS é baseada em eventos, utiliza processos para publicar/subscrever nós a tópicos. Conceitualiza-se que os nós publicam e subscrevem os tópicos, permitindo assim uma comunicação entre nós, onde recebem mensagens, apenas os que estiverem subscritos ao tópico.
+A comunicação do \gls*{ros} é baseada em eventos, utiliza processos para publicar/subscrever nós a tópicos. Conceitualiza-se que os nós publicam e subscrevem os tópicos, permitindo assim uma comunicação entre nós, onde recebem mensagens, apenas os que estiverem subscritos ao tópico.
 
 A Figura \ref{fig:estrutura_comunicacao_ros} demonstra uma simples publicação e subscrição de dois nós a um tópico. Desta forma sempre que o nó publicar novas mensagens os nós que estejam subscritos ao tópico irão receber a informação.
 
@@ -88,13 +88,13 @@ A Figura \ref{fig:estrutura_comunicacao_ros} demonstra uma simples publicação 
 	\sourcewithfootnote{Baptista, 2013.}{Disponível em: https://repositorio-aberto.up.pt/bitstream/10216/67932/2/26737.pdf}
 \end{figure}
 
-Os nós correspondem à execução de um programa e são criados no sistema, geralmente, via console e sempre com o servidor mestre ROS (roscore) iniciado. O servidor roscore é responsável por inicializar várias dependências, bibliotecas do ROS e o sistema de comunicação entre nós.
+Os nós correspondem à execução de um programa e são criados no sistema, geralmente, via console e sempre com o servidor mestre \gls*{ros} (roscore) iniciado. O servidor roscore é responsável por inicializar várias dependências, bibliotecas do \gls*{ros} e o sistema de comunicação entre nós.
 %--------- NEW SECTION ----------------------
 \section{Estudo do Estado da Arte}
 \label{sec:sota}
 
 \subsection{GreenGiant}
-\hspace{0.5cm} A Green Giant é uma desenvolvedora de múltiplas plataformas de robótica, especializada em eletrônica embarcada, tendo como seu carro-chefe o \textit{micromouse}. Seu modelo mais recente, 2016 - 2017, é voltado para alto desempenho em competições, alcançando a posição de quarto lugar durante a APEC \textit{Applied Power Electronics Conference} de 2016.
+\hspace{0.5cm} A Green Giant é uma desenvolvedora de múltiplas plataformas de robótica, especializada em eletrônica embarcada, tendo como seu carro-chefe o \textit{micromouse}. Seu modelo mais recente, 2016 - 2017, é voltado para alto desempenho em competições, alcançando a posição de quarto lugar durante a \gls*{apec} de 2016.
 
 \begin{figure}[H]
 	\centering
@@ -142,12 +142,12 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 	\item Não possui suporte à simulação;
 	\item Projeto pouco documentado;
 	\item Não possui guia do usuário;
-	\item Não possui suporte nativo para ambiente ROS.
+	\item Não possui suporte nativo para ambiente \gls*{ros}.
 \end{itemize}
 
 
 \subsection{WPISmartMouse}
-\hspace{0.5cm} A organização estudantil, WPI CollabLab, compartilham um espaço de laboratório entre seus membros para projetos com viez colaborativo a sociedade. Nesse espaço desenvolveu-se o Smartmouse, projeto \textit{micromouse} voltado para a competição Micromouse \textit{Brown IEEE Robotic  Olympiad}. O projeto também se extendeu para o desenvolvimento de um ambiente de simulação apartir dos projetos Gazebo e Ignition, não possuindo entretanto suporte para ROS.
+\hspace{0.5cm} A organização estudantil, WPI CollabLab, compartilham um espaço de laboratório entre seus membros para projetos com viez colaborativo a sociedade. Nesse espaço desenvolveu-se o Smartmouse, projeto \textit{micromouse} voltado para a competição Micromouse \textit{Brown IEEE Robotic  Olympiad}. O projeto também se extendeu para o desenvolvimento de um ambiente de simulação apartir dos projetos Gazebo e Ignition, não possuindo entretanto suporte para \gls*{ros}.
 
 \begin{figure}[H]
 	\centering
@@ -189,7 +189,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 
 \textbf{Pontos Negativos:}
 \begin{itemize}
-	\item Não possui suporte nativo para ambiente ROS;
+	\item Não possui suporte nativo para ambiente \gls*{ros};
 	\item Pouca variedade de sensores;
 	\item Não possui guia do usuário;
 	\item Poucos recursos na interface com o usuário.
@@ -243,7 +243,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 
 \textbf{Pontos Negativos:}
 \begin{itemize}
-	\item Não possui suporte nativo para ambiente ROS;
+	\item Não possui suporte nativo para ambiente \gls*{ros};
 	\item Pouca variedade de sensores;
 	\item Não possui guia para usuário;
 	\item Poucos recursos na interface com o usuário;
@@ -296,7 +296,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 
 \textbf{Pontos Negativos:}
 \begin{itemize}
-	\item Não possui suporte nativo para ambiente ROS;
+	\item Não possui suporte nativo para ambiente \gls*{ros};
 	\item Pouco foco em finalidades educativas com o produto;
 	\item Não possui guia para usuário;
 	\item Poucos recursos na interface com o usuário.
@@ -314,7 +314,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 	\source{FONTE}
 \end{figure}
 
-O modelo citado, é um robô de plataforma baseado em \textit{micromouse} que utiliza uma Raspberry Pi como sua placa principal. Dessa forma o robô pode ser controlado pelos principais \textit{middleware} de robótica (ROS/RTM), possuindo inclusive pacotes publicados na wiki do ROS voltados para navegação e simulação do \textit{micromouse};
+O modelo citado, é um robô de plataforma baseado em \textit{micromouse} que utiliza uma Raspberry Pi como sua placa principal. Dessa forma o robô pode ser controlado pelos principais \textit{middleware} de robótica (ROS/RTM), possuindo inclusive pacotes publicados na wiki do \gls*{ros} voltados para navegação e simulação do \textit{micromouse};
 
 \begin{table}[]
 	\centering
@@ -345,7 +345,7 @@ O modelo citado, é um robô de plataforma baseado em \textit{micromouse} que ut
 	\item Possui tutoriais;
 	\item Possui ambiente de simulação;
 	\item Suporte aos principais middleware de robótica (ROS/RTM);
-	\item Possui pacotes do ROS para seu controle;
+	\item Possui pacotes do \gls*{ros} para seu controle;
 	\item Plataforma é expansível.
 \end{itemize}
 

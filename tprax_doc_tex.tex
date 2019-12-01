@@ -125,6 +125,8 @@
 %%%-------------------------------------------------------------------------------
 %\usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
+\usepackage[toc,acronym,nomain, nopostdot, nonumberlist]{glossaries}
+\makeglossaries
 \usepackage[brazil]{babel}
 \usepackage{longtable}
 %\usepackage{subfig}
@@ -157,11 +159,6 @@
 \usepackage{anyfontsize}
 \newcommand{\source}[1]{\vspace{+3pt} \caption*{\fontsize{10pt}{12pt}\selectfont Fonte: {#1}}}
 \newcommand{\sourcewithfootnote}[2]{\vspace{+3pt} \caption*{\fontsize{10pt}{12pt}\selectfont \footnote{#2} Fonte: {#1}}}
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
-
-%\newtheorem{theorem}{Teorema}
-%\newtheorem{definition}[theorem]{Defini\c{c}\~ao}
 
 %%%-------------------------------------------------------------------------------
 %%% Start thesis root document
@@ -199,8 +196,6 @@
     \hidecoadvisor
     %\thesiscoadvisor{Marco Reis}
     \thesisdegreetitle{Bacharel em Engenharia}
-    %\thesisdegreetitle{Doutor em }
-%    \thesismonthyear{M\^es de Ano}
     \thesismonthyear{Setembro de 2019}
 
 
