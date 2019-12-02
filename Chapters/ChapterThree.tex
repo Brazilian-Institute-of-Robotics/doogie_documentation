@@ -496,11 +496,12 @@ As entradas e saída da funcionalidade Navegação podem ser visualizadas na Fig
 
 %--------- NEW SECTION ----------------------
 \section{Simulação}
+\label{sec:Simulacao}
 O ambiente de simulação do robô foi realizado dentro do Gazebo \cite{Koenig2004} na versão 7.0.0, uma vez que o simulador, além de ser \textit{open source}, já possui integração nativa com o \gls*{ros} através do conjunto de pacotes providos pelo gazebo\_ros\_pkgs. Dessa forma, os mesmos recursos usado pelo \gls*{ros} para controlar o \textit{hardware} do robô, implementados através do pacote ros\_control, são também utilizados na simulação. Essa integração proporciona uma experiência mais realista do controle do robô, sendo possível inclusive a integração do ambiente de simulação com o robô real. 
 
-A simulação será composta tanto pelo modelo do robô Doogie Mouse, quanto pelo labirinto, que serão descritos em um \gls*{urdf},formato de arquivo padrão usado para descrever o modelo de um robô, definindo-se assim os links, juntas, sensores e o funcionamento dos atuadores utilizados no Doogie Mouse, e os links e juntas usados para descrever o labirinto.
+A simulação será composta tanto pelo modelo do robô Doogie Mouse, quanto pelo labirinto, que serão descritos em um \gls*{urdf},formato de arquivo padrão usado pelo \gls*{ros} para descrever o modelo de um robô, definindo-se assim os links, juntas, sensores e o funcionamento dos atuadores utilizados no Doogie Mouse, e os links e juntas usados para descrever o labirinto.
 
-Para tanto, serão aproveitados os modelos 3D gerados na seção \ref{sec:modelo_mecanico}  , para a constituição da malha de efeito visual (a que de fato é renderizada na simulação) e da malha de colisão (na qual se calcula os contatos e colisões do robô com o mundo).
+Para tanto, serão aproveitados os modelos 3D gerados na seção \ref{sec:modelo_mecanico}, para a constituição da malha de efeito visual (a que de fato é renderizada na simulação) e da malha de colisão (na qual se calcula os contatos e colisões do robô com o mundo).
 
 De forma a otimizar a simulação, tornando-a mais leve, o modelo do robô foi simplificado, mantendo-se apenas os componentes essenciais para sua representação: a placa inferior, sensores infravermelhos e as rodas. A partir disso, através do plugin SolidWorks to URDF Exporter, mantido pela comunidade do \gls*{ros}, gerou o modelo \gls*{urdf} do robô.
 
@@ -534,3 +535,5 @@ O labirinto, por sua vez, foi descrito como um único link cuja malha descreve t
 	\label{fig:minus_maze_description}
 	\source{Própria Autoria}
 \end{figure}
+
+Também foram gerados \glspl{urdf} utilizando as malhas em \gls{stl} providas pelo plugin afim de realizar um ensaio para verificar como cada malha interfere na simulação e estabelecer a sua melhor configuração tomando como base os indicadores de \gls*{fps} e \gls*{rtf} fornecidos pelo Gazebo.

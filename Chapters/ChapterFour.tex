@@ -35,7 +35,68 @@ A fase de desenvolvimento do robô Doogie culminou em 4 resultados principais: P
 
 \section{Ambiente de simulação}
 \label{sec:resultado_ambiente_de_simulacao}
-hhajshfdsahf
+\subsection{Comparativo de Malhas}
+\label{ssec:comparativo_de_malhas}
+No comparativo de malhas, analisou-se como os formatos \gls{collada} (.dae) e \gls{stl}(.stl) interferem na simulação, bem como o uso de tipos primitivos para a representação da malha de colisão. Na Tabela \ref{tab:ComparativoMalhas}, comparam-se os modelos simplificados, gerado na seção \ref{sec:Simulacao}, usando malhas em \gls*{collada} (Doogie\_lite\_dae) e \gls*{stl} (Doogie\_lite\_stl), e o modelo 3D sem simplificações (Doogie\_real\_dae) gerado na seção \ref{sec:modelo_mecanico} usando sua malha em \gls*{collada}.
+
+\begin{table}[H]
+	\centering
+	\caption{Comparativo entre malhas carregadas no Gazebo}
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		& \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Visual\\ (Faces)\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Colisão\\ (Faces)\end{tabular}}} & \multicolumn{1}{c|}{\textbf{FPS}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Real Time \\ Factor\end{tabular}}} \\ \hline
+		\textbf{Doogie\_lite\_dae} & 70.410                                                                                 & 70.410                                                                                  & $\sim$1,5                         & 0,35                                                                                      \\ \hline
+		\textbf{Doogie\_real\_dae} & 1.091.337                                                                              & 1.091.337                                                                               & $\sim$0,6                         & 0,03                                                                                      \\ \hline
+		\textbf{Doogie\_lite\_stl} & 70.398                                                                                 & 70.398                                                                                  & $\sim$4.2                         & 0,33                                                                                      \\ \hline
+	\end{tabular}
+	\label{tab:ComparativoMalhas}
+	\source{Própria Autoria}
+\end{table}
+
+O formato \*gls{collada} possui perfomance na simulação ligeiramente inferior ao \gls*{stl}, principalmente em relação ao \gls*{fps} no qual foi 36\% inferior ao desempenho da outra malha. Também fica visível a necessidade da simplificação do modelo do robô, sendo inviável a simulação do Doogie\_real\_dae que teve seu \gls*{fps} inferior a um e o \gls*{rtf} próximo a zero, denotando uma simulação lenta e de pouca acurácia. 
+
+
+\begin{table}[H]
+	\centering
+	\caption{Comparativo com simplificação da malha de colisão}
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		& \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Visual\\ (Faces)\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Colisão\\ (Faces)\end{tabular}}} & \multicolumn{1}{c|}{\textbf{FPS}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Real Time \\ Factor\end{tabular}}} \\ \hline
+		\textbf{Doogie\_lite\_dae} & 70.410                                                                                 & 6                                                                                       & $\sim$8,0                         & 0,52                                                                                      \\ \hline
+		\textbf{Doogie\_real\_dae} & 1.091.337                                                                              & 6                                                                                       & $\sim$3,5                         & 0,52                                                                                      \\ \hline
+	\end{tabular}
+	\label{tab:ComparativoMalhaSimplificada}
+	\source{Própria Autoria}
+\end{table}
+
+Ao comparar o desempenho como uso do modelo simplificado e o modelo real, usando tipos primitivos para a representação da malha de colisão pode-se perceber que o gargalo da simulação se encontra no número das faces de colisão usadas para a representação dinâmica do robô. A taxa de \gls*{fps} aumentou em seis vezes em relação a análise anterior, atingindo um \gls*{rtf} igual ao do modelo simplificado, conforme visto na Tabela \ref{tab:ComparativoMalhaSimplificada}. Sendo assim a configuração Doogie\_lite\_dae com a simplificação da malha de colisão a mais otimizada para uso na simulação sem perda de cor e textura do modelo do robô.
+
+
+\subsection{Modelos da Simulação}
+\label{sec:modelos_sim}
+\begin{figure}[H]
+	\centering
+	\caption{Doogie Mouse no Gazebo}
+	\subfigure[Juntas do robô]{\label{fig:doogie_gazebo_joints}\includegraphics[scale=0.198]{doogie_gazebo_joints}}
+	\subfigure[Visualização das transformadas e centro de gravidade]{\label{fig:doogie_gazebo_tfs}\includegraphics[scale=0.2]{doogie_gazebo_tfs}}
+	\subfigure[Modelo renderizado no Gazebo]{\label{fig:doogie_gazebo}\includegraphics[scale=0.38]{doogie_gazebo}}
+	\label{fig:doogie_gazebo_imgs}
+\end{figure}
+Os modelos exportados para o Gazebo, seguindo a metodologia descrita na seção \ref{sec:Simulacao}, simplificando o modelo 3D gerado pelo SolidWorks, e usando a configuração otimizada obtida no comparativo de malhas da subseção \ref{ssec:comparativo_de_malhas}, do robô e do labirinto foram elaborados de forma a não comprometer a simulação em sua acurácia de ser realizada próxima do tempo real, \gls*{rtf}, ou na sua taxa de atualização de quadros \gls*{fps}. Assim, atingiu-se a simulação simultânea de ambos os modelos, sem comprometimento desses indicadores e em máquinas mais recentes a simulação pode chegar a se manter dentro de 60 \gls*{fps}, a taxa mais comum de de atualização usada nos monitores comerciais.
+
+Dessa forma, provê-se um ambiente de simulação que facilite o acesso dos usuários ao Doogie Mouse, mesmo que para esses não seja possível adquirir a plataforma física, tornando-o mais acessível em sua proposta de ensino.
+
+
+
+\label{sec:modelos_sim}
+\begin{figure}[H]
+	\centering
+	\caption{Labirinto na Simulação}
+	\subfigure[Labirinto renderizado no Gazebo]{\label{fig:maze_gazebo}\includegraphics[scale=0.198]{maze_gazebo}}
+	\subfigure[Malha de colisão das paredes]{\label{fig:minus_gazebo_colisions}\includegraphics[scale=0.25]{minus_gazebo_colisions}}
+	\label{fig:minus_gazebo_imgs}
+\end{figure}
+
 
 %--------- NEW SECTION ----------------------
 \section{Labirinto}
