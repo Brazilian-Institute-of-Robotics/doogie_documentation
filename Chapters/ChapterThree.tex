@@ -246,7 +246,7 @@ A lista contendo todos os componentes bem como suas respectivas quantidades e de
 \label{sec:modelo_mecanico}
 Para o design do robô, foi utilizado como um ponto de partida o TON-BOT v1.1, plataforma desenvolvida pela Ioton Technology \cite{ioton}. Além disso, conforme ítem 7 da subseção \ref{sec:requisitos_do_projeto}, ele deve ter suas dimensões não superiores à uma seção retangular de 15 x 15 x 10 cm.
 
-A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_do_projeto}, buscou-se um design mecânico simples e de maior leveza. Dessa forma, foi utilizado como \textit{frame} do robô as próprias \glspl*{pci}, buscando posicionar suas rodas de forma a mantê-las alinhadas ao centro de massa de todo o conjunto mecânico. Para tanto, uma modelagem em \gls*{cad} inicialmente foi realizada através da ferramenta Solidworks, buscando iterativamente a melhor disposição de seus elementos físicos (rodas, sensores e demais componentes eletrônicos das placas).  O modelo mecânico final pode ser visualizado na Figura \ref{fig:doogie_boards_3d}.
+A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_do_projeto}, buscou-se um design mecânico simples e de maior leveza. Dessa forma, foi utilizado como \textit{frame} do robô as próprias \glspl*{pci}, buscando posicionar suas rodas de forma a mantê-las alinhadas ao centro de massa de todo o conjunto mecânico. Para tanto, uma modelagem em \gls*{cad} inicialmente foi realizada através da ferramenta Solidworks, buscando iterativamente a melhor disposição de seus elementos físicos (rodas, sensores e demais componentes eletrônicos das placas), para a elaboração das \glspl*{pci}, vistas na subseção \ref{ssec:esquematicos_eletronicos}. Assim elaborou-se um esboço do modelo mecânico conforme a Figura \ref{fig:doogie_boards_3d}.
 
 \begin{figure}[H]
 	\centering
@@ -257,7 +257,16 @@ A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_
 	\label{fig:doogie_boards_3d}
 \end{figure}
 
-Da esquerda para direita visualiza-se as placas inferior, superior e o modelo completo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem.
+Da esquerda para direita visualiza-se as placas inferior, superior e o modelo completo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem. O modelo 3D final, renderizado, pode ser visto abaixo na Figura \ref{fig:doogie_boards_3d_render}.
+
+\begin{figure}[H]
+	\centering
+	\caption{Modelo 3D Renderizado do Doogie Mouse}
+	\subfigure[Modelo 3D Renderizado do Doogie Mouse]{\label{fig:doogie_3d_render}\includegraphics[scale=0.2]{Doogie_Mouse_Renderizado.JPG}}
+	\subfigure[Vista frontal]{\label{fig:doogie_frontal_render}\includegraphics[scale=0.11]{Doogie_frontal_v4.JPG}}
+	\subfigure[Vista Lateral]{\label{fig:doogie_lateral_render}\includegraphics[scale=0.11]{Doogie_lateral_v4.JPG}}
+	\label{fig:doogie_boards_3d_render}
+\end{figure}
 
 \colorbox{yellow}{Referenciar desenhos técnicos em anexo}
 
@@ -482,5 +491,46 @@ As entradas e saída da funcionalidade Navegação podem ser visualizadas na Fig
 	\includegraphics[width=1\textwidth]
 	{Figures/especificacao_funcional_usabilidade}
 	\label{fig:especificacao_funcional_usabilidade}
+	\source{Própria Autoria}
+\end{figure}
+
+%--------- NEW SECTION ----------------------
+\section{Simulação}
+O ambiente de simulação do robô foi realizado dentro do Gazebo \cite{Koenig2004} na versão 7.0.0, uma vez que o simulador, além de ser \textit{open source}, já possui integração nativa com o \gls*{ros} através do conjunto de pacotes providos pelo gazebo\_ros\_pkgs. Dessa forma, os mesmos recursos usado pelo \gls*{ros} para controlar o \textit{hardware} do robô, implementados através do pacote ros\_control, são também utilizados na simulação. Essa integração proporciona uma experiência mais realista do controle do robô, sendo possível inclusive a integração do ambiente de simulação com o robô real. 
+
+A simulação será composta tanto pelo modelo do robô Doogie Mouse, quanto pelo labirinto, que serão descritos em um \gls*{urdf},formato de arquivo padrão usado para descrever o modelo de um robô, definindo-se assim os links, juntas, sensores e o funcionamento dos atuadores utilizados no Doogie Mouse, e os links e juntas usados para descrever o labirinto.
+
+Para tanto, serão aproveitados os modelos 3D gerados na seção \ref{sec:modelo_mecanico}  , para a constituição da malha de efeito visual (a que de fato é renderizada na simulação) e da malha de colisão (na qual se calcula os contatos e colisões do robô com o mundo).
+
+De forma a otimizar a simulação, tornando-a mais leve, o modelo do robô foi simplificado, mantendo-se apenas os componentes essenciais para sua representação: a placa inferior, sensores infravermelhos e as rodas. A partir disso, através do plugin SolidWorks to URDF Exporter, mantido pela comunidade do \gls*{ros}, gerou o modelo \gls*{urdf} do robô.
+
+O simulador na versão utilizada suporta apenas dois formatos de arquivo para descrição de malhas: \gls*{collada} e \gls*{stl}. Através do plugin utilizado no SolidWorks a malha é exportada em \gls*{stl}, contudo neste formato não se transporta informação de cor e textura para a simulação. Para contornar esse problema, através do SolidWorks Visualize exportou-se a malha do modelo do robô em Wavefront e então, através do Blender converteu-a para \gls*{collada} para ser renderizada na simulação. A malha de colisão por sua vez foi simplificada em um dos formatos primitivos fornecidos pelo \gls*{urdf}, um paralelepípedo, de forma a conter os limites de contato do robô. Uma representação em grafos do modelo do robô pode ser vista na Figura \ref{fig:doogie_description} e na Figura \ref{fig:doogie_description_model}, o mesmo modelo através do visualizador do ROS
+
+\begin{figure}[H]
+	\centering
+	\caption{Descrição Mecânica do Doogie Mouse.}
+	\includegraphics[width=1\textwidth]
+	{Figures/doogie_description}
+	\label{fig:doogie_description}
+	\source{Própria Autoria}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Modelo do Doogie Mouse para Simulação.}
+	\includegraphics[width=0.5\textwidth]
+	{Figures/doogie_description_model}
+	\label{fig:doogie_description_model}
+	\source{Própria Autoria}
+\end{figure}
+
+O labirinto, por sua vez, foi descrito como um único link cuja malha descreve tanto suas paredes quanto a base. Dentro do Gazebo, o mundo simulado já possui uma base que sustenta os objetos renderizados na simulação, sendo necessário assim somente a malha de colisão das paredes, por isso suprimiu-se a base, mantendo-a apenas como malha visual do labirinto. O mesmo procedimento utilizado para gerar o \gls*{urdf} do robô foi replicado para o labirinto, visto na Figura \ref{fig:minus_maze_description}.
+
+\begin{figure}[H]
+	\centering
+	\caption{Modelo do Labirinto para Simulação.}
+	\includegraphics[width=0.5\textwidth]
+	{Figures/minus_maze_description}
+	\label{fig:minus_maze_description}
 	\source{Própria Autoria}
 \end{figure}
