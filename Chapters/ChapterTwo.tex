@@ -1,7 +1,70 @@
 \chapter{Fundamentação Teórica}
 \label{chap:fundteor}
 
-%--------- NEW SECTION ----------------------
+\section{Inteligência artificial e algoritmos de busca}
+\label{ia_algoritmos_de_busca}
+Na medida em que o mundo se torna mais complexo, novas técnicas de resolução de problemas são necessárias. Nesse sentido, a \gls*{ia} vem sendo de grande ajuda: atividades que duram dias para um ser humano comum realizar podem ser finalizadas em apenas alguns segundos por um computador. Desde diagnósticos de doenças raras à concepção do carro autônomo, a IA está se tornando cada vez mais uma realidade.
+
+O objetivo principal das técnicas de inteligência artificial é construir agentes inteligentes que agem de forma racional. Segundo \citeonline[p.~5]{Winston92}, “Inteligência artificial é o estudo de computações que permitem perceber, raciocinar e agir”. Sobre essa ótica, as máquinas devem ser capazes de tomar diferentes decisões, com base em suas próprias experiências.
+
+Boa parte dos problemas que podem ser resolvidos com IA podem ser caracterizados como um “problema de busca”. Planejamento de rotas, ordenação, navegação de robôs e resolução de quebra-cabeças são alguns dos vários exemplos que podem ser citados. Todos esses problemas possuem a mesma estrutura e consistem de: um espaço de estados, um estado inicial e um objetivo final. O espaço de estados é o conjunto de todos os estados em que se pode estar. O estado inicial é onde a busca se inicia. E, por fim, o objetivo final é onde se quer chegar \cite{Akhtar2019}.
+
+Durante a realização de uma busca, diversas possibilidades de ações a serem tomadas podem estar disponíveis ao mesmo tempo (virar à esquerda, direita, ou seguir em frente, por exemplo). O papel do algoritmo é analisar todas as possibilidades para conseguir definir a sequência de ações que fará o agente sair do estado inicial até o objetivo final. Em determinadas situações, cada ação pode estar associada também à um custo. Dessa forma, a maior parte dos agentes inteligentes irá procurar não só o objetivo final, mas também a melhor forma de se chegar até ele \cite{Endriss2015}.
+
+Usualmente, o espaço de estados pode ser representado por nós, onde cada nó é um estado. A representação dos nós varia a depender do problema. No contexto de planejamento de rotas, os nós são as posições no mapa, por exemplo. Para a resolução de um labirinto, o espaço de estados pode ser representado por uma matriz, onde cada célula da matriz é uma posição do labirinto em que o agente pode estar.
+
+Grande parte dos algoritmos de busca podem ser adaptados para a resolução de um labirinto. Porém, conforme demonstrado por \citeonline{Tjiharjadi2017}, destacam-se: Flood Fill e A*. O A*, por sua vez, pode ser considerado uma derivação do algoritmo de Dijkstra.
+
+\subsection{Algoritmo de Dijkstra}
+\label{ssec:algoritmo_dijkstra}
+O método de Dijkstra foi concebido em 1956 por Edsger W. Dijkstra. Foi um dos primeiros a serem publicados. Nele, inicialmente, considera-se todos os nós como não visitados. Atribui-se valor zero para a estimativa de custo do nó inicial e infinito para todos os outros nós. Em seguida, é calculada a estimativa de custo de deslocamento para todos os nós vizinhos, passando pelo nó atual. O nó atual é marcado como “visitado” e o mesmo processo é repetido para o próximo nó vizinho, que possui o menor custo. O próximo nó terá a sua estimativa de custo somada com a do nó anterior (caso a soma seja menor do que a estimativa de custo já associada a ele), uma vez que para chegar até ele houve um custo associado. Nós que já foram visitados nunca serão checados novamente. O processo é repetido até que o nó final seja alcançado.
+
+\subsection{Algoritmo A*}
+\label{ssec:aestrela}
+A* (pronunciado A-estrela) foi publicado inicialmente por Peter Hart, Nils Nilsson e Bertram Raphael em 1968. Seus criadores provaram que tal método garante que um caminho será encontrado, se o mesmo existir \cite{Hart1968}. Pode ser considerado como uma extensão do algoritmo de Dijkstra, utilizando heurística para melhorar sua performance.
+
+Nele, são utilizadas duas listas: aberta e fechada. A lista aberta é composta pelos nós que foram visitados, mas não expandidos. Ou seja: os vizinhos ainda não foram explorados. Pode ser considerada como uma lista de pendências. A lista fechada consiste nos nós que que foram visitados e já expandidos.
+
+O algoritmo procura minimizar $f(n) = g(n) + h(n)$, onde $g(n)$ é o custo do inicio do caminho até o nó atual e h(n) é a função heurística que estima o menor custo do nó atual até o objetivo. 
+Inicialmente, o nó atual é adicionado à lista aberta e os seguintes passos são repetidos \cite{Cui2010}:
+
+\begin{itemize}
+	\item Olha para o nó com o menor custo de f(n) na lista aberta e se refere a ele como o nó atual;
+	\item Transfere o nó atual para a lista fechada;
+	
+	\item Para cada nó vizinho do nó atual:
+	\begin{itemize}
+		\item Se está na lista fechada, ignora o mesmo;
+		\item Se não está na lista aberta, adiciona-o a mesma. Faz com que o nó atual seja o “nó pai” do mesmo e grava f, g e h para ele;
+		\item Se já está na lista aberta, verifica se há um melhor caminho. Se sim, muda o pai para o nó atual e recalcula os valores de f e g.
+	\end{itemize}
+	
+	\item O algoritmo termina quando:
+	\begin{itemize}
+		\item O nó alvo é adicionado à lista fechada;
+		\item A lista aberta está vazia e não foi possível encontrar o nó alvo.
+	\end{itemize}
+\end{itemize}
+
+Fazendo o caminho contrário do nó alvo até o nó inicial, é possível achar o caminho.
+
+\subsection{Flood Fill}
+\label{ssec:flood_fill}
+O Flood Fill é um dos melhores e mais utilizados algoritmos de resolução de labirinto. Ele é capaz de descobrir paredes e analisar a melhor rota, ao mesmo tempo.
+
+Cada célula do labirinto é preenchida com um valor que indica a distância (em quantidade de células percorridas) para chegar ao alvo. Esse processo é feito, inicialmente, considerando que o labirinto não possui nenhuma parede. O menor peso é atribuído a célula de destino e, a partir dela, os pesos das outras células adjacentes vão sendo definidos. Em seguida, uma sequência de 4 passos é repetida até que o robô alcance o objetivo final \cite{Jabbar2016}. Para cada nova célula que o robô passar, o mesmo deverá:
+
+\begin{enumerate}
+	\item Definir os pesos das células: o processo de enchente começa do destino final até o início. Os pesos são atribuídos de forma crescente.
+	\item Verificar as paredes da célula: antes de decidir para onde vai, o robô deve identificar possíveis obstáculos em seu caminho.
+	\item Definir qual a próxima célula, baseando-se nas paredes ao seu redor, nos pesos das células vizinhas e na quantidade de giros que o mesmo precisa realizar.
+	\item Deslocar-se para a próxima célula.
+\end{enumerate}
+
+Toda vez que o robô identifica uma parede, o processo de enchente irá atribuir pesos diferentes para cada célula, uma vez que a presença da parede irá impedir a “água” de inundar o labirinto.
+
+Uma vez que o agente encontra o destino final, o mesmo processo é repetido com posição inicial e objetivo invertidos. Ao fim, serão comparados os caminhos de ida e volta: o menor será considerado a melhor opção.
+
 \section{Micromouse}
 \label{sec:Micromouse}
 \hspace{0.5cm} A competição Micromouse é um concurso anual na qual estudantes do mundo todo desenvolvem pequenos robôs autônomos, chamados \textit{micromouse}, postos a correr dentro de um labirinto. Dessa forma, o \textit{micromouse} que mais rápido chegar ao seu centro é o vencedor da competição\cite{ROSbot}.
