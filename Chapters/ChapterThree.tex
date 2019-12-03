@@ -262,7 +262,7 @@ A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_
 	\source{Própria Autoria}
 \end{figure}
 
-Da esquerda para direita visualiza-se as placas inferior, superior e o modelo completo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem. O modelo 3D final, renderizado, pode ser visto abaixo na Figura \ref{fig:doogie_boards_3d_render}.
+Da esquerda para direita visualiza-se as placas inferior, superior e o modelo completo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem. O modelo 3D final, renderizado, pode ser visto abaixo na Figura \ref{fig:doogie_boards_3d_render}. Os desenhos técnico da plataforma móvel podem ser visualizados no Apêndice \ref{apend:diagramas_mec_robo}.
 
 \begin{figure}[H]
 	\centering
@@ -274,28 +274,20 @@ Da esquerda para direita visualiza-se as placas inferior, superior e o modelo co
 	\source{Própria Autoria}
 \end{figure}
 
-\colorbox{yellow}{Referenciar desenhos técnicos em anexo}
-
 \subsection{Labirinto}
 \label{ssec:labirinto}
 
 O modelo do labirinto foi desenvolvido a partir de uma adaptação do modelo IEEE \cite{Wan2019}. Por ser um labirinto protótipo, preferiu-se trabalhar com uma matriz de 10x10 células quadradas, em vez de 16x16, mantendo-se as mesmas dimensões da célula de 18 mm x 18 mm, com 50 mm de altura.
 
-Além disso, buscou-se um design que fosse modular, de forma a facilitar seu transporte bem como múltiplas configurações do labirinto pela alteração da posição de suas paredes. Para isso, optou-se pela utilização de pivôs de madeira para a fixação das paredes na placa do labirinto, conforme visto na Figura \ref{fig:pivo}. Um exemplo de uma célula é mostrado na Figura \ref{fig:pivo}, enquanto seus desenhos técnicos se encontram em anexo.
+Além disso, buscou-se um design que fosse modular, de forma a facilitar seu transporte bem como múltiplas configurações do labirinto pela alteração da posição de suas paredes. Para isso, optou-se pela utilização de pivôs de madeira para a fixação das paredes na placa do labirinto, conforme visto na Figura \ref{fig:pivo}. Um exemplo de uma célula é mostrado na Figura \ref{fig:pivo}, enquanto seus desenhos técnicos se encontram no Apêndice \ref{apend:diagramas_mec_labirinto}.
 
 \begin{figure}[H]
 	\centering
-	\caption{Modelo Mecânico do Labirinto}
-	\label{fig:pivo}\includegraphics[scale=0.2]{Figures/pivo.JPG}
-	\source{Própria Autoria}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\caption{Célula do Labirinto}
-	\includegraphics[width=0.5\textwidth]
-	{Figures/maze_cell}
-	\label{fig:celula_labirinto}
+	\caption{Modelo mecânico do labirinto}
+	\subfigure[Pivô de fixação]{\label{fig:pivo}\includegraphics[scale=0.2]{Figures/pivo.JPG}}
+	\subfigure[Célula do labirinto montada]{\label{fig:celula_labirinto}\includegraphics[width=0.54\textwidth]
+		{Figures/maze_cell}}
+	\label{fig:modelo_mecanico_labirinto}
 	\source{Própria Autoria}
 \end{figure}
 
