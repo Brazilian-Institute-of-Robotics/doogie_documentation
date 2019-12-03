@@ -244,6 +244,10 @@ A lista contendo todos os componentes bem como suas respectivas quantidades e de
 %--------- NEW SECTION ----------------------
 \section{Modelo mecânico}
 \label{sec:modelo_mecanico}
+
+\subsection{Plataforma Robótica}
+\label{ssec:plataforma_robotica}
+
 Para o design do robô, foi utilizado como um ponto de partida o TON-BOT v1.1, plataforma desenvolvida pela Ioton Technology \cite{ioton}. Além disso, conforme ítem 7 da subseção \ref{sec:requisitos_do_projeto}, ele deve ter suas dimensões não superiores à uma seção retangular de 15 x 15 x 10 cm.
 
 A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_do_projeto}, buscou-se um design mecânico simples e de maior leveza. Dessa forma, foi utilizado como \textit{frame} do robô as próprias \glspl*{pci}, buscando posicionar suas rodas de forma a mantê-las alinhadas ao centro de massa de todo o conjunto mecânico. Para tanto, uma modelagem em \gls*{cad} inicialmente foi realizada através da ferramenta Solidworks, buscando iterativamente a melhor disposição de seus elementos físicos (rodas, sensores e demais componentes eletrônicos das placas), para a elaboração das \glspl*{pci}, vistas na subseção \ref{ssec:esquematicos_eletronicos}. Assim elaborou-se um esboço do modelo mecânico conforme a Figura \ref{fig:doogie_boards_3d}.
@@ -255,6 +259,7 @@ A partir dessas premissas e da análise feita na subseção \ref{sec:requisitos_
 	\subfigure[Representação 3D da placa superior]{\label{fig:doogie_top_board_3d}\includegraphics[scale=0.2]{doogie_top_board_3d.jpeg}}
 	\subfigure[Modelo 3D do Doogie Mouse]{\label{fig:doogie_3d}\includegraphics[scale=0.38]{doogie_3d.jpeg}}
 	\label{fig:doogie_boards_3d}
+	\source{Própria Autoria}
 \end{figure}
 
 Da esquerda para direita visualiza-se as placas inferior, superior e o modelo completo do robô visto em perspectiva. A placa inferior possui 98 mm de comprimento e 92,90 mm de largura, enquanto a placa superior possui 75 mm de comprimento e 92,90 mm de largura. Foi necessário o uso de duas placas para melhor adequação dos componentes eletrônicos sem atrapalhar eventuais manutenções no dispositivo nem dificultar sua montagem. O modelo 3D final, renderizado, pode ser visto abaixo na Figura \ref{fig:doogie_boards_3d_render}.
@@ -266,10 +271,35 @@ Da esquerda para direita visualiza-se as placas inferior, superior e o modelo co
 	\subfigure[Vista frontal]{\label{fig:doogie_frontal_render}\includegraphics[scale=0.11]{Doogie_frontal_v4.JPG}}
 	\subfigure[Vista Lateral]{\label{fig:doogie_lateral_render}\includegraphics[scale=0.11]{Doogie_lateral_v4.JPG}}
 	\label{fig:doogie_boards_3d_render}
+	\source{Própria Autoria}
 \end{figure}
 
 \colorbox{yellow}{Referenciar desenhos técnicos em anexo}
 
+\subsection{Labirinto}
+\label{ssec:labirinto}
+
+O modelo do labirinto foi desenvolvido a partir de uma adaptação do modelo IEEE \cite{Wan2019}. Por ser um labirinto protótipo, preferiu-se trabalhar com uma matriz de 10x10 células quadradas, em vez de 16x16, mantendo-se as mesmas dimensões da célula de 18 mm x 18 mm, com 50 mm de altura.
+
+Além disso, buscou-se um design que fosse modular, de forma a facilitar seu transporte bem como múltiplas configurações do labirinto pela alteração da posição de suas paredes. Para isso, optou-se pela utilização de pivôs de madeira para a fixação das paredes na placa do labirinto, conforme visto na Figura \ref{fig:pivo}. Um exemplo de uma célula é mostrado na Figura \ref{fig:pivo}, enquanto seus desenhos técnicos se encontram em anexo.
+
+\begin{figure}[H]
+	\centering
+	\caption{Modelo Mecânico do Labirinto}
+	\label{fig:pivo}\includegraphics[scale=0.2]{Figures/pivo.JPG}
+	\source{Própria Autoria}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Célula do Labirinto}
+	\includegraphics[width=0.5\textwidth]
+	{Figures/maze_cell}
+	\label{fig:celula_labirinto}
+	\source{Própria Autoria}
+\end{figure}
+
+\colorbox{yellow}{Referenciar desenhos técnicos em anexo}
 %--------- NEW SECTION ----------------------
 \section{Modelo esquemático de alimentação e comunicação}
 \label{sec:arquitetura_eletrica_geral}
