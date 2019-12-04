@@ -4,7 +4,7 @@ O metodologia empregada nos trabalhos de conclusão de curso do Centro Universit
 
 \section{Metodologia}
 \label{sec:metodologia}
-A utilização da metodologia Theoprax se restringe apenas ao gerenciamento macro do projeto e não define como a solução proposta deve ser desenvolvida. Sendo assim, o desenvolvimento do projeto, proposto no tópico \ref{sec:objetivo_geral}, será realizado utilizando o procedimento ilustrado na figura \ref{fig:metodologia_diagrama} que foi adaptado da metodologia empregada no \gls*{bir} para desenvolvimento de projetos de robótica.
+A utilização da metodologia TheoPrax se restringe apenas ao gerenciamento macro do projeto e não define como a solução proposta deve ser desenvolvida. Sendo assim, o desenvolvimento do projeto, proposto no tópico \ref{sec:objetivo_geral}, foi realizado utilizando o procedimento ilustrado na figura \ref{fig:metodologia_diagrama} que foi adaptado da metodologia empregada no \gls*{bir} para desenvolvimento de projetos de robótica.
 
 \begin{figure}[H]
 	\centering
@@ -160,6 +160,19 @@ Os principais subsistemas desenvolvidos para o Doogie foram:
 \label{sec:especificacao_dos_componentes}
 O robô Doogie é capaz de realizar de forma autônoma a procura do melhor caminho do labirinto que leva-o ao ponto de chegada. Uma vez descoberto, o robô percorre esse percurso no menor tempo possível. Para isso, o robô é composto de um sistema microprocessado compatível com distribuições Linux; sensores de percepção que permitem a detecção de obstáculos ao redor do robô; sensores de posição para o controle dos movimentos e localização dentro do labirinto; atuadores para permitir a locomoção de forma autônoma. Além disso, ele é equipado com bateria recarregável, conversor analógico/digital, multiplexador analógico, botões, LEDs e Buzzer. Os tópicos seguintes irão detalhar os principais componentes da plataforma móvel.
 
+\subsection{Estrutura analítica do protótipo}
+\label{ssec:pbs}
+Para fornecer uma visão macro dos componentes que compõe o robô, foi elaborado um diagrama hierárquico, denominado \gls*{pbs}. Conforme Figura \ref{fig:pbs}, é possível visualizar a dependência entre os subsistemas e os componentes do robô. Além disso, diferente da Figura \ref{fig:arquitetura_geral}, esse diagrama oferece maior detalhamento dos elementos que estão relacionados a cada subsistema do robô.
+
+\begin{figure}[H]
+	\centering
+	\caption{\textit{Prototype Breakdown Structure} do Doogie Mouse}
+	\includegraphics[width=1\textwidth]
+	{Figures/prototype_breakdown_structure}
+	\label{fig:pbs}
+	\source{Própria Autoria}
+\end{figure}
+
 \subsection{Raspiberry Pi Zero W v1.1}
 \label{ssec:raspiberry_pi_zero}
 Para que o robô realize a resolução do labirinto, é necessário que ele contenha uma unidade de processamento central. Este dispositivo tem como objetivo, a partir dos dados dos sensores e de um algoritmo de resolução de labirintos, inferir qual o melhor conjunto de movimentos que permita o robô alcançar o ponto de chegada do labirinto no menor tempo possível. Como o modelo de robô Micromouse possui um baixo nível de abstração de \textit{hardware}, é necessário também que a unidade de processamento disponibilize periféricos necessários para a comunicação com os componentes do sistema. Não menos importante, a unidade deve possuir compatibilidade com o \textit{framework} \gls*{ros}, \textit{middleware }escolhido para o gerenciamento dos subsistemas que compõem o robô.
@@ -223,19 +236,6 @@ Como descrito no tópico \ref{ssec:raspiberry_pi_zero}, a Raspberry Pi Zero W v1
 Mediante o exposto, foi selecionado o conversor ADS1115. Esse conversor funciona com tensões entre 2 à 5,5 V, e a tensão máxima nos pinos analógicos é igual à tensão de alimentação. Os pinos analógicos podem ser programados como 4 pinos independentes, ou dois canais diferenciais. Ademais, a interface de comunicação utilizada pelo ADS1115 é I2C.
 
 O ADS1115 possui apenas 4 canais, entretanto, são necessários 5 canais: 4 para os sensores infravermelho e um para bateria. Para solucionar a carência de canais, foi especificado o multiplexador analógico 74HC4051. Esse módulo pode multiplexar até 8 canais, permitindo tensões de 2 à 10 V e frequência de até 170 MHz.
-
-\subsection{Estrutura analítica do protótipo}
-\label{ssec:pbs}
-Para fornecer uma visão macro dos componentes que compõe o robô, foi elaborado um diagrama hierárquico, denominado \gls*{pbs}. Conforme Figura \ref{fig:pbs}, é possível visualizar a dependência entre os subsistemas e os componentes do robô. Além disso, diferente da Figura \ref{fig:arquitetura_geral}, esse diagrama oferece maior detalhamento dos elementos que estão relacionados a cada subsistema do robô.
-
-\begin{figure}[H]
-	\centering
-	\caption{\textit{Prototype Breakdown Structure} do Doogie Mouse}
-	\includegraphics[width=1\textwidth]
-	{Figures/prototype_breakdown_structure}
-	\label{fig:pbs}
-	\source{Própria Autoria}
-\end{figure}
 
 \subsection{Lista de componentes}
 \label{ssec:bom}
