@@ -127,6 +127,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
 \usepackage{longtable}
+%\usepackage{subfig}
 \usepackage{dcolumn}
 \usepackage{multirow}
 \usepackage{lscape}
@@ -147,6 +148,9 @@
 \usepackage{quoting}
 \usepackage{graphicx}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage{pdfpages}
+\usepackage{caption}
+\usepackage{textcomp}
 \makeindex % cria o indice remissivo
 %Tables and Figures Caption
 \setlength{\LTcapwidth}{\textwidth}
@@ -196,9 +200,8 @@
     \thesisvolume{Volume 1 of 1}
     \thesisauthor{Caio Amaral}
     \thesisauthorr{Élisson Riller}
-    \thesisauthorrr{Elton Marques}
-    \thesisauthorrrr{Iure Pinheiro}
-    \thesisauthorrrrr{Mateus Meneses}
+    \thesisauthorrr{Iure Pinheiro}
+    \thesisauthorrrr{Mateus Meneses}
     \thesisadvisor{Prof. Marco Reis, M.Eng.}
     \hidecoadvisor
     %\thesiscoadvisor{Marco Reis}
@@ -214,10 +217,10 @@
     %% Inserir Folha de rosto, Nota de estilo, folha de assinaturas, dedicatoria
     %%----------------------------------------------------------------------------
     \include{Others/FolhaRosto}
-    %\include{Others/NotaEstilo}
-    %\include{Others/FolhaAssinaturas}
-    %\include{Others/dedicatoria}
-    %\include{Others/agradecimentos}
+    \include{Others/NotaEstilo}
+    \include{Others/FolhaAssinaturas}
+    \include{Others/dedicatoria}
+    \include{Others/agradecimentos}
 
 
     %%----------------------------------------------------------------------------
@@ -241,27 +244,24 @@
     \include{Chapters/introducao}
     \include{Chapters/ChapterTwo}
     \include{Chapters/ChapterThree}
-    %\include{Chapters/cronograma}
-    %\include{Chapters/ChapterFour}
+    \include{Chapters/ChapterFour}
     %\include{Chapters/ChapterFive}
     %\include{Chapters/ChapterSix}
     %\include{Chapters/ChapterSeven}
     %\include{Chapters/ChapterEight}
-    %\include{Chapters/ChapterConsideracoesfinais}
+    \include{Chapters/ChapterConsideracoesfinais}
     % include more chapters ...
 
    %%----------------------------------------------------------------------------
     %% Include thesis appendices
     %%----------------------------------------------------------------------------
-	\begin{comment}
     \begin{thesisappendices}
         \include{Appendices/qfd}
         \include{Appendices/diagmec}
-        \include{Appendices/diagele}
+        \include{Appendices/esquematicos_eletronicos}
         \include{Appendices/wireframes}
         \include{Appendices/logbook}
     \end{thesisappendices}
-    \end{comment}
 
     %%----------------------------------------------------------------------------
     %% Configurar as referencias bibliograficas
