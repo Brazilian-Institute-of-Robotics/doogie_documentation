@@ -1,25 +1,29 @@
 \chapter{Conclusão}
 \label{chap:conc}
 
-Chegou a hora de apresentar o apanhado geral sobre o trabalho de
-pesquisa feito, no qual s\~ao sintetizadas uma s\'erie de
-reflex\~oes sobre a metodologia usada, sobre os achados e
-resultados obtidos, sobre a confirma\c{c}\~ao ou recha\c{c}o da
-hip\'otese estabelecida e sobre outros aspectos da pesquisa que
-s\~ao importantes para validar o trabalho. Recomenda-se n\~ao
-citar outros autores, pois a conclus\~ao \'e do pesquisador.
-Por\'em, caso necess\'ario, conv\'em cit\'a-lo(s) nesta parte e
-n\~ao na se\c{c}\~ao seguinte chamada \textbf{Conclus\~oes}.
+Neste trabalho foi apresentada uma plataforma open source para ensino de robótica e introdução à inteligência artificial. Foram confeccionados dois protótipos, capazes de percorrer e solucionar um labirinto, utilizando algoritmos de busca.
 
+O robô foi desenvolvido utilizando o framework ROS e o ambiente de simulação Gazebo, dando a possibilidade de se trabalhar e experimentar com os robôs reais e com o ambiente simulado.
 
-\section{Considerações finais}
-\label{sec:consid}
+Cerca de 90\% dos pacotes e 75\% das stacks foram completamente desenvolvidas pela equipe do projeto. Procurou-se ao máximo evitar a “reinvenção da roda”, utilizando estratégias do ramo da robótica que já são bem consolidadas na comunidade.
 
-Brevemente comentada no texto acima, nesta se\c{c}\~ao o
-pesquisador (i.e. autor principal do trabalho cient\'ifico) deve
-apresentar sua opini\~ao com respeito \`a pesquisa e suas
-implica\c{c}\~oes. Descrever os impactos (i.e.
-tecnol\'ogicos,sociais, econ\^omicos, culturais, ambientais,
-políticos, etc.) que a pesquisa causa. N\~ao se recomenda citar
-outros autores.
+Foram desenvolvidos guias de montagem, modelo 3D, desenhos técnicos, guias de configuração de software e documentação independente dos pacotes. Tudo isso com o intuito de auxiliar o usuário durante o seu processo de aprendizagem.
+
+Foram utilizadas boas práticas de desenvolvimento, além de padrões utilizados em outros projetos de robótica. Dessa forma, buscou-se obter um sistema que possa ser bem recebido tanto por iniciantes quanto por pessoas já familiarizadas com a área.
+
+É possível perceber que a plataforma consegue extrapolar o seu objetivo inicial: além de ser utilizada como um robô solucionador de labirintos, nela podem ser aplicadas técnicas de \gls*{slam}, técnicas diferentes de controle, além da utilização de técnicas de navegação de robôs autônomos como \textit{State Machine} e \textit{Behavior Tree}. 
+
+A realização desse projeto foi bastante enriquecedora, proporcionando aos discentes grande aprendizado. Todos os participantes conseguiram aprimorar suas habilidades, tanto na área profissional, quanto na área pessoal.
+
+%--------- NEW SECTION ----------------------
+\section{Trabalhos futuros}
+\label{sec:trabfut}
+Para melhorar a experiência do usuário com o Doogie Mouse pretende-se no futuro realizar as seguintes ações:
+\begin{itemize}
+	\item Elaborar uma Wiki no GitHub reunindo toda documentação do robô;
+	\item Confeccionar um labirinto para testes do protótipo físico;
+	\item Desenvolver três estratégias de resolução de labirinto para servirem como exemplo base de nova implementações;
+	\item Realizar a fusão de dados de Odometria e IMU para oferecer uma maior precisão de movimento do robô.
+\end{itemize}
+ 
 

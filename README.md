@@ -5,7 +5,6 @@ Este repositório contém a monografia do projeto de conclusão de curso TheoPra
 Componentes da equipe:
 - Caio Amaral
 - Élisson Ríller
-- Elton Marques
 - Iure Pinheiro
 - Mateus Meneses
 

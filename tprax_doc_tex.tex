@@ -125,6 +125,8 @@
 %%%-------------------------------------------------------------------------------
 %\usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
+\usepackage[toc,acronym,nomain, nopostdot, nonumberlist]{glossaries}
+\makeglossaries
 \usepackage[brazil]{babel}
 \usepackage{longtable}
 %\usepackage{subfig}
@@ -154,21 +156,9 @@
 \makeindex % cria o indice remissivo
 %Tables and Figures Caption
 \setlength{\LTcapwidth}{\textwidth}
-\newcommand{\source}[1]{Fonte: {#1}}
-
-
-
-
-
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
-
-
-
-
-%\newtheorem{theorem}{Teorema}
-%\newtheorem{definition}[theorem]{Defini\c{c}\~ao}
-
+\usepackage{anyfontsize}
+\newcommand{\source}[1]{\vspace{+3pt} \caption*{\fontsize{10pt}{12pt}\selectfont Fonte: {#1}}}
+\newcommand{\sourcewithfootnote}[2]{\vspace{+3pt} \caption*{\fontsize{10pt}{12pt}\selectfont \footnote{#2} Fonte: {#1}}}
 
 %%%-------------------------------------------------------------------------------
 %%% Start thesis root document
@@ -184,7 +174,7 @@
 % ********************************************** TCC ****************
     \course{Engenharia de Controle e Automação}
     \coursee{Engenharia Mecânica}
-    \typework{Trabalho de Conclusão de Curso baseado na metodologia Theoprax}
+    \typework{Trabalho de Conclusão de Curso - Metodologia TheoPrax}
 % ********************************************************************
 % ********************************************* Mestrado ******************
 %    \course{Mestrado em Modelagem Computacional e Tecnologia Industrial}
@@ -195,19 +185,17 @@
 %    \typework{Tese de doutorado}
 %    \typework{Exame de Qualificação de doutorado}
 % ********************************************************************
- \thesistitle{Projeto \textit{open source} para ensino de robótica móvel e inteligência artificial}
+ \thesistitle{Projeto \textit{open source} para aprendizagem de robótica móvel e inteligência artificial}
     \hidevolume
     \thesisvolume{Volume 1 of 1}
     \thesisauthor{Caio Amaral}
-    \thesisauthorr{Élisson Riller}
+    \thesisauthorr{Élisson Oliveira}
     \thesisauthorrr{Iure Pinheiro}
     \thesisauthorrrr{Mateus Meneses}
     \thesisadvisor{Prof. Marco Reis, M.Eng.}
     \hidecoadvisor
     %\thesiscoadvisor{Marco Reis}
     \thesisdegreetitle{Bacharel em Engenharia}
-    %\thesisdegreetitle{Doutor em }
-%    \thesismonthyear{M\^es de Ano}
     \thesismonthyear{Setembro de 2019}
 
 
@@ -217,18 +205,18 @@
     %% Inserir Folha de rosto, Nota de estilo, folha de assinaturas, dedicatoria
     %%----------------------------------------------------------------------------
     \include{Others/FolhaRosto}
-    \include{Others/NotaEstilo}
+    %\include{Others/NotaEstilo}
     \include{Others/FolhaAssinaturas}
-    \include{Others/dedicatoria}
-    \include{Others/agradecimentos}
+    %\include{Others/dedicatoria}
+    %\include{Others/agradecimentos}
 
 
     %%----------------------------------------------------------------------------
     %% Resumo/abstract, sumário e siglas
     %%----------------------------------------------------------------------------
     \begin{romanpagenumbers}
-        %\include{Others/resumo}
-        %\include{Others/abstract}
+        \include{Others/resumo}
+        \include{Others/abstract}
         % Make list of contents, tables and figures
        \thesiscontents
         %Include other required section
@@ -245,41 +233,34 @@
     \include{Chapters/ChapterTwo}
     \include{Chapters/ChapterThree}
     \include{Chapters/ChapterFour}
-    %\include{Chapters/ChapterFive}
-    %\include{Chapters/ChapterSix}
-    %\include{Chapters/ChapterSeven}
-    %\include{Chapters/ChapterEight}
     \include{Chapters/ChapterConsideracoesfinais}
-    % include more chapters ...
 
    %%----------------------------------------------------------------------------
-    %% Include thesis appendices
-    %%----------------------------------------------------------------------------
-    \begin{thesisappendices}
-        \include{Appendices/qfd}
-        \include{Appendices/diagmec}
-        \include{Appendices/esquematicos_eletronicos}
-        \include{Appendices/wireframes}
-        \include{Appendices/logbook}
-    \end{thesisappendices}
-
-    %%----------------------------------------------------------------------------
-    %% Configurar as referencias bibliograficas
-    %%----------------------------------------------------------------------------
-
-
-    \addcontentsline{toc}{chapter}{Referências}
-    %\bibliographystyle{abnt-alf}
+   %% Include thesis appendices
+   %%----------------------------------------------------------------------------
+   \begin{thesisappendices}
+	   \include{Appendices/matriz_de_comparacao}
+	   \include{Appendices/qfd}
+       \include{Appendices/BOM}
+       \include{Appendices/diagramas_mec_robo}
+       \include{Appendices/diagramas_mec_labirinto}
+       \include{Appendices/esquematicos_eletronicos}
+   \end{thesisappendices}
+   
+   %%----------------------------------------------------------------------------
+   %% Configurar as referencias bibliograficas
+   %%----------------------------------------------------------------------------
 
 
-    \bibliography{References/referencias}
+   \addcontentsline{toc}{chapter}{Referências}
+   %\bibliographystyle{abnt-alf}
 
-    %%----------------------------------------------------------------------------
-    %% Finishing
-    %%----------------------------------------------------------------------------
 
-    \include{Others/ultimafolha}
+   \bibliography{References/referencias.bib}
+
+   %%----------------------------------------------------------------------------
+   %% Finishing
+   %%----------------------------------------------------------------------------
+
+   %\include{Others/ultimafolha}
 \end{document}
-%%%-------------------------------------------------------------------------------
-%%% Here we finished with your thesis formating. Good luck with the contents
-%%%-------------------------------------------------------------------------------
