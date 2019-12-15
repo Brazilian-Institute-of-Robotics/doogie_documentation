@@ -116,10 +116,10 @@ Apesar de diferentes as definições encontradas nas literaturas elas não são 
 \begin{figure}[H]
 	\centering
 	\caption{Biblioteca x \textit{Framework}.}
-	\includegraphics[width=1\textwidth]
+	\includegraphics[width=0.7\textwidth]
 	{Figures/biblioteca_vs_framework}
 	\label{fig:biblioteca_vs_framework}
-	\sourcewithfootnote{Suavé, 2001.}{Disponível em: http://www.dsc.ufcg.edu.br/~jacques/cursos/map/html/frame/oque.htm}
+	\source{\citeonline{Sauve2001}}
 \end{figure}
 
 O \gls*{ros} é um exemplo de \textit{framework}. Ele é uma plataforma de software de código aberto, desenvolvido em 2007, projetado para suportar uma nova geração de robôs. A comunidade \gls*{ros} desenvolveu o \textit{framework} para várias plataformas, disponibilizando-os assim para diferentes \gls*{so}, como Windows, Linux e Mac OS. O \gls*{ros} é um conjunto de ferramentas que gerencia de forma eficiente  a mediação entre o SO e demais aplicações, possui uma estrutura flexível permitindo a criação de software de robôs. Detém uma coleção de bibliotecas e convenções com objetivo de simplificar tarefas complexas e criar estruturas mais robustas em uma ampla gama de plataformas robóticas. Pode-se afirmar que o \gls*{ros} representa uma coleção muito útil de softwares voltados exatamente para ajudar na percepção, controle e modelagem dos dispositivos de hardware que serão lidos, fornecendo serviços que são esperados de um SO, incluindo a abstração de hardware em baixo nível, o que permite a leitura e o controle do mesmo, passagem de mensagens entre processos e gerenciamento de pacotes (Quigley et al. 2009, apud \citeonline{Tavares2013}). O \gls*{ros} também disponibiliza ferramentas de aplicação de robótica nas áreas de navegação, simulação, visão, percepção e controle, sendo exemplo as bibliotecas de processamento de imagem (opencv, pcl) e simuladores (stage, gazebo).
@@ -146,10 +146,10 @@ A Figura \ref{fig:estrutura_comunicacao_ros} demonstra uma simples publicação 
 \begin{figure}[H]
 	\centering
 	\caption{Estrutura de comunicação.}
-	\includegraphics[width=1\textwidth]
+	\includegraphics[width=0.7\textwidth]
 	{Figures/estrutura_comunicacao_ros}
 	\label{fig:estrutura_comunicacao_ros}
-	\sourcewithfootnote{Baptista, 2013.}{Disponível em: https://repositorio-aberto.up.pt/bitstream/10216/67932/2/26737.pdf}
+	\source{\citeonline{Santos2013}}
 \end{figure}
 
 Os nós correspondem à execução de um programa e são criados no sistema, geralmente, via console e sempre com o servidor mestre \gls*{ros} (roscore) iniciado. O servidor roscore é responsável por inicializar várias dependências, bibliotecas do \gls*{ros} e o sistema de comunicação entre nós.
