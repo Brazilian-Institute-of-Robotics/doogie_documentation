@@ -156,9 +156,10 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 %--------- NEW SECTION ----------------------
 \section{Estudo do Estado da Arte}
 \label{sec:sota}
+Nessa seção, será realizado um estudo comparativo de alguns modelos de \textit{micromouse}, buscando avaliá-los sobre diferentes critérios a partir de uma matriz de comparação. O estudo auxiliou na realização do design da paltaforma proposta por esse trabalho uma vez que, através dele, verifica-se quais recursos são mais importantes para o comprimento dos requisitos do projeto, além de permitir um entendimento generalizado de como são feitos os robôs \textit{micromouse}. 
 
 \subsection{GreenGiant}
-\hspace{0.5cm} A Green Giant é uma desenvolvedora de múltiplas plataformas de robótica, especializada em eletrônica embarcada, tendo como seu carro-chefe o \textit{micromouse}. Seu modelo mais recente, 2016 - 2017, é voltado para alto desempenho em competições, alcançando a posição de quarto lugar durante a \gls*{apec} de 2016.
+A Green Giant é uma desenvolvedora de múltiplas plataformas de robótica, especializada em eletrônica embarcada, tendo como seu carro-chefe o \textit{micromouse}. Seu modelo mais recente, 2016 - 2017, é voltado para alto desempenho em competições, alcançando a posição de quarto lugar durante a \gls*{apec} de 2016.
 
 \begin{figure}[H]
 	\centering
@@ -169,7 +170,8 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 	\source{\citeonline{GreenGiant2016}}
 	\end{figure}
 
-\hspace{0.5cm}Sua interface de usuário possui \textit{Dot Matrix Display}, sinalizadores LED, botões, buzzer, além de possuir um sistema de comunicação Bluetooth 4.0. Ademais, o modelo usa um sistema de ventoinhas de sucção para aumentar o nível de aderência das rodas, permitindo alcançar maiores velocidades sem derrapar.
+Sua interface de usuário possui \textit{Dot Matrix Display}, sinalizadores LED, botões, buzzer, além de possuir um sistema de comunicação Bluetooth 4.0. Ademais, o modelo usa um sistema de ventoinhas de sucção para aumentar o nível de aderência das rodas, permitindo alcançar maiores velocidades sem derrapar.
+
 
 \begin{table}[H]
 	\centering
@@ -190,7 +192,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 		User Interface & DMD 5x7, LEDs, Botão, Bluetooth \\ \hline
 		Outros & sistema de ventoinhas de sucção \\ \hline
 	\end{tabular}
-	\source{Própria Autoria}
+	\source{Adaptado de \citeonline{GreenGiant2016}}
 \end{table}
 
 
@@ -211,12 +213,12 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 
 
 \subsection{WPISmartMouse}
-\hspace{0.5cm} A organização estudantil, WPI CollabLab, compartilham um espaço de laboratório entre seus membros para projetos com viez colaborativo a sociedade. Nesse espaço desenvolveu-se o Smartmouse, projeto \textit{micromouse} voltado para a competição Micromouse \textit{Brown IEEE Robotic  Olympiad}. O projeto também se extendeu para o desenvolvimento de um ambiente de simulação apartir dos projetos Gazebo e Ignition, não possuindo entretanto suporte para \gls*{ros}.
+A organização estudantil, WPI CollabLab, compartilham um espaço de laboratório entre seus membros para projetos com viez colaborativo a sociedade. Nesse espaço desenvolveu-se o Smartmouse, projeto \textit{micromouse} voltado para a competição Micromouse \textit{Brown IEEE Robotic  Olympiad}. O projeto também se extendeu para o desenvolvimento de um ambiente de simulação apartir dos projetos Gazebo e Ignition, não possuindo entretanto suporte para \gls*{ros}.
 
 \begin{figure}[H]
 	\centering
 	\caption{Robô WPISmartMouse}
-	\includegraphics[width=0.7\textwidth]
+	\includegraphics[width=0.5\textwidth]
 	{Figures/WPISmartMouse_model.png}
 	\label{fig:WPISmartMouse_model}
 	\source{\citeonline{WpiSmartMouse2017}}
@@ -241,7 +243,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 		Outros & documentação no git \\ \hline
 	\end{tabular}
 	\label{tab:Smartmouse}
-	\source{Própria Autoria}
+	\source{Adaptado de \citeonline{WpiSmartMouse2017}}
 \end{table}
 
 \textbf{Pontos Positivos:}
@@ -261,18 +263,18 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 
 
 \subsection{Kumamoto National College}
-\hspace{0.5cm} O Instituto Nacional de Tecnologia de Kumamoto, \textit{Kumamoto National College}, apresentou no ano de 2008 um projeto de desenvolvimento de ferramentas educacionais voltada para integração de sistemas e suas implementações. O projeto é direcionado aos seus estudantes do 5º ano de engenharia, através da produção de um \textit{micromouse} para a competição do ramo de \textit{Kyushu}.
+O Instituto Nacional de Tecnologia de Kumamoto, \textit{Kumamoto National College}, apresentou no ano de 2008 um projeto de desenvolvimento de ferramentas educacionais voltada para integração de sistemas e suas implementações. O projeto é direcionado aos seus estudantes do 5º ano de engenharia, através da produção de um \textit{micromouse} para a competição do ramo de \textit{Kyushu}.
 
 \begin{figure}[H]
 	\centering
 	\caption{Robô Kumamoto.}
-	\includegraphics[width=0.7\textwidth]
+	\includegraphics[width=0.5\textwidth]
 	{Figures/Kumamoto_model.png}
 	\label{fig:Kumamoto_model}
 	\source{\citeonline{Kumamoto2010}}
 \end{figure}
 
-\hspace{0.5cm} O hardware do robô foi bastante simplificado, visando facilitar o desenvolvimento pelos estudantes ainda não familiarizados com a robótica e eletrônica, além de buscar reduzir os custos de produção do robô. Como ferramenta educativa, o projeto conseguiu que seus estudantes produzissem o \textit{micromouse} em um semestre de atividades. Contudo, conceitos da robótica (ex: robótica móvel, fusão de sensores, visão, navegação) não foram trabalhados ou não foram citados no artigo gerado a partir do projeto.
+O hardware do robô foi bastante simplificado, visando facilitar o desenvolvimento pelos estudantes ainda não familiarizados com a robótica e eletrônica, além de buscar reduzir os custos de produção do robô. Como ferramenta educativa, o projeto conseguiu que seus estudantes produzissem o \textit{micromouse} em um semestre de atividades. Contudo, conceitos da robótica (ex: robótica móvel, fusão de sensores, visão, navegação) não foram trabalhados ou não foram citados no artigo gerado a partir do projeto.
 
 
 \begin{table}[H]
@@ -294,7 +296,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 		Outros & Documentação em artigo \\ \hline
 	\end{tabular}
 	\label{tab:Kumamoto}
-	\source{Própria Autoria}
+	\source{Adaptado de \citeonline{Kumamoto2010}}
 \end{table}
 
 
@@ -327,7 +329,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 	\source{\citeonline{WolfieMouse2018}}
 \end{figure}
 
-\hspace{0.5cm} Além da plataforma robótica, que conta com hardwares programados em baixo nível, para melhor otimização de seus controles, a equipe também realizou um ambiente de simulação baseado em C++ emulado no terminal do computador. Toda documentação foi disponibilizada em um repositório git, que também possui tutoriais para o desenvolvimento do robô.
+Além da plataforma robótica, que conta com hardwares programados em baixo nível, para melhor otimização de seus controles, a equipe também realizou um ambiente de simulação baseado em C++ emulado no terminal do computador. Toda documentação foi disponibilizada em um repositório git, que também possui tutoriais para o desenvolvimento do robô.
 
 \begin{table}[H]
 	\centering
@@ -348,7 +350,7 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 		Outros & documentação e tutoriais no git \\ \hline
 	\end{tabular}
 	\label{tab:WolfieMouse}
-	\source{Própria Autoria}
+	\source{Adaptado de \citeonline{WolfieMouse2018}}
 \end{table}
 
 \textbf{Pontos Positivos:}
@@ -367,12 +369,12 @@ Os nós correspondem à execução de um programa e são criados no sistema, ger
 \end{itemize}
 
 \subsection{Raspberry Pi Mouse V2}
-\hspace{0.5cm}A RT Corporation Micromouse é uma desenvolvedora japonesa de plataformas robóticas voltada para aplicações  voltadas de pesquisas à hobistas. Um de seus segmentos é voltado para \textit{micromouse}, fortemente representado pelo seu produto Raspberry Pi Mouse V2, citado em "Learning ROS robot programming with Raspberry Pi" (Nikkei BP, June 2018).
+A RT Corporation Micromouse é uma desenvolvedora japonesa de plataformas robóticas voltada para aplicações  voltadas de pesquisas à hobistas. Um de seus segmentos é voltado para \textit{micromouse}, fortemente representado pelo seu produto Raspberry Pi Mouse V2, citado em "Learning ROS robot programming with Raspberry Pi" (Nikkei BP, June 2018).
 
 \begin{figure}[H]
 	\centering
 	\caption{Robô RaspiMouse.}
-	\includegraphics[width=0.7\textwidth]
+	\includegraphics[width=0.5\textwidth]
 	{Figures/RaspiMouse_model.png}
 	\label{fig:RaspiMouse_model}
 	\source{\citeonline{RaspiMouse2016}}
@@ -399,7 +401,7 @@ O modelo citado, é um robô de plataforma baseado em \textit{micromouse} que ut
 		Outros & documentação no Git, mas em japonês \\ \hline
 	\end{tabular}
 	\label{tab:RaspiMouse}
-	\source{Própria Autoria}
+	\source{Adaptado de \citeonline{RaspiMouse2016}}
 \end{table}
 
 \textbf{Pontos Positivos:}
