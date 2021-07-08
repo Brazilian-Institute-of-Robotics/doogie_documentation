@@ -1,6 +1,6 @@
 # Monografia de conclusão de curso
 
-Este repositório contém a monografia do projeto de conclusão de curso TheoPrax dos cursos de Engenharia de Controle e Automação e Engenharia Mecânica que será apresentada no Centro Universitário SENAI CIMATEC como requisito parcial para obtenção do título de **Bacharel em Engenharia**.
+Este repositório contém a monografia do projeto de conclusão de curso TheoPrax dos cursos de Engenharia de Controle e Automação e Engenharia Mecânica apresentada no Centro Universitário SENAI CIMATEC como requisito parcial para obtenção do título de **Bacharel em Engenharia** bem como os slides da apresentação final e um artigo oriundo do projeto que foi publicado no V SIINTEC International Symposium on Innovation and Technology.
 
 Componentes da equipe:
 - Caio Amaral
